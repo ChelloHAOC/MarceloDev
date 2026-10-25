@@ -283,3 +283,328 @@ button, input, select { font: inherit; }
 </div>
 </section>
 <div class="marquee"><div class="marquee-track"><span>JAVA ✳ LÓGICA ✳ APIs ✳ SQL ✳ BACKEND ✳ APRENDIZADO ✳</span></div></div>
+
+<section class="section" id="projetos">
+ <div class="section-inner">
+  <div class="section-head reveal">
+   <div><div class="kicker">01 / O que estou construindo</div><h2>Projetos em <span>foco.</span></h2></div>
+   <p class="section-intro">Projetos reais e experimentos que mostram minha evolução na programação.</p>
+  </div>
+  <div class="project-grid">
+   <article class="project-card reveal">
+    <div class="project-top"><span>Projeto 001 / Web</span><span>Em evolução</span></div>
+    <div class="project-icon">⌘</div><h3>Painel Financeiro</h3>
+    <p>Uma interface para organizar gastos, parcelas e metas de economia.</p>
+    <div class="tags"><span>HTML / CSS</span><span>JavaScript</span></div>
+   </article>
+   <article class="project-card reveal">
+    <div class="project-top"><span>Projeto 002 / Backend</span><span>Estudo</span></div>
+    <div class="project-icon">⌁</div><h3>API de Gestão</h3>
+    <p>Projeto de estudo para praticar endpoints, regras de negócio e organização do código.</p>
+    <div class="tags"><span>Java</span><span>Spring Boot</span><span>REST API</span></div>
+   </article>
+   <article class="project-card reveal">
+    <div class="project-top"><span>Projeto 003 / Organização</span><span>Em evolução</span></div>
+    <div class="project-icon">▦</div><h3>Central de Tutoriais</h3>
+    <p>Uma base de conhecimento para organizar procedimentos e instruções.</p>
+    <div class="tags"><span>HTML</span><span>CSS</span><span>Documentação</span></div>
+   </article>
+   <article class="project-card reveal">
+    <div class="project-top"><span>Projeto 004 / Fundamentos</span><span>Estudo</span></div>
+    <div class="project-icon">{ }</div><h3>Laboratório Java</h3>
+    <p>Exercícios para fortalecer lógica, orientação a objetos e tratamento de erros.</p>
+    <div class="tags"><span>Java</span><span>POO</span><span>GitHub</span></div>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section class="section adoption-section" id="adocao">
+ <div class="section-inner">
+  <div class="section-head reveal">
+   <div><div class="kicker">Projeto especial / Impacto animal</div><h2>Encontre um novo <span>amigo.</span></h2></div>
+   <p class="section-intro">Uma vitrine demonstrativa para apresentar cães e gatos e incentivar uma adoção consciente.</p>
+  </div>
+  <div class="adoption-tools reveal">
+   <input id="animalSearch" type="search" placeholder="Buscar pelo nome..." aria-label="Buscar animal pelo nome">
+   <select id="animalSpecies" aria-label="Filtrar por espécie">
+    <option value="todos">Cães e gatos</option><option value="Cão">Somente cães</option><option value="Gato">Somente gatos</option>
+   </select>
+   <select id="animalSize" aria-label="Filtrar por porte">
+    <option value="todos">Todos os portes</option><option value="Pequeno">Pequeno</option><option value="Médio">Médio</option><option value="Grande">Grande</option>
+   </select>
+  </div>
+  <p class="adoption-count" id="animalCount">6 animais demonstrativos</p>
+  <div class="animal-grid" id="animalGrid">
+   <article class="animal-card" data-name="thor" data-species="Cão" data-size="Grande">
+    <img class="animal-photo" src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=900&q=80" alt="Cão dourado chamado Thor" loading="lazy">
+    <div class="animal-info"><div class="animal-label">Cão · Grande</div><h3>Thor</h3><p>Companheiro brincalhão que adora passeios e atenção.</p><div class="animal-meta"><span>3 anos</span><span>Vacinado (exemplo)</span></div><button class="animal-details" data-animal="thor">Conhecer o Thor ↗</button></div>
+   </article>
+   <article class="animal-card" data-name="luna" data-species="Gato" data-size="Pequeno">
+    <img class="animal-photo" src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=900&q=80" alt="Gata chamada Luna" loading="lazy">
+    <div class="animal-info"><div class="animal-label">Gato · Pequeno</div><h3>Luna</h3><p>Curiosa e carinhosa, gosta de explorar cada cantinho.</p><div class="animal-meta"><span>1 ano</span><span>Calma</span></div><button class="animal-details" data-animal="luna">Conhecer a Luna ↗</button></div>
+   </article>
+   <article class="animal-card" data-name="max" data-species="Cão" data-size="Médio">
+    <img class="animal-photo" src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=900&q=80" alt="Cão chamado Max" loading="lazy">
+    <div class="animal-info"><div class="animal-label">Cão · Médio</div><h3>Max</h3><p>Um amigo cheio de energia, ideal para uma rotina ativa.</p><div class="animal-meta"><span>2 anos</span><span>Brincalhão</span></div><button class="animal-details" data-animal="max">Conhecer o Max ↗</button></div>
+   </article>
+   <article class="animal-card" data-name="mimi" data-species="Gato" data-size="Pequeno">
+    <img class="animal-photo" src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=900&q=80" alt="Gata chamada Mimi" loading="lazy">
+    <div class="animal-info"><div class="animal-label">Gato · Pequeno</div><h3>Mimi</h3><p>Doce e observadora, procura um lar tranquilo e acolhedor.</p><div class="animal-meta"><span>8 meses</span><span>Afetuosa</span></div><button class="animal-details" data-animal="mimi">Conhecer a Mimi ↗</button></div>
+   </article>
+   <article class="animal-card" data-name="bidu" data-species="Cão" data-size="Pequeno">
+    <img class="animal-photo" src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=900&q=80" alt="Cão pequeno chamado Bidu" loading="lazy">
+    <div class="animal-info"><div class="animal-label">Cão · Pequeno</div><h3>Bidu</h3><p>Pequeno no tamanho, gigante na vontade de fazer amizade.</p><div class="animal-meta"><span>4 anos</span><span>Companheiro</span></div><button class="animal-details" data-animal="bidu">Conhecer o Bidu ↗</button></div>
+   </article>
+   <article class="animal-card" data-name="simba" data-species="Gato" data-size="Médio">
+    <img class="animal-photo" src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=900&q=80" alt="Gato chamado Simba" loading="lazy">
+    <div class="animal-info"><div class="animal-label">Gato · Médio</div><h3>Simba</h3><p>Independente e curioso, gosta de brincar e descansar ao sol.</p><div class="animal-meta"><span>2 anos</span><span>Curioso</span></div><button class="animal-details" data-animal="simba">Conhecer o Simba ↗</button></div>
+   </article>
+  </div>
+  <div class="adoption-note reveal"><strong>Importante:</strong> os animais e as informações são fictícios. Esta página é uma demonstração e ainda não recebe pedidos reais de adoção.</div>
+ </div>
+</section>
+
+<section class="section" id="sobre">
+ <div class="section-inner">
+  <div class="section-head reveal"><div><div class="kicker">02 / Por trás do código</div><h2>Sobre <span>mim.</span></h2></div><p class="section-intro">Tecnologia é entender problemas, organizar ideias e construir soluções úteis.</p></div>
+  <div class="about-grid">
+   <div class="about-stamp reveal"><div class="stamp-label">Developer in progress / BR</div><div class="stamp-number">MS<span style="color:#3478F6">.</span></div><div class="stamp-caption">Disciplina no processo. Curiosidade no caminho. Evolução no código.</div></div>
+   <div class="about-copy reveal">
+    <p>Sou <strong>Marcelo Santos</strong> e estou direcionando meus estudos para o desenvolvimento de software, com foco em <strong>Backend Java</strong>.</p>
+    <p>Quero construir uma base sólida em lógica, orientação a objetos, bancos de dados, APIs e boas práticas, transformando o aprendizado em projetos práticos.</p>
+    <p><strong>Minha regra:</strong> aprender, aplicar, revisar e melhorar.</p>
+    <div class="skill-list">
+     <div class="skill-row"><span>Java</span><div class="skill-track"><div class="skill-fill" data-width="42%"></div></div><small>Em estudo</small></div>
+     <div class="skill-row"><span>JavaScript</span><div class="skill-track"><div class="skill-fill" data-width="48%"></div></div><small>Fundamentos</small></div>
+     <div class="skill-row"><span>SQL / Banco</span><div class="skill-track"><div class="skill-fill" data-width="28%"></div></div><small>Explorando</small></div>
+     <div class="skill-row"><span>Git / GitHub</span><div class="skill-track"><div class="skill-fill" data-width="40%"></div></div><small>Praticando</small></div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="impacto">
+ <div class="section-inner">
+  <div class="section-head reveal">
+   <div><div class="kicker">03 / Tecnologia com propósito</div><h2>Código para <span>fazer o bem.</span></h2></div>
+   <p class="section-intro">Quero criar projetos que unam tecnologia, impacto social, proteção animal e cuidado com o meio ambiente.</p>
+  </div>
+  <div class="impact-grid">
+   <article class="impact-card reveal"><div class="impact-icon">♡</div><h3>Pessoas em primeiro lugar</h3><p>Ferramentas acessíveis para organizar informações, facilitar o acesso a serviços e apoiar iniciativas sociais.</p></article>
+   <article class="impact-card reveal"><div class="impact-icon">⌁</div><h3>Natureza e proteção animal</h3><p>Soluções para divulgar adoções responsáveis, conectar pessoas a protetores e incentivar atitudes sustentáveis.</p></article>
+  </div>
+  <div class="impact-note reveal"><strong>Minha visão:</strong> começar com projetos pequenos, ouvir as pessoas e evoluir cada ideia passo a passo.</div>
+  <div class="section-head reveal" style="margin-top:48px;margin-bottom:24px"><div><div class="kicker">Ideias para começar</div><h2>Impacto em <span>pequenos passos.</span></h2></div></div>
+  <div class="impact-grid">
+   <article class="impact-card reveal"><div class="impact-icon">🐾</div><h3>Adoção responsável</h3><p>Uma vitrine para divulgar animais e incentivar a adoção consciente.</p><div class="tags"><span>HTML / CSS</span><span>JavaScript</span></div></article>
+   <article class="impact-card reveal"><div class="impact-icon">♻</div><h3>Guia de reciclagem</h3><p>Um guia pesquisável para ajudar as pessoas a descartar resíduos corretamente.</p><div class="tags"><span>JavaScript</span><span>Pesquisa</span></div></article>
+   <article class="impact-card reveal"><div class="impact-icon">♡</div><h3>Ajuda comunitária</h3><p>Um diretório de serviços e organizações com informações verificadas.</p><div class="tags"><span>HTML</span><span>Dados públicos</span></div></article>
+   <article class="impact-card reveal"><div class="impact-icon">☕</div><h3>Controle de doações</h3><p>Um projeto para praticar lógica e, futuramente, desenvolver uma API em Java.</p><div class="tags"><span>Java</span><span>SQL</span></div></article>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="jornada">
+ <div class="section-inner">
+  <div class="section-head reveal">
+   <div><div class="kicker">04 / Próximas etapas</div><h2>Construindo a <span>jornada.</span></h2></div>
+   <p class="section-intro">Um passo de cada vez, transformando estudo em projetos práticos.</p>
+  </div>
+  <div class="timeline">
+   <div class="timeline-item reveal"><small>Fase 01 / Fundamentos</small><h3>Lógica e programação</h3><p>Variáveis, condições, repetições, funções e resolução de problemas.</p></div>
+   <div class="timeline-item reveal"><small>Fase 02 / Backend</small><h3>Java e APIs</h3><p>Orientação a objetos, HTTP, REST, Spring Boot e testes.</p></div>
+   <div class="timeline-item reveal"><small>Fase 03 / Construção</small><h3>Projetos e banco de dados</h3><p>SQL, integração, versionamento e projetos completos no GitHub.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="section contact" id="contato">
+ <div class="section-inner">
+  <div class="contact-panel reveal">
+   <div class="kicker">05 / Vamos conversar</div>
+   <h2>Uma boa ideia começa com um <span>oi.</span></h2>
+   <p>Quer conhecer meus projetos, trocar experiências ou conversar sobre tecnologia? Me encontre pelos canais abaixo.</p>
+   <div class="contact-actions">
+    <a class="btn btn-primary" href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a>
+    <a class="btn btn-secondary" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+    <button class="btn btn-secondary" id="copyEmail">Copiar e-mail ↗</button>
+   </div>
+   <p id="copyStatus" aria-live="polite" style="font-size:11px;margin-top:12px"></p>
+  </div>
+ </div>
+</section>
+</main>
+
+<div class="animal-modal" id="animalModal" role="dialog" aria-modal="true" aria-labelledby="animalModalTitle">
+ <div class="animal-modal-panel">
+  <button class="modal-close" id="animalModalClose" aria-label="Fechar detalhes">Fechar ✕</button>
+  <div class="kicker">Conheça seu futuro companheiro</div>
+  <h3 id="animalModalTitle">Animal</h3>
+  <p id="animalModalText"></p>
+  <p><strong>Próximo passo:</strong> esta demonstração não recebe pedidos reais. Em uma versão real, entre em contato com a ONG ou o responsável autorizado.</p>
+ </div>
+</div>
+
+<footer class="footer">
+ <span>© 2026 Marcelo Santos</span>
+ <span>Feito com intenção · HTML / CSS / JavaScript</span>
+ <a href="#inicio">Voltar ao topo ↑</a>
+</footer>
+</div>
+</div>
+
+<script>
+const nav = document.getElementById('nav');
+const navLinks = document.getElementById('navLinks');
+const menuToggle = document.getElementById('menuToggle');
+const core = document.getElementById('core');
+const visual = document.getElementById('visual');
+const glow = document.getElementById('cursorGlow');
+
+const animals = [
+ {id:'thor',name:'Thor',species:'Cão',size:'Grande',text:'Thor é um cão demonstrativo e brincalhão. Uma família ativa, com tempo para passeios, pode combinar com seu perfil.'},
+ {id:'luna',name:'Luna',species:'Gato',size:'Pequeno',text:'Luna é uma gata demonstrativa, curiosa e carinhosa. Um ambiente seguro e uma adaptação gradual são importantes.'},
+ {id:'max',name:'Max',species:'Cão',size:'Médio',text:'Max é um cão demonstrativo cheio de energia. Passeios e brincadeiras fazem parte dos cuidados necessários.'},
+ {id:'mimi',name:'Mimi',species:'Gato',size:'Pequeno',text:'Mimi é uma gata demonstrativa que procura um ambiente tranquilo. Respeitar seu tempo de adaptação é essencial.'},
+ {id:'bidu',name:'Bidu',species:'Cão',size:'Pequeno',text:'Bidu é um cão demonstrativo e companheiro. A adoção deve considerar cuidados veterinários e rotina diária.'},
+ {id:'simba',name:'Simba',species:'Gato',size:'Médio',text:'Simba é um gato demonstrativo e curioso. Telas de proteção e um ambiente enriquecido são cuidados importantes.'}
+];
+
+const animalSearch = document.getElementById('animalSearch');
+const animalSpecies = document.getElementById('animalSpecies');
+const animalSize = document.getElementById('animalSize');
+const animalCards = [...document.querySelectorAll('.animal-card')];
+
+function filterAnimals() {
+ const query = animalSearch.value.trim().toLocaleLowerCase('pt-BR');
+ let visible = 0;
+
+ animalCards.forEach(card => {
+  const matches = card.dataset.name.includes(query)
+   && (animalSpecies.value === 'todos' || card.dataset.species === animalSpecies.value)
+   && (animalSize.value === 'todos' || card.dataset.size === animalSize.value);
+
+  card.hidden = !matches;
+  if (matches) visible++;
+ });
+
+ let empty = document.getElementById('animalEmpty');
+
+ if (!visible && !empty) {
+  empty = document.createElement('div');
+  empty.id = 'animalEmpty';
+  empty.className = 'animal-empty';
+  empty.textContent = 'Nenhum animal encontrado. Tente mudar os filtros.';
+  document.getElementById('animalGrid').appendChild(empty);
+ }
+
+ if (visible && empty) empty.remove();
+
+ document.getElementById('animalCount').textContent =
+  `${visible} ${visible === 1 ? 'animal encontrado' : 'animais encontrados'} (dados demonstrativos)`;
+}
+
+animalSearch.addEventListener('input', filterAnimals);
+animalSpecies.addEventListener('change', filterAnimals);
+animalSize.addEventListener('change', filterAnimals);
+
+const animalModal = document.getElementById('animalModal');
+
+document.querySelectorAll('[data-animal]').forEach(button => {
+ button.addEventListener('click', () => {
+  const animal = animals.find(item => item.id === button.dataset.animal);
+  if (!animal) return;
+
+  document.getElementById('animalModalTitle').textContent =
+   `${animal.name} · ${animal.species}`;
+  document.getElementById('animalModalText').textContent = animal.text;
+  animalModal.classList.add('open');
+  document.getElementById('animalModalClose').focus();
+ });
+});
+
+function closeAnimalModal() {
+ animalModal.classList.remove('open');
+}
+
+document.getElementById('animalModalClose').addEventListener('click', closeAnimalModal);
+
+animalModal.addEventListener('click', event => {
+ if (event.target === animalModal) closeAnimalModal();
+});
+
+document.addEventListener('keydown', event => {
+ if (event.key === 'Escape') closeAnimalModal();
+});
+
+window.addEventListener('scroll', () => {
+ nav.classList.toggle('scrolled', window.scrollY > 30);
+});
+
+menuToggle.addEventListener('click', () => {
+ navLinks.classList.toggle('open');
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+ link.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+
+const observer = new IntersectionObserver(entries => {
+ entries.forEach(entry => {
+  if (entry.isIntersecting) {
+   entry.target.classList.add('visible');
+   entry.target.querySelectorAll?.('.skill-fill').forEach(bar => {
+    bar.style.width = bar.dataset.width;
+   });
+   observer.unobserve(entry.target);
+  }
+ });
+}, {threshold:0.14});
+
+document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+
+if (window.matchMedia('(pointer:fine)').matches) {
+ window.addEventListener('pointermove', event => {
+  glow.style.left = event.clientX + 'px';
+  glow.style.top = event.clientY + 'px';
+
+  const rect = visual.getBoundingClientRect();
+
+  if (event.clientX >= rect.left && event.clientX <= rect.right
+   && event.clientY >= rect.top && event.clientY <= rect.bottom) {
+   const x = (event.clientX - rect.left) / rect.width - 0.5;
+   const y = (event.clientY - rect.top) / rect.height - 0.5;
+   core.style.transform =
+    `rotateY(${x * 16}deg) rotateX(${-y * 16}deg) translateZ(8px)`;
+  } else {
+   core.style.transform = '';
+  }
+ });
+}
+
+document.querySelectorAll('.project-card').forEach(card => {
+ card.addEventListener('pointermove', event => {
+  if (!window.matchMedia('(pointer:fine)').matches) return;
+
+  const rect = card.getBoundingClientRect();
+  const x = (event.clientX - rect.left) / rect.width - 0.5;
+  const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+  card.style.transform =
+   `perspective(900px) rotateY(${x * 5}deg) rotateX(${-y * 4}deg) translateY(-3px)`;
+ });
+
+ card.addEventListener('pointerleave', () => {
+  card.style.transform = '';
+ });
+});
+
+document.getElementById('copyEmail').addEventListener('click', () => {
+ document.getElementById('copyStatus').textContent =
+  'Personalize este botão com seu e-mail antes de publicar.';
+});
+</script>
+</body>
+</html>
