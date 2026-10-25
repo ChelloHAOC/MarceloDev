@@ -2,1075 +2,694 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#050812">
-  <meta name="description" content="Portfólio de Marcelo Santos, desenvolvedor em formação com foco em Backend Java.">
-  <title>Marcelo Santos | Backend Java Developer</title>
-
-  <style>
-    :root {
-      --bg: #050812;
-      --surface: #0a1020;
-      --blue: #078bff;
-      --cyan: #00e5ff;
-      --text: #f3f7ff;
-      --muted: #9aaac4;
-      --border: rgba(0, 145, 255, .25);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 85px;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: "Segoe UI", Arial, sans-serif;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      background:
-        radial-gradient(ellipse at 15% 15%, rgba(0, 100, 255, .13), transparent 40%),
-        radial-gradient(ellipse at 85% 60%, rgba(0, 220, 255, .07), transparent 35%);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button, a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .container {
-      width: min(1120px, 90%);
-      margin: auto;
-    }
-
-    .blue {
-      color: var(--blue);
-    }
-
-    .section {
-      padding: 95px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .eyebrow {
-      color: var(--cyan);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: .75rem;
-      font-weight: 800;
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 5vw, 3rem);
-      line-height: 1.2;
-      margin: 8px 0 18px;
-    }
-
-    .section-description {
-      color: var(--muted);
-      max-width: 620px;
-    }
-
-    /* NAVEGAÇÃO */
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 100;
-      background: rgba(5, 8, 18, .88);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    nav {
-      min-height: 76px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-    }
-
-    .logo {
-      font-size: 1.65rem;
-      font-weight: 900;
-      letter-spacing: -1px;
-    }
-
-    .logo span {
-      color: var(--blue);
-      text-shadow: 0 0 20px var(--blue);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: #c3cee1;
-      font-size: .9rem;
-      transition: color .3s;
-    }
-
-    .nav-links a:hover {
-      color: var(--cyan);
-    }
-
-    .menu-toggle {
-      display: none;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--cyan);
-      font-size: 1.4rem;
-      padding: 5px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 130px 0 80px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      align-items: center;
-      gap: 55px;
-    }
-
-    .hero h1 {
-      font-size: clamp(3rem, 7vw, 5.7rem);
-      line-height: 1.02;
-      letter-spacing: -3px;
-      margin: 14px 0;
-    }
-
-    .hero h1 span {
-      color: var(--blue);
-      text-shadow: 0 0 35px rgba(0, 136, 255, .4);
-    }
-
-    .hero h2 {
-      font-size: clamp(1.2rem, 3vw, 1.8rem);
-      font-weight: 500;
-      margin-bottom: 22px;
-    }
-
-    .hero p {
-      max-width: 550px;
-      color: var(--muted);
-      margin-bottom: 28px;
-    }
-
-    .cursor {
-      display: inline-block;
-      width: 3px;
-      height: 1em;
-      background: var(--cyan);
-      margin-left: 5px;
-      vertical-align: -2px;
-      animation: blink .8s infinite;
-    }
-
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-
-    .buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      border: 1px solid var(--blue);
-      border-radius: 9px;
-      padding: 12px 21px;
-      font-weight: 700;
-      font-size: .9rem;
-      transition: transform .25s, box-shadow .25s, background .25s;
-    }
-
-    .btn-primary {
-      background: var(--blue);
-      color: white;
-      box-shadow: 0 0 24px rgba(0, 136, 255, .22);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--cyan);
-    }
-
-    .btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 28px rgba(0, 145, 255, .35);
-    }
-
-    .hero-visual {
-      position: relative;
-      min-height: 360px;
-      display: grid;
-      place-items: center;
-    }
-
-    .orbit {
-      width: min(330px, 75vw);
-      aspect-ratio: 1;
-      border: 1px solid rgba(0, 145, 255, .4);
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      position: relative;
-      box-shadow: 0 0 70px rgba(0, 110, 255, .09),
-                  inset 0 0 50px rgba(0, 110, 255, .08);
-      animation: float 5s ease-in-out infinite;
-    }
-
-    .orbit::before,
-    .orbit::after {
-      content: "";
-      position: absolute;
-      border: 1px solid rgba(0, 229, 255, .25);
-      border-radius: 50%;
-    }
-
-    .orbit::before {
-      inset: 22px -15px;
-      transform: rotate(-28deg);
-    }
-
-    .orbit::after {
-      inset: -18px 35px;
-      transform: rotate(45deg);
-    }
-
-    .core {
-      width: 190px;
-      height: 190px;
-      border-radius: 30px;
-      background: linear-gradient(145deg, #0c2242, #07101f);
-      border: 1px solid var(--blue);
-      display: grid;
-      place-items: center;
-      font-size: 5rem;
-      font-weight: 900;
-      color: var(--cyan);
-      text-shadow: 0 0 35px var(--blue);
-      box-shadow: 0 0 60px rgba(0, 110, 255, .25);
-      transform: rotate(-5deg);
-    }
-
-    .float-tag {
-      position: absolute;
-      padding: 8px 13px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: #081326;
-      color: var(--cyan);
-      font-size: .8rem;
-      box-shadow: 0 0 20px rgba(0, 100, 255, .1);
-    }
-
-    .tag-one { top: 30px; right: 0; }
-    .tag-two { bottom: 45px; left: 0; }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
-
-    /* SOBRE */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 55px;
-      align-items: center;
-    }
-
-    .about-copy p {
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .info-panel {
-      padding: 28px;
-      background: linear-gradient(145deg, #0b1426, #070c17);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-    }
-
-    .info-row {
-      display: flex;
-      gap: 16px;
-      padding: 13px 0;
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-
-    .info-row:last-child {
-      border-bottom: 0;
-    }
-
-    .info-icon {
-      color: var(--cyan);
-      font-size: 1.2rem;
-      min-width: 26px;
-    }
-
-    .info-row small {
-      display: block;
-      color: var(--muted);
-    }
-
-    /* HABILIDADES */
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin-top: 35px;
-    }
-
-    .skill-card {
-      background: rgba(10, 18, 34, .8);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 25px 18px;
-      transition: .3s;
-    }
-
-    .skill-card:hover {
-      transform: translateY(-7px);
-      border-color: var(--cyan);
-      box-shadow: 0 10px 35px rgba(0, 130, 255, .12);
-    }
-
-    .skill-symbol {
-      color: var(--cyan);
-      font-size: 1.8rem;
-      margin-bottom: 12px;
-    }
-
-    .skill-card h3 {
-      font-size: 1rem;
-      margin-bottom: 5px;
-    }
-
-    .skill-card p {
-      color: var(--muted);
-      font-size: .82rem;
-    }
-
-    .skill-status {
-      display: inline-block;
-      margin-top: 14px;
-      font-size: .72rem;
-      color: var(--cyan);
-      background: rgba(0, 145, 255, .1);
-      padding: 4px 8px;
-      border-radius: 20px;
-    }
-
-    /* PROJETOS */
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-top: 35px;
-    }
-
-    .project-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      transition: .3s;
-    }
-
-    .project-card:hover {
-      transform: translateY(-7px);
-      border-color: var(--blue);
-      box-shadow: 0 15px 40px rgba(0, 110, 255, .12);
-    }
-
-    .project-cover {
-      min-height: 175px;
-      display: grid;
-      place-items: center;
-      font-size: 3.2rem;
-      color: var(--cyan);
-      background:
-        linear-gradient(135deg, rgba(0, 80, 200, .18), transparent),
-        repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 29px,
-          rgba(0, 145, 255, .06) 30px
-        );
-      border-bottom: 1px solid var(--border);
-    }
-
-    .project-body {
-      padding: 22px;
-    }
-
-    .project-body p {
-      color: var(--muted);
-      font-size: .9rem;
-      margin: 10px 0 18px;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-    }
-
-    .chips span {
-      font-size: .7rem;
-      padding: 4px 9px;
-      border-radius: 5px;
-      color: #9edaff;
-      background: rgba(0, 136, 255, .1);
-      border: 1px solid rgba(0, 136, 255, .2);
-    }
-
-    .project-link {
-      display: inline-block;
-      margin-top: 18px;
-      color: var(--cyan);
-      font-size: .85rem;
-    }
-
-    /* TRAJETÓRIA */
-
-    .timeline {
-      margin-top: 35px;
-      border-left: 2px solid var(--blue);
-      padding-left: 28px;
-    }
-
-    .timeline-item {
-      position: relative;
-      padding: 0 0 35px;
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--cyan);
-      left: -35px;
-      top: 8px;
-      box-shadow: 0 0 15px var(--blue);
-    }
-
-    .timeline-item p {
-      color: var(--muted);
-      margin-top: 5px;
-    }
-
-    .timeline-item small {
-      color: var(--cyan);
-    }
-
-    /* CONTATO */
-
-    .contact-box {
-      margin-top: 30px;
-      padding: 35px;
-      background: linear-gradient(145deg, #0c1a31, #080d18);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .contact-box p {
-      color: var(--muted);
-      max-width: 600px;
-      margin: 10px 0 20px;
-    }
-
-    footer {
-      padding: 28px 0;
-      color: var(--muted);
-      font-size: .85rem;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    /* ANIMAÇÕES DE ENTRADA */
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .glow-line {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--blue), var(--cyan), transparent);
-      opacity: .65;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        animation: none !important;
-        transition: none !important;
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
-    }
-
-    /* CELULAR E TABLET */
-
-    @media (max-width: 850px) {
-      .hero-grid,
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-visual {
-        min-height: 330px;
-      }
-
-      .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .hero {
-        padding-top: 125px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 75px;
-        left: 0;
-        width: 100%;
-        flex-direction: column;
-        gap: 0;
-        padding: 10px 5%;
-        background: #070c18;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links a {
-        display: block;
-        padding: 12px 0;
-      }
-
-      .hero h1 {
-        letter-spacing: -2px;
-      }
-
-      .hero-grid {
-        gap: 20px;
-      }
-
-      .skills-grid,
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-box {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 25px;
-      }
-
-      .section {
-        padding: 70px 0;
-      }
-
-      .orbit {
-        width: 260px;
-      }
-
-      .core {
-        width: 145px;
-        height: 145px;
-        font-size: 4rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#070b14">
+    <title>Amigo de Patas | Adoção Responsável</title>
+
+    <style>
+        :root {
+            --fundo: #070b14;
+            --painel: #101a2d;
+            --azul: #4b8cff;
+            --texto: #f4f7ff;
+            --suave: #9aa9c2;
+            --borda: #263753;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--fundo);
+            color: var(--texto);
+            line-height: 1.6;
+        }
+
+        button, input, select {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        header {
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid var(--borda);
+            background: #0a1120;
+        }
+
+        .logo {
+            color: var(--texto);
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--azul);
+        }
+
+        .nav-link {
+            color: var(--suave);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .hero {
+            padding: 85px 20px;
+            text-align: center;
+            background:
+                radial-gradient(ellipse at top, #192e53, transparent 65%);
+        }
+
+        .etiqueta {
+            display: inline-block;
+            color: #8cb7ff;
+            border: 1px solid #34568c;
+            background: #11203a;
+            padding: 6px 13px;
+            border-radius: 30px;
+            font-size: 12px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(34px, 6vw, 62px);
+            line-height: 1.12;
+            max-width: 850px;
+            margin: 0 auto 20px;
+        }
+
+        .hero h1 span {
+            color: var(--azul);
+        }
+
+        .hero p {
+            color: var(--suave);
+            max-width: 600px;
+            margin: 0 auto 28px;
+        }
+
+        .botao {
+            border: 0;
+            border-radius: 8px;
+            padding: 12px 19px;
+            background: var(--azul);
+            color: white;
+            font-weight: bold;
+            transition: .2s;
+        }
+
+        .botao:hover {
+            background: #2e70e6;
+            transform: translateY(-2px);
+        }
+
+        .secao {
+            max-width: 1200px;
+            margin: auto;
+            padding: 65px 22px;
+        }
+
+        .titulo-secao {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .descricao-secao {
+            color: var(--suave);
+            margin-bottom: 28px;
+        }
+
+        .filtros {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .filtros input,
+        .filtros select {
+            width: 100%;
+            min-width: 0;
+            background: var(--painel);
+            color: var(--texto);
+            border: 1px solid var(--borda);
+            border-radius: 8px;
+            padding: 13px;
+            outline: none;
+        }
+
+        .filtros input:focus,
+        .filtros select:focus {
+            border-color: var(--azul);
+        }
+
+        .contador {
+            color: var(--suave);
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .grade {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .animal {
+            overflow: hidden;
+            background: var(--painel);
+            border: 1px solid var(--borda);
+            border-radius: 14px;
+            transition: transform .25s, border-color .25s;
+        }
+
+        .animal:hover {
+            transform: translateY(-5px);
+            border-color: var(--azul);
+        }
+
+        .foto-animal {
+            min-height: 180px;
+            display: grid;
+            place-items: center;
+            font-size: 86px;
+            background:
+                radial-gradient(circle at 50% 45%, #263f68, #111b2e 72%);
+        }
+
+        .animal-conteudo {
+            padding: 20px;
+        }
+
+        .animal-topo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .animal h3 {
+            font-size: 21px;
+        }
+
+        .tipo {
+            font-size: 11px;
+            color: #a8c9ff;
+            background: #1b3153;
+            padding: 4px 9px;
+            border-radius: 20px;
+        }
+
+        .animal p {
+            color: var(--suave);
+            font-size: 14px;
+            margin-bottom: 14px;
+        }
+
+        .dados {
+            color: #c5d3e9;
+            font-size: 12px;
+            margin-bottom: 17px;
+        }
+
+        .botao-detalhes {
+            width: 100%;
+            background: transparent;
+            color: #8cb7ff;
+            border: 1px solid #34568c;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .botao-detalhes:hover {
+            background: #1b3153;
+        }
+
+        .vazio {
+            display: none;
+            padding: 35px 15px;
+            text-align: center;
+            color: var(--suave);
+            border: 1px dashed var(--borda);
+            border-radius: 12px;
+        }
+
+        .sobre {
+            background: #0c1423;
+            border-block: 1px solid var(--borda);
+        }
+
+        .sobre-conteudo {
+            max-width: 850px;
+            margin: auto;
+            padding: 60px 22px;
+            text-align: center;
+        }
+
+        .sobre h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .sobre p {
+            color: var(--suave);
+        }
+
+        .aviso {
+            max-width: 850px;
+            margin: 25px auto 0;
+            padding: 15px;
+            text-align: left;
+            background: #101a2d;
+            border-left: 3px solid var(--azul);
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            color: #71829e;
+            font-size: 12px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 10;
+            background: rgba(0, 0, 0, .78);
+            padding: 20px;
+            overflow-y: auto;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.aberto {
+            display: flex;
+        }
+
+        .modal-conteudo {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            padding: 28px;
+            background: #101a2d;
+            border: 1px solid var(--borda);
+            border-radius: 14px;
+        }
+
+        .fechar {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            border: 0;
+            background: transparent;
+            color: white;
+            font-size: 28px;
+        }
+
+        .modal-emoji {
+            font-size: 70px;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .modal-conteudo h2 {
+            margin-bottom: 12px;
+        }
+
+        .modal-conteudo p {
+            color: var(--suave);
+            margin-bottom: 15px;
+        }
+
+        .modal-conteudo .botao {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 850px) {
+            .grade {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .filtros {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .filtros input {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 560px) {
+            header {
+                padding: 17px 20px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .hero {
+                padding: 65px 20px;
+            }
+
+            .grade {
+                grid-template-columns: 1fr;
+            }
+
+            .filtros {
+                grid-template-columns: 1fr;
+            }
+
+            .filtros input {
+                grid-column: auto;
+            }
+
+            .titulo-secao {
+                font-size: 26px;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <header>
+        <a class="logo" href="#" style="text-decoration:none">
+            🐾 Amigo <span>de Patas</span>
+        </a>
+        <a class="nav-link" href="#animais">Encontrar um amigo ↓</a>
+    </header>
 
-  <header>
-    <nav class="container">
-      <a href="#inicio" class="logo">M<span>S.</span></a>
+    <section class="hero">
+        <div class="etiqueta">♥ ADOTAR É UM ATO DE AMOR</div>
 
-      <button class="menu-toggle" id="menuToggle"
-        aria-label="Abrir menu" aria-expanded="false">☰</button>
+        <h1>
+            Seu próximo melhor amigo
+            <span>pode estar aqui.</span>
+        </h1>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#habilidades">Habilidades</a></li>
-        <li><a href="#projetos">Projetos</a></li>
-        <li><a href="#trajetoria">Trajetória</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
+        <p>
+            Conheça animais que merecem uma segunda chance.
+            Encontre um companheiro e descubra a beleza da adoção responsável.
+        </p>
 
-  <main>
-    <section class="hero" id="inicio">
-      <div class="container hero-grid">
-        <div class="reveal">
-          <span class="eyebrow">Portfólio pessoal · 2026</span>
-
-          <h1>MARCELO<br><span>SANTOS.</span></h1>
-
-          <h2>
-            Desenvolvedor <span class="blue" id="typing">Backend Java</span><span class="cursor"></span>
-          </h2>
-
-          <p>
-            Construindo minha jornada na tecnologia, com foco em
-            desenvolvimento Backend Java, lógica de programação,
-            APIs e bancos de dados. Um projeto de cada vez,
-            evoluindo todos os dias.
-          </p>
-
-          <div class="buttons">
-            <!-- TROQUE SEU-USUARIO PELO SEU USUÁRIO DO GITHUB -->
-            <a class="btn btn-primary"
-              href="https://github.com/SEU-USUARIO"
-              target="_blank" rel="noopener noreferrer">
-              ↗ Meu GitHub
-            </a>
-
-            <!-- COLOQUE AQUI SEU LINK DO LINKEDIN -->
-            <a class="btn btn-outline"
-              href="https://www.linkedin.com/"
-              target="_blank" rel="noopener noreferrer">
-              ↗ LinkedIn
-            </a>
-          </div>
-        </div>
-
-        <div class="hero-visual reveal">
-          <div class="orbit">
-            <div class="core">MS</div>
-          </div>
-          <div class="float-tag tag-one">Java // Backend</div>
-          <div class="float-tag tag-two">System.out.println("Olá!");</div>
-        </div>
-      </div>
+        <a href="#animais">
+            <button class="botao">Conhecer os animais →</button>
+        </a>
     </section>
 
-    <div class="glow-line"></div>
-
-    <section class="section" id="sobre">
-      <div class="container about-grid">
-        <div class="about-copy reveal">
-          <span class="eyebrow">Quem sou eu</span>
-          <h2 class="section-title">Minha jornada na <span class="blue">tecnologia.</span></h2>
-
-          <p>
-            Atualmente trabalho na área hospitalar e estou construindo
-            minha transição profissional para a tecnologia.
-          </p>
-
-          <p>
-            Meu objetivo é me especializar em Backend Java, aprender
-            a desenvolver APIs, trabalhar com bancos de dados e
-            construir aplicações seguras e bem estruturadas.
-          </p>
-
-          <p>
-            Este portfólio é parte prática dessa jornada: aqui apresento
-            meus estudos, meus projetos e minha evolução.
-          </p>
-        </div>
-
-        <div class="info-panel reveal">
-          <div class="info-row">
-            <span class="info-icon">⌘</span>
-            <div><strong>Foco profissional</strong><small>Backend Java</small></div>
-          </div>
-          <div class="info-row">
-            <span class="info-icon">{ }</span>
-            <div><strong>Estudando</strong><small>Programação e desenvolvimento de sistemas</small></div>
-          </div>
-          <div class="info-row">
-            <span class="info-icon">⌘</span>
-            <div><strong>Objetivo</strong><small>Construir aplicações reais e funcionais</small></div>
-          </div>
-          <div class="info-row">
-            <span class="info-icon">↗</span>
-            <div><strong>Mentalidade</strong><small>Prática, consistência e evolução</small></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="habilidades">
-      <div class="container">
-        <div class="reveal">
-          <span class="eyebrow">Minha stack</span>
-          <h2 class="section-title">Tecnologias & <span class="blue">ferramentas.</span></h2>
-          <p class="section-description">
-            Tecnologias que estou estudando e desenvolvendo na prática.
-            Os níveis serão atualizados conforme eu avançar.
-          </p>
-        </div>
-
-        <div class="skills-grid">
-          <article class="skill-card reveal">
-            <div class="skill-symbol">☕</div>
-            <h3>Java</h3>
-            <p>Lógica e fundamentos</p>
-            <span class="skill-status">Em aprendizado</span>
-          </article>
-
-          <article class="skill-card reveal">
-            <div class="skill-symbol">⚙</div>
-            <h3>Spring Boot</h3>
-            <p>Backend e APIs</p>
-            <span class="skill-status">A desenvolver</span>
-          </article>
-
-          <article class="skill-card reveal">
-            <div class="skill-symbol">▤</div>
-            <h3>SQL / MySQL</h3>
-            <p>Banco de dados</p>
-            <span class="skill-status">A desenvolver</span>
-          </article>
-
-          <article class="skill-card reveal">
-            <div class="skill-symbol">⑂</div>
-            <h3>Git & GitHub</h3>
-            <p>Versionamento de código</p>
-            <span class="skill-status">Em aprendizado</span>
-          </article>
-
-          <article class="skill-card reveal">
-            <div class="skill-symbol">🌐</div>
-            <h3>HTML</h3>
-            <p>Estrutura de páginas</p>
-            <span class="skill-status">Em aprendizado</span>
-          </article>
-
-          <article class="skill-card reveal">
-            <div class="skill-symbol">✳</div>
-            <h3>CSS</h3>
-            <p>Estilo e responsividade</p>
-            <span class="skill-status">Em aprendizado</span>
-          </article>
-
-          <article class="skill-card reveal">
-            <div class="skill-symbol">JS</div>
-            <h3>JavaScript</h3>
-            <p>Interatividade web</p>
-            <span class="skill-status">Em aprendizado</span>
-          </article>
-
-          <article class="skill-card reveal">
-            <div class="skill-symbol">⌘</div>
-            <h3>REST APIs</h3>
-            <p>Comunicação entre sistemas</p>
-            <span class="skill-status">A desenvolver</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="projetos">
-      <div class="container">
-        <div class="reveal">
-          <span class="eyebrow">Construindo na prática</span>
-          <h2 class="section-title">Projetos em <span class="blue">destaque.</span></h2>
-          <p class="section-description">
-            Aplicações pessoais para praticar programação e resolver problemas.
-            Os projetos serão atualizados à medida que forem desenvolvidos.
-          </p>
-        </div>
-
-        <div class="projects-grid">
-          <article class="project-card reveal">
-            <div class="project-cover">&lt;/&gt;</div>
-            <div class="project-body">
-              <h3>Painel Financeiro</h3>
-              <p>
-                Projeto pessoal para organizar despesas, acompanhar parcelas
-                e controlar metas de economia.
-              </p>
-              <div class="chips">
-                <span>HTML</span><span>CSS</span><span>JavaScript</span>
-              </div>
-              <!-- Substitua pelo link do repositório do projeto -->
-              <a class="project-link"
-                href="https://github.com/SEU-USUARIO"
-                target="_blank" rel="noopener noreferrer">
-                Ver código ↗
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-cover">{ }</div>
-            <div class="project-body">
-              <h3>Portal de Tutoriais</h3>
-              <p>
-                Projeto para organizar tutoriais e instruções de processos
-                hospitalares em uma interface acessível.
-              </p>
-              <div class="chips">
-                <span>HTML</span><span>CSS</span><span>JavaScript</span>
-              </div>
-              <!-- Substitua pelo link real do repositório -->
-              <a class="project-link"
-                href="https://github.com/SEU-USUARIO"
-                target="_blank" rel="noopener noreferrer">
-                Ver código ↗
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-cover">☕</div>
-            <div class="project-body">
-              <h3>API Java</h3>
-              <p>
-                Espaço reservado para uma futura API REST com Java,
-                Spring Boot e banco de dados.
-              </p>
-              <div class="chips">
-                <span>Java</span><span>Spring Boot</span><span>SQL</span>
-              </div>
-              <span class="project-link">Em planejamento</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="trajetoria">
-      <div class="container">
-        <div class="reveal">
-          <span class="eyebrow">Minha evolução</span>
-          <h2 class="section-title">Experiência & <span class="blue">estudos.</span></h2>
-        </div>
-
-        <div class="timeline">
-          <article class="timeline-item reveal">
-            <small>Experiência profissional</small>
-            <h3>Hospital Alemão Oswaldo Cruz</h3>
-            <p>Gestão de Leitos / Agente de Hospitalidade.</p>
-          </article>
-
-          <article class="timeline-item reveal">
-            <small>Formação</small>
-            <h3>Análise e Desenvolvimento de Sistemas</h3>
-            <p>Estudos em desenvolvimento de software e fundamentos de programação.</p>
-          </article>
-
-          <article class="timeline-item reveal">
-            <small>Projetos pessoais</small>
-            <h3>Aprendizado aplicado</h3>
-            <p>Prática com páginas web, GitHub e construção gradual de aplicações.</p>
-          </article>
-
-          <article class="timeline-item reveal">
-            <small>Próximo objetivo</small>
-            <h3>Backend Java Developer</h3>
-            <p>Avançar em Java, Spring Boot, APIs REST, testes e bancos de dados.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contato">
-      <div class="container reveal">
-        <span class="eyebrow">Vamos conversar</span>
-        <h2 class="section-title">Vamos construir algo <span class="blue">incrível?</span></h2>
-
-        <div class="contact-box">
-          <div>
-            <h3>Estou construindo minha próxima etapa.</h3>
-            <p>
-              Você pode acompanhar meus projetos e minha evolução
-              através do GitHub e do LinkedIn.
+    <main>
+        <section class="secao" id="animais">
+            <h2 class="titulo-secao">Conheça nossos amigos 🐾</h2>
+            <p class="descricao-secao">
+                Pesquise e encontre um animal que combine com você.
             </p>
-            <div class="buttons">
-              <a class="btn btn-primary"
-                href="https://github.com/SEU-USUARIO"
-                target="_blank" rel="noopener noreferrer">
-                Meu GitHub ↗
-              </a>
-              <a class="btn btn-outline"
-                href="https://www.linkedin.com/"
-                target="_blank" rel="noopener noreferrer">
-                Meu LinkedIn ↗
-              </a>
+
+            <div class="filtros">
+                <input
+                    type="search"
+                    id="pesquisa"
+                    placeholder="Buscar pelo nome..."
+                    aria-label="Buscar animal pelo nome"
+                >
+
+                <select id="filtroEspecie" aria-label="Filtrar por espécie">
+                    <option value="todos">Cães e gatos</option>
+                    <option value="Cão">Somente cães</option>
+                    <option value="Gato">Somente gatos</option>
+                </select>
+
+                <select id="filtroPorte" aria-label="Filtrar por porte">
+                    <option value="todos">Todos os portes</option>
+                    <option value="Pequeno">Pequeno</option>
+                    <option value="Médio">Médio</option>
+                    <option value="Grande">Grande</option>
+                </select>
             </div>
-          </div>
-          <div class="skill-symbol" aria-hidden="true">&lt;MS /&gt;</div>
+
+            <p class="contador" id="contador"></p>
+
+            <div class="grade" id="listaAnimais"></div>
+
+            <div class="vazio" id="mensagemVazia">
+                Nenhum animal encontrado. Tente mudar os filtros. 💙
+            </div>
+        </section>
+    </main>
+
+    <section class="sobre" id="sobre">
+        <div class="sobre-conteudo">
+            <h2>Adotar transforma duas vidas.</h2>
+            <p>
+                Um animal ganha um lar seguro, carinho e cuidado.
+                Você ganha a companhia de um amigo para a vida.
+                A adoção deve ser uma decisão consciente e responsável.
+            </p>
+
+            <div class="aviso">
+                <strong>Importante:</strong> os animais exibidos nesta primeira
+                versão são fictícios, usados apenas para demonstrar o projeto.
+                Não representam animais realmente disponíveis para adoção.
+            </div>
         </div>
-      </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="container footer-inner">
-      <span>© <span id="year"></span> Marcelo Santos</span>
-      <span>Desenvolvido com HTML, CSS e JavaScript.</span>
+    <footer>
+        © 2026 Amigo de Patas · Projeto educativo de adoção responsável.
+    </footer>
+
+    <div
+        class="modal"
+        id="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalNome"
+    >
+        <div class="modal-conteudo">
+            <button class="fechar" id="fecharModal" aria-label="Fechar">×</button>
+            <div class="modal-emoji" id="modalEmoji"></div>
+            <h2 id="modalNome"></h2>
+            <p id="modalDescricao"></p>
+            <p id="modalDados"></p>
+            <button class="botao" id="botaoEntendi">Entendi!</button>
+        </div>
     </div>
-  </footer>
 
-  <script>
-    // MENU RESPONSIVO
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
+    <script>
+        // Dados fictícios para testar o funcionamento da vitrine.
+        const animais = [
+            {
+                id: 1,
+                nome: "Thor",
+                especie: "Cão",
+                idade: "2 anos",
+                porte: "Grande",
+                emoji: "🐕",
+                descricao: "Um companheiro brincalhão que adora passeios e momentos ao ar livre."
+            },
+            {
+                id: 2,
+                nome: "Luna",
+                especie: "Gato",
+                idade: "1 ano",
+                porte: "Pequeno",
+                emoji: "🐈",
+                descricao: "Uma gatinha curiosa que gosta de explorar e descansar em lugares tranquilos."
+            },
+            {
+                id: 3,
+                nome: "Max",
+                especie: "Cão",
+                idade: "5 meses",
+                porte: "Médio",
+                emoji: "🐶",
+                descricao: "Um filhote cheio de energia que precisa de carinho, paciência e educação."
+            },
+            {
+                id: 4,
+                nome: "Mimi",
+                especie: "Gato",
+                idade: "3 anos",
+                porte: "Pequeno",
+                emoji: "🐱",
+                descricao: "Uma companheira tranquila que aprecia carinho e ambientes aconchegantes."
+            },
+            {
+                id: 5,
+                nome: "Bidu",
+                especie: "Cão",
+                idade: "4 anos",
+                porte: "Pequeno",
+                emoji: "🐕‍🦺",
+                descricao: "Um cãozinho companheiro, ideal para quem procura um amigo para a rotina."
+            },
+            {
+                id: 6,
+                nome: "Simba",
+                especie: "Gato",
+                idade: "2 anos",
+                porte: "Médio",
+                emoji: "🦁",
+                descricao: "Um gatinho independente e curioso que precisa de um lar protegido."
+            }
+        ];
 
-    menuToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
-      menuToggle.textContent = isOpen ? "✕" : "☰";
-    });
+        const listaAnimais = document.getElementById("listaAnimais");
+        const pesquisa = document.getElementById("pesquisa");
+        const filtroEspecie = document.getElementById("filtroEspecie");
+        const filtroPorte = document.getElementById("filtroPorte");
+        const contador = document.getElementById("contador");
+        const mensagemVazia = document.getElementById("mensagemVazia");
+        const modal = document.getElementById("modal");
 
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.textContent = "☰";
-      });
-    });
+        // Mostra os cartões na página.
+        function mostrarAnimais(lista) {
+            listaAnimais.innerHTML = "";
 
-    // EFEITO DE ENTRADA AO ROLAR A PÁGINA
-    const revealElements = document.querySelectorAll(".reveal");
+            lista.forEach(function(animal) {
+                const cartao = document.createElement("article");
+                cartao.className = "animal";
 
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            obs.unobserve(entry.target);
-          }
+                cartao.innerHTML = `
+                    <div class="foto-animal" aria-hidden="true">
+                        ${animal.emoji}
+                    </div>
+
+                    <div class="animal-conteudo">
+                        <div class="animal-topo">
+                            <h3>${animal.nome}</h3>
+                            <span class="tipo">${animal.especie}</span>
+                        </div>
+
+                        <p>${animal.descricao}</p>
+
+                        <div class="dados">
+                            ${animal.idade} · Porte ${animal.porte}
+                        </div>
+
+                        <button class="botao-detalhes"
+                            data-id="${animal.id}">
+                            Conhecer ${animal.nome} →
+                        </button>
+                    </div>
+                `;
+
+                listaAnimais.appendChild(cartao);
+            });
+
+            contador.textContent =
+                lista.length + (lista.length === 1
+                    ? " animal encontrado"
+                    : " animais encontrados");
+
+            mensagemVazia.style.display =
+                lista.length === 0 ? "block" : "none";
+        }
+
+        // Aplica os filtros escolhidos pelo visitante.
+        function filtrarAnimais() {
+            const nomeDigitado = pesquisa.value
+                .trim()
+                .toLocaleLowerCase("pt-BR");
+
+            const especieEscolhida = filtroEspecie.value;
+            const porteEscolhido = filtroPorte.value;
+
+            const resultado = animais.filter(function(animal) {
+                const nomeCombina = animal.nome
+                    .toLocaleLowerCase("pt-BR")
+                    .includes(nomeDigitado);
+
+                const especieCombina =
+                    especieEscolhida === "todos" ||
+                    animal.especie === especieEscolhida;
+
+                const porteCombina =
+                    porteEscolhido === "todos" ||
+                    animal.porte === porteEscolhido;
+
+                return nomeCombina && especieCombina && porteCombina;
+            });
+
+            mostrarAnimais(resultado);
+        }
+
+        // Abre os detalhes do animal selecionado.
+        function abrirDetalhes(id) {
+            const animal = animais.find(function(item) {
+                return item.id === Number(id);
+            });
+
+            if (!animal) return;
+
+            document.getElementById("modalEmoji").textContent = animal.emoji;
+            document.getElementById("modalNome").textContent = animal.nome;
+            document.getElementById("modalDescricao").textContent =
+                animal.descricao;
+            document.getElementById("modalDados").textContent =
+                animal.especie + " · " + animal.idade +
+                " · Porte " + animal.porte;
+
+            modal.classList.add("aberto");
+            document.getElementById("fecharModal").focus();
+        }
+
+        // Escuta os cliques nos cartões.
+        listaAnimais.addEventListener("click", function(evento) {
+            const botao = evento.target.closest("[data-id]");
+
+            if (botao) {
+                abrirDetalhes(botao.dataset.id);
+            }
         });
-      }, { threshold: 0.12 });
 
-      revealElements.forEach(element => observer.observe(element));
-    } else {
-      revealElements.forEach(element => element.classList.add("visible"));
-    }
+        pesquisa.addEventListener("input", filtrarAnimais);
+        filtroEspecie.addEventListener("change", filtrarAnimais);
+        filtroPorte.addEventListener("change", filtrarAnimais);
 
-    // EFEITO DE DIGITAÇÃO
-    const typingElement = document.getElementById("typing");
-    const phrases = [
-      "Backend Java",
-      "Desenvolvimento de Software",
-      "Java & APIs REST"
-    ];
+        function fecharModal() {
+            modal.classList.remove("aberto");
+        }
 
-    let phraseIndex = 0;
-    let charIndex = phrases[0].length;
-    let deleting = true;
+        document.getElementById("fecharModal")
+            .addEventListener("click", fecharModal);
 
-    function typeEffect() {
-      const phrase = phrases[phraseIndex];
+        document.getElementById("botaoEntendi")
+            .addEventListener("click", fecharModal);
 
-      if (deleting) {
-        charIndex--;
-      } else {
-        charIndex++;
-      }
+        modal.addEventListener("click", function(evento) {
+            if (evento.target === modal) {
+                fecharModal();
+            }
+        });
 
-      typingElement.textContent = phrase.substring(0, charIndex);
+        document.addEventListener("keydown", function(evento) {
+            if (evento.key === "Escape") {
+                fecharModal();
+            }
+        });
 
-      let delay = deleting ? 45 : 80;
-
-      if (!deleting && charIndex === phrase.length) {
-        deleting = true;
-        delay = 1500;
-      } else if (deleting && charIndex === 0) {
-        deleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        delay = 350;
-      }
-
-      window.setTimeout(typeEffect, delay);
-    }
-
-    window.setTimeout(typeEffect, 1800);
-
-    // ANO AUTOMÁTICO NO RODAPÉ
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
-
+        // Exibe todos os animais ao carregar a página.
+        mostrarAnimais(animais);
+    </script>
 </body>
 </html>
