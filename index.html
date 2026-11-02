@@ -1,277 +1,1063 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#070B14">
-<title>Marcelo Santos — Backend Java</title>
-<meta name="description" content="Portfólio de Marcelo Santos, estudante de desenvolvimento com foco em Backend Java e tecnologia para ajudar pessoas.">
-<style>
-:root{--blue:#3478F6;--bg:#070B14;--panel:#0D1423;--muted:#98A6C1;--line:rgba(155,177,220,.16)}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:#F4F7FF;font-family:Inter,Arial,sans-serif}
-a{color:inherit;text-decoration:none}
-button,input,select{font:inherit}
-[hidden]{display:none!important}
+<title>Marcelo Santos | Backend Java</title>
+<meta name="description" content="Portfólio de Marcelo Santos, desenvolvedor em formação com foco em Backend Java.">
 
-/* MENU */
-.nav{position:fixed;z-index:20;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:18px 5vw;border-bottom:1px solid transparent;transition:.3s}
-.nav.scrolled{background:rgba(7,11,20,.92);backdrop-filter:blur(18px);border-color:var(--line)}
-.brand{font-size:13px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
-.brand-mark{display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--blue);color:var(--blue)}
-.nav-links{display:flex;align-items:center;gap:24px;font-size:11px;font-weight:800;text-transform:uppercase}
-.nav-links a:hover{color:#76A5FF}
-.nav-cta{border:1px solid var(--blue);padding:10px 14px}
-.menu-toggle{display:none;color:white;background:var(--panel);border:1px solid var(--line);padding:8px 12px}
+<style>
+:root {
+  --blue:#3478F6;
+  --bg:#070B14;
+  --panel:#0D1423;
+  --muted:#98A6C1;
+  --line:rgba(155,177,220,.16);
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {
+  margin:0;
+  background:var(--bg);
+  color:#F4F7FF;
+  font-family:Inter,Arial,sans-serif;
+  overflow-x:hidden;
+}
+a {color:inherit;text-decoration:none}
+button,input,select {font:inherit}
+button {cursor:pointer}
+[hidden] {display:none!important}
+
+/* NAVEGAÇÃO */
+.nav {
+  position:fixed;
+  z-index:30;
+  top:0;left:0;right:0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 5vw;
+  transition:.3s;
+}
+.nav.scrolled {
+  background:rgba(7,11,20,.94);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+.brand {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.brand-mark {
+  display:grid;
+  place-items:center;
+  width:32px;height:32px;
+  border:1px solid var(--blue);
+  color:#78A8FF;
+}
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:22px;
+  font-size:11px;
+  font-weight:800;
+  text-transform:uppercase;
+}
+.nav-links a:hover {color:#76A5FF}
+.nav-cta {
+  padding:10px 14px;
+  border:1px solid var(--blue);
+}
+.menu-toggle {
+  display:none;
+  color:white;
+  background:var(--panel);
+  border:1px solid var(--line);
+  padding:9px 13px;
+}
 
 /* HOME */
-.hero{min-height:100vh;display:grid;align-items:center;padding:120px 8vw 80px}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:35px;max-width:1250px;width:100%;margin:auto}
-.eyebrow,.kicker{color:#76A5FF;font-size:11px;font-weight:900;letter-spacing:.2em;text-transform:uppercase}
-.hero h1{font-size:clamp(55px,9vw,120px);line-height:.88;letter-spacing:-.08em;text-transform:uppercase}
-.hero h1 span{display:block}
-.hero h1 .blue{color:var(--blue)}
-.hero-copy{color:#A7B3C9;line-height:1.8;max-width:480px}
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border:1px solid var(--line);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;transition:.25s}
-.btn:hover{transform:translateY(-3px)}
-.btn-primary{background:var(--blue);border-color:var(--blue);color:white}
-.btn-secondary{background:transparent;color:#E7EEFF}
-.hero-meta{display:flex;flex-wrap:wrap;gap:20px;margin-top:35px;color:#8292B0;font-size:10px}
+.hero {
+  min-height:100vh;
+  display:grid;
+  align-items:center;
+  padding:120px 8vw 85px;
+}
+.hero-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:40px;
+  max-width:1250px;
+  width:100%;
+  margin:auto;
+}
+.eyebrow,.kicker {
+  color:#76A5FF;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+.hero h1 {
+  font-size:clamp(55px,9vw,120px);
+  line-height:.9;
+  letter-spacing:-.08em;
+  text-transform:uppercase;
+}
+.hero h1 span {display:block}
+.hero h1 .blue {display:inline;color:var(--blue)}
+.hero-copy {
+  color:#A7B3C9;
+  line-height:1.8;
+  max-width:480px;
+}
+.hero-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:28px;
+}
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 18px;
+  border:1px solid var(--line);
+  background:transparent;
+  color:white;
+  font-size:11px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  transition:.25s;
+}
+.btn:hover {transform:translateY(-3px)}
+.btn-primary {
+  background:var(--blue);
+  border-color:var(--blue);
+}
+.hero-meta {
+  display:flex;
+  flex-wrap:wrap;
+  gap:18px;
+  margin-top:35px;
+  color:#8292B0;
+  font-size:10px;
+}
 
-/* MASCOTE 3D */
-.visual{min-height:650px;position:relative;display:grid;place-items:center;perspective:1100px;isolation:isolate}
-.mascot-stage{overflow:visible}
-.mascot-glow{position:absolute;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(52,120,246,.3),transparent 70%);filter:blur(18px);animation:mascotPulse 4s ease-in-out infinite}
-@keyframes mascotPulse{50%{transform:scale(1.2);opacity:.6}}
-.mascot-orbit{position:absolute;border:1px solid rgba(52,120,246,.22);border-radius:50%;pointer-events:none}
-.orbit-one{width:430px;height:430px;animation:orbit 25s linear infinite}
-.orbit-two{width:510px;height:510px;border-style:dashed;opacity:.4;animation:orbit 35s linear infinite reverse}
-@keyframes orbit{to{transform:rotate(360deg)}}
-.mascot-character{position:relative;z-index:4;width:280px;height:390px;display:flex;align-items:center;justify-content:center;transform-style:preserve-3d;animation:mascotFloat 4s ease-in-out infinite;transition:transform .15s ease-out;will-change:transform}
-.mascot-image{width:100%;height:100%;object-fit:contain;position:relative;z-index:2;filter:drop-shadow(0 15px 30px rgba(0,0,0,.55))}
-.mascot-shadow{position:absolute;bottom:3px;width:180px;height:22px;background:rgba(52,120,246,.35);filter:blur(20px);border-radius:50%}
-@keyframes mascotFloat{0%,100%{translate:0 0}50%{translate:0 -13px}}
+/* CENÁRIO DO MASCOTE */
+.visual {
+  position:relative;
+  min-height:650px;
+  display:grid;
+  place-items:center;
+  perspective:1100px;
+  isolation:isolate;
+}
+.mascot-glow {
+  position:absolute;
+  width:360px;height:360px;
+  border-radius:50%;
+  background:radial-gradient(
+    circle,
+    rgba(52,120,246,.32),
+    transparent 70%
+  );
+  filter:blur(18px);
+  animation:pulse 4s ease-in-out infinite;
+}
+@keyframes pulse {
+  50% {transform:scale(1.2);opacity:.6}
+}
+.mascot-orbit {
+  position:absolute;
+  border:1px solid rgba(52,120,246,.22);
+  border-radius:50%;
+  pointer-events:none;
+}
+.orbit-one {
+  width:430px;height:430px;
+  animation:orbit 25s linear infinite;
+}
+.orbit-two {
+  width:510px;height:510px;
+  border-style:dashed;
+  opacity:.4;
+  animation:orbit 35s linear infinite reverse;
+}
+@keyframes orbit {
+  to {transform:rotate(360deg)}
+}
+
+/* CORPO DO BONECO */
+.mascot-character {
+  position:relative;
+  z-index:5;
+  width:280px;
+  height:420px;
+  display:grid;
+  place-items:center;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.mascot-float {
+  position:relative;
+  height:100%;
+  aspect-ratio:2/3;
+  animation:mascotFloat 4s ease-in-out infinite;
+  transform-style:preserve-3d;
+}
+@keyframes mascotFloat {
+  0%,100% {translate:0 0}
+  50% {translate:0 -13px}
+}
+.mascot-image {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  pointer-events:none;
+  user-select:none;
+  filter:drop-shadow(0 18px 30px rgba(0,0,0,.55));
+}
+.mascot-shadow {
+  position:absolute;
+  bottom:-15px;
+  width:180px;
+  height:22px;
+  background:rgba(52,120,246,.35);
+  filter:blur(20px);
+  border-radius:50%;
+}
+
+/* OLHOS INTERATIVOS */
+.mascot-eye {
+  position:absolute;
+  z-index:6;
+  width:4.4%;
+  aspect-ratio:1;
+  border-radius:50%;
+  background:radial-gradient(
+    circle at 35% 28%,
+    #fff 0 8%,
+    #332820 12%,
+    #100b09 40%,
+    #050404 100%
+  );
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+  will-change:transform;
+  box-shadow:0 0 2px rgba(0,0,0,.6);
+}
+.eye-left {
+  left:49%;
+  top:15.8%;
+}
+.eye-right {
+  left:61%;
+  top:17.9%;
+}
 
 /* NOTEBOOKS */
-.tech-laptop{position:absolute;z-index:5;width:125px;cursor:pointer;transform-style:preserve-3d;animation:laptopFloat 5s ease-in-out infinite;transition:transform .35s,filter .35s}
-.laptop-screen{min-height:105px;padding:13px 10px;text-align:center;background:linear-gradient(145deg,#172B4D,#080F1C);border:1px solid rgba(91,151,255,.7);border-radius:7px 7px 3px 3px;box-shadow:0 0 25px rgba(52,120,246,.2);display:flex;flex-direction:column;align-items:center;gap:4px}
-.laptop-screen strong{font-size:13px;color:white}
-.laptop-screen small{font-size:7px;color:#8DB5FF;letter-spacing:.12em}
-.tech-icon{font-size:22px;font-weight:900;color:#70A4FF}
-.laptop-base{height:7px;margin:0 -8px;background:linear-gradient(90deg,#182B49,#668CC7,#182B49);clip-path:polygon(5% 0,95% 0,100% 100%,0 100%);border-radius:0 0 5px 5px}
-.code-lines{width:75%;display:grid;gap:3px;margin-top:3px}
-.code-lines i{height:2px;background:#4389FF;opacity:.6}
-.code-lines i:nth-child(2){width:70%}
-.code-lines i:nth-child(3){width:45%}
-.tech-laptop:hover,.tech-laptop.active{z-index:11;filter:drop-shadow(0 0 22px rgba(52,120,246,.9));animation-play-state:paused}
-@keyframes laptopFloat{0%,100%{translate:0 0}50%{translate:0 -12px}}
-.laptop-html{top:9%;left:4%;animation-delay:-.5s}
-.laptop-css{top:3%;right:5%;animation-delay:-2s}
-.laptop-js{top:40%;left:-7%;animation-delay:-1s}
-.laptop-java{top:39%;right:-8%;animation-delay:-3s}
-.laptop-sql{bottom:9%;left:5%;animation-delay:-2.5s}
-.laptop-git{bottom:7%;right:6%;animation-delay:-1.5s}
-.laptop-github{bottom:-2%;left:42%;animation-delay:-3.5s}
-.mascot-caption{position:absolute;bottom:-36px;z-index:6;padding:9px 15px;background:rgba(10,17,31,.95);border:1px solid var(--line);color:#AFC9F8;font-size:9px;font-weight:900;letter-spacing:.15em}
-.status-dot{display:inline-block;width:7px;height:7px;margin-right:7px;background:#45E69B;border-radius:50%;box-shadow:0 0 10px #45E69B}
+.tech-laptop {
+  position:absolute;
+  z-index:7;
+  width:125px;
+  cursor:pointer;
+  transform-style:preserve-3d;
+  animation:laptopFloat 5s ease-in-out infinite;
+  transition:filter .3s;
+}
+.laptop-screen {
+  min-height:105px;
+  padding:13px 10px;
+  text-align:center;
+  background:linear-gradient(145deg,#172B4D,#080F1C);
+  border:1px solid rgba(91,151,255,.7);
+  border-radius:7px 7px 3px 3px;
+  box-shadow:0 0 25px rgba(52,120,246,.2);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:4px;
+}
+.laptop-screen strong {font-size:13px}
+.laptop-screen small {
+  font-size:7px;
+  color:#8DB5FF;
+  letter-spacing:.1em;
+}
+.tech-icon {
+  font-size:22px;
+  font-weight:900;
+  color:#70A4FF;
+}
+.laptop-base {
+  height:7px;
+  margin:0 -8px;
+  background:linear-gradient(90deg,#182B49,#668CC7,#182B49);
+  clip-path:polygon(5% 0,95% 0,100% 100%,0 100%);
+}
+.code-lines {
+  width:75%;
+  display:grid;
+  gap:3px;
+  margin-top:3px;
+}
+.code-lines i {
+  height:2px;
+  width:100%;
+  background:#4389FF;
+  opacity:.6;
+}
+.code-lines i:nth-child(2) {width:70%}
+.code-lines i:nth-child(3) {width:45%}
+.tech-laptop:hover,.tech-laptop.active {
+  z-index:12;
+  filter:drop-shadow(0 0 22px rgba(52,120,246,.85));
+  animation-play-state:paused;
+}
+@keyframes laptopFloat {
+  0%,100% {translate:0 0}
+  50% {translate:0 -12px}
+}
+.laptop-html {top:9%;left:4%;animation-delay:-.5s}
+.laptop-css {top:3%;right:5%;animation-delay:-2s}
+.laptop-js {top:40%;left:-7%;animation-delay:-1s}
+.laptop-java {top:39%;right:-8%;animation-delay:-3s}
+.laptop-sql {bottom:9%;left:5%;animation-delay:-2.5s}
+.laptop-git {bottom:7%;right:6%;animation-delay:-1.5s}
+.laptop-github {bottom:-2%;left:42%;animation-delay:-3.5s}
+.mascot-caption {
+  position:absolute;
+  bottom:-36px;
+  z-index:8;
+  padding:9px 15px;
+  background:rgba(10,17,31,.95);
+  border:1px solid var(--line);
+  color:#AFC9F8;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.15em;
+}
+.status-dot {
+  display:inline-block;
+  width:7px;height:7px;
+  margin-right:7px;
+  background:#45E69B;
+  border-radius:50%;
+  box-shadow:0 0 10px #45E69B;
+}
 
-/* MARQUEE */
-.marquee{overflow:hidden;border-block:1px solid var(--line);padding:20px 0;background:#0A101D}
-.marquee-track{white-space:nowrap;animation:marquee 25s linear infinite;color:#76A5FF;font-size:12px;font-weight:900;letter-spacing:.2em}
-@keyframes marquee{to{transform:translateX(-50%)}}
+/* FAIXA */
+.marquee {
+  overflow:hidden;
+  border-block:1px solid var(--line);
+  padding:20px 0;
+  background:#0A101D;
+}
+.marquee-track {
+  display:flex;
+  width:max-content;
+  white-space:nowrap;
+  animation:marquee 25s linear infinite;
+  color:#76A5FF;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.2em;
+}
+.marquee-track span {padding-right:35px}
+@keyframes marquee {
+  to {transform:translateX(-50%)}
+}
 
 /* SEÇÕES */
-.section{padding:100px 8vw}
-.section-inner{max-width:1100px;margin:auto}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:40px}
-.section h2{font-size:clamp(35px,5vw,65px);line-height:1;letter-spacing:-.06em;text-transform:uppercase}
-.section h2 span{color:var(--blue)}
-.section-intro{max-width:350px;color:#95A3BD;font-size:13px;line-height:1.8}
-
-/* PROJETOS */
-.project-grid,.impact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.project-card,.impact-card{padding:25px;border:1px solid var(--line);background:linear-gradient(135deg,#111D36,#0A101D);transition:.3s}
-.project-card:hover,.impact-card:hover{border-color:var(--blue);transform:translateY(-4px)}
-.project-top{display:flex;justify-content:space-between;gap:10px;color:#8FA4CA;font-size:10px}
-.project-icon,.impact-icon{width:45px;height:45px;display:grid;place-items:center;color:#91B8FF;border:1px solid rgba(91,145,255,.4);margin:25px 0;font-size:20px}
-.project-card p,.impact-card p{color:#95A3BD;font-size:13px;line-height:1.8}
-.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
-.tags span{padding:6px 9px;color:#9AB9F6;background:rgba(52,120,246,.08);border:1px solid rgba(52,120,246,.2);font-size:10px}
+.section {padding:100px 8vw;scroll-margin-top:70px}
+.section-inner {max-width:1100px;margin:auto}
+.section-head {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:25px;
+  margin-bottom:40px;
+}
+.section h2 {
+  font-size:clamp(35px,5vw,65px);
+  line-height:1;
+  letter-spacing:-.06em;
+  text-transform:uppercase;
+}
+.section h2 span {color:var(--blue)}
+.section-intro {
+  max-width:350px;
+  color:#95A3BD;
+  font-size:13px;
+  line-height:1.8;
+}
+.project-grid,.impact-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+}
+.project-card,.impact-card {
+  padding:25px;
+  border:1px solid var(--line);
+  background:linear-gradient(135deg,#111D36,#0A101D);
+  transition:border-color .3s,transform .3s;
+}
+.project-card:hover,.impact-card:hover {
+  border-color:var(--blue);
+  transform:translateY(-4px);
+}
+.project-top {
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  color:#8FA4CA;
+  font-size:10px;
+}
+.project-icon,.impact-icon {
+  width:45px;height:45px;
+  display:grid;
+  place-items:center;
+  color:#91B8FF;
+  border:1px solid rgba(91,145,255,.4);
+  margin:25px 0;
+  font-size:20px;
+}
+.project-card p,.impact-card p {
+  color:#95A3BD;
+  font-size:13px;
+  line-height:1.8;
+}
+.tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:20px;
+}
+.tags span {
+  padding:6px 9px;
+  color:#9AB9F6;
+  background:rgba(52,120,246,.08);
+  border:1px solid rgba(52,120,246,.2);
+  font-size:10px;
+}
 
 /* ADOÇÃO */
-.adoption-section{background:#0A101D;border-block:1px solid var(--line)}
-.adoption-tools{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:12px;margin-bottom:25px}
-.adoption-tools input,.adoption-tools select{width:100%;min-width:0;padding:13px;border:1px solid var(--line);background:var(--panel);color:white;outline:none}
-.animal-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.animal-card{overflow:hidden;border:1px solid var(--line);background:linear-gradient(145deg,#111D36,#0A101D);transition:.25s}
-.animal-card:hover{transform:translateY(-5px);border-color:var(--blue)}
-.animal-photo{width:100%;height:210px;object-fit:cover;display:block}
-.animal-info{padding:18px}
-.animal-label{color:#76A5FF;font-size:10px;font-weight:900;text-transform:uppercase}
-.animal-info p{color:#95A3BD;font-size:12px;line-height:1.7}
-.animal-meta{display:flex;flex-wrap:wrap;gap:7px;margin:15px 0}
-.animal-meta span{padding:5px 7px;background:#172644;color:#BBD0F8;font-size:10px}
-.animal-details{width:100%;padding:12px;color:white;background:rgba(52,120,246,.14);border:1px solid var(--blue);cursor:pointer;font-weight:800;font-size:11px}
-.animal-count,.adoption-note{color:#95A3BD;font-size:12px;line-height:1.8}
-.adoption-note{margin-top:25px;padding:15px;border-left:2px solid var(--blue)}
-.animal-empty{grid-column:1/-1;padding:30px;text-align:center;color:#95A3BD}
-.animal-modal{position:fixed;z-index:50;inset:0;display:none;place-items:center;padding:20px;background:rgba(0,0,0,.8)}
-.animal-modal.open{display:grid}
-.animal-modal-panel{width:min(100%,520px);padding:28px;border:1px solid var(--blue);background:var(--panel)}
-.modal-close{float:right;background:transparent;color:white;border:1px solid var(--line);padding:8px;cursor:pointer}
+.adoption-section {
+  background:#0A101D;
+  border-block:1px solid var(--line);
+}
+.adoption-tools {
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  gap:12px;
+  margin-bottom:25px;
+}
+.adoption-tools input,.adoption-tools select {
+  width:100%;
+  min-width:0;
+  padding:13px;
+  border:1px solid var(--line);
+  background:var(--panel);
+  color:white;
+  outline:none;
+}
+.animal-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+.animal-card {
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:linear-gradient(145deg,#111D36,#0A101D);
+  transition:.25s;
+}
+.animal-card:hover {
+  transform:translateY(-5px);
+  border-color:var(--blue);
+}
+.animal-photo {
+  width:100%;
+  height:210px;
+  object-fit:cover;
+  display:block;
+}
+.animal-info {padding:18px}
+.animal-label {
+  color:#76A5FF;
+  font-size:10px;
+  font-weight:900;
+  text-transform:uppercase;
+}
+.animal-info p {
+  color:#95A3BD;
+  font-size:12px;
+  line-height:1.7;
+}
+.animal-meta {
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin:15px 0;
+}
+.animal-meta span {
+  padding:5px 7px;
+  background:#172644;
+  color:#BBD0F8;
+  font-size:10px;
+}
+.animal-details {
+  width:100%;
+  padding:12px;
+  color:white;
+  background:rgba(52,120,246,.14);
+  border:1px solid var(--blue);
+  font-weight:800;
+  font-size:11px;
+}
+.animal-count,.adoption-note {
+  color:#95A3BD;
+  font-size:12px;
+  line-height:1.8;
+}
+.adoption-note {
+  margin-top:25px;
+  padding:15px;
+  border-left:2px solid var(--blue);
+}
+.animal-empty {
+  grid-column:1/-1;
+  padding:30px;
+  text-align:center;
+  color:#95A3BD;
+}
+.animal-modal {
+  position:fixed;
+  z-index:50;
+  inset:0;
+  display:none;
+  place-items:center;
+  padding:20px;
+  background:rgba(0,0,0,.8);
+}
+.animal-modal.open {display:grid}
+.animal-modal-panel {
+  width:min(100%,520px);
+  padding:28px;
+  border:1px solid var(--blue);
+  background:var(--panel);
+}
+.modal-close {
+  float:right;
+  background:transparent;
+  color:white;
+  border:1px solid var(--line);
+  padding:8px;
+}
 
 /* SOBRE */
-.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px}
-.about-stamp{border:1px solid var(--line);padding:25px;min-height:260px;display:flex;flex-direction:column;justify-content:space-between}
-.stamp-number{font-size:75px;font-weight:900}
-.about-copy{color:#A7B4CB;line-height:1.9;font-size:14px}
-.skill-list{display:grid;gap:15px;margin-top:25px}
-.skill-row{display:grid;grid-template-columns:100px 1fr 80px;gap:12px;font-size:11px}
-.skill-track{height:3px;background:#202C43}
-.skill-fill{height:100%;background:var(--blue);width:0;transition:width 1s}
-
-/* PROPÓSITO */
-.impact-note{color:#A7B4CB;padding:18px;margin-top:20px;border-left:2px solid var(--blue);background:#0D1423;font-size:13px;line-height:1.8}
-
-/* JORNADA */
-.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;border-top:1px solid var(--line)}
-.timeline-item{padding:22px 10px 10px 0}
-.timeline-item small{color:#76A5FF}
-.timeline-item p{color:#95A3BD;font-size:12px;line-height:1.8}
+.about-grid {
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:50px;
+}
+.about-stamp {
+  border:1px solid var(--line);
+  padding:25px;
+  min-height:260px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.stamp-number {font-size:75px;font-weight:900}
+.about-copy {
+  color:#A7B4CB;
+  line-height:1.9;
+  font-size:14px;
+}
+.skill-list {
+  display:grid;
+  gap:15px;
+  margin-top:25px;
+}
+.skill-row {
+  display:grid;
+  grid-template-columns:100px 1fr 80px;
+  gap:12px;
+  font-size:11px;
+}
+.skill-track {
+  height:3px;
+  background:#202C43;
+}
+.skill-fill {
+  height:100%;
+  background:var(--blue);
+  width:0;
+  transition:width 1s;
+}
+.impact-note {
+  color:#A7B4CB;
+  padding:18px;
+  margin-top:20px;
+  border-left:2px solid var(--blue);
+  background:#0D1423;
+  font-size:13px;
+  line-height:1.8;
+}
+.timeline {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  border-top:1px solid var(--line);
+}
+.timeline-item {padding:22px 10px 10px 0}
+.timeline-item small {color:#76A5FF}
+.timeline-item p {
+  color:#95A3BD;
+  font-size:12px;
+  line-height:1.8;
+}
 
 /* CONTATO */
-.contact-panel{padding:clamp(25px,6vw,65px);border:1px solid rgba(77,133,245,.4);background:radial-gradient(ellipse at top right,rgba(52,120,246,.2),transparent 60%),#0D1423}
-.contact-panel p{color:#9CAAC2;line-height:1.8}
-.contact-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}
-.footer{padding:25px 5vw;display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);color:#667792;font-size:10px}
+.contact-panel {
+  padding:clamp(25px,6vw,65px);
+  border:1px solid rgba(77,133,245,.4);
+  background:radial-gradient(
+    ellipse at top right,
+    rgba(52,120,246,.2),
+    transparent 60%
+  ),#0D1423;
+}
+.contact-panel p {color:#9CAAC2;line-height:1.8}
+.contact-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:25px;
+}
+.footer {
+  padding:25px 5vw;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  border-top:1px solid var(--line);
+  color:#667792;
+  font-size:10px;
+}
 
-/* ANIMAÇÕES DE ENTRADA */
-.reveal{opacity:0;transform:translateY(20px);transition:.7s}
-.reveal.visible{opacity:1;transform:translateY(0)}
-
-/* BRILHO DO CURSOR */
-.cursor-glow{position:fixed;width:280px;height:280px;border-radius:50%;pointer-events:none;z-index:5;background:radial-gradient(circle,rgba(52,120,246,.1),transparent 70%);transform:translate(-50%,-50%);mix-blend-mode:screen}
+/* ANIMAÇÕES */
+.reveal {
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity .7s,transform .7s;
+}
+.reveal.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+.cursor-glow {
+  position:fixed;
+  width:280px;height:280px;
+  left:-300px;top:-300px;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:4;
+  background:radial-gradient(
+    circle,
+    rgba(52,120,246,.1),
+    transparent 70%
+  );
+  transform:translate(-50%,-50%);
+  mix-blend-mode:screen;
+}
 
 /* RESPONSIVIDADE */
-@media(max-width:800px){
-  .nav{padding:15px 20px}
-  .menu-toggle{display:block}
-  .nav-links{display:none;position:absolute;top:60px;left:12px;right:12px;padding:18px;flex-direction:column;align-items:stretch;background:#0C1424;border:1px solid var(--line)}
-  .nav-links.open{display:flex}
-  .hero{padding:110px 24px 70px}
-  .hero-grid,.about-grid{grid-template-columns:1fr}
-  .visual{min-height:570px;margin-top:25px;overflow:hidden}
-  .mascot-character{width:220px;height:330px}
-  .mascot-glow{width:260px;height:260px}
-  .orbit-one{width:310px;height:310px}
-  .orbit-two{width:360px;height:360px}
-  .tech-laptop{width:92px}
-  .laptop-screen{min-height:83px;padding:9px 6px}
-  .laptop-screen strong{font-size:10px}
-  .laptop-screen small{font-size:6px}
-  .tech-icon{font-size:17px}
-  .laptop-html{top:4%;left:1%}
-  .laptop-css{top:4%;right:1%}
-  .laptop-js{top:36%;left:-2%}
-  .laptop-java{top:36%;right:-2%}
-  .laptop-sql{bottom:8%;left:1%}
-  .laptop-git{bottom:8%;right:1%}
-  .laptop-github{bottom:-1%;left:39%}
-  .mascot-caption{bottom:0}
-  .section{padding:75px 24px}
-  .section-head{display:block}
-  .section-intro{margin-top:20px}
-  .animal-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .adoption-tools{grid-template-columns:1fr}
-  .timeline{grid-template-columns:1fr}
+@media(max-width:800px) {
+  .nav {padding:15px 20px}
+  .menu-toggle {display:block}
+  .nav-links {
+    display:none;
+    position:absolute;
+    top:60px;
+    left:12px;right:12px;
+    padding:18px;
+    flex-direction:column;
+    align-items:stretch;
+    background:#0C1424;
+    border:1px solid var(--line);
+  }
+  .nav-links.open {display:flex}
+  .hero {padding:110px 24px 70px}
+  .hero-grid,.about-grid {grid-template-columns:1fr}
+  .visual {
+    min-height:570px;
+    margin-top:25px;
+    overflow:hidden;
+  }
+  .mascot-character {width:220px;height:330px}
+  .mascot-glow {width:260px;height:260px}
+  .orbit-one {width:310px;height:310px}
+  .orbit-two {width:360px;height:360px}
+  .tech-laptop {width:92px}
+  .laptop-screen {min-height:83px;padding:9px 6px}
+  .laptop-screen strong {font-size:10px}
+  .laptop-screen small {font-size:6px}
+  .tech-icon {font-size:17px}
+  .laptop-html {top:4%;left:1%}
+  .laptop-css {top:4%;right:1%}
+  .laptop-js {top:36%;left:-2%}
+  .laptop-java {top:36%;right:-2%}
+  .laptop-sql {bottom:8%;left:1%}
+  .laptop-git {bottom:8%;right:1%}
+  .laptop-github {bottom:-1%;left:39%}
+  .mascot-caption {bottom:0}
+  .section {padding:75px 24px}
+  .section-head {display:block}
+  .section-intro {margin-top:20px}
+  .animal-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .adoption-tools {grid-template-columns:1fr}
+  .timeline {grid-template-columns:1fr}
 }
-@media(max-width:460px){
-  .project-grid,.animal-grid,.impact-grid{grid-template-columns:1fr}
-  .animal-photo{height:230px}
-  .footer{flex-direction:column}
+@media(max-width:460px) {
+  .project-grid,.animal-grid,.impact-grid {
+    grid-template-columns:1fr;
+  }
+  .animal-photo {height:230px}
+  .footer {flex-direction:column}
 }
-@media(max-width:380px){
-  .tech-laptop{width:78px}
-  .mascot-character{width:195px;height:300px}
+@media(max-width:380px) {
+  .tech-laptop {width:78px}
+  .mascot-character {width:195px;height:300px}
 }
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    scroll-behavior:auto!important;
+    animation:none!important;
+    transition:none!important;
+  }
 }
 </style>
 </head>
+
 <body>
 <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
 <header class="nav" id="nav">
-  <a class="brand" href="#inicio"><span class="brand-mark">MS</span> Marcelo Santos</a>
-  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  <a class="brand" href="#inicio">
+    <span class="brand-mark">MS</span> Marcelo Santos
+  </a>
+  <button class="menu-toggle" id="menuToggle"
+    aria-label="Abrir menu" aria-expanded="false">☰</button>
   <nav class="nav-links" id="navLinks">
-    <a href="#projetos">Projetos</a><a href="#adocao">Adoção</a><a href="#sobre">Sobre</a><a href="#impacto">Propósito</a><a href="#jornada">Jornada</a><a class="nav-cta" href="#contato">Contato ↗</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#adocao">Adoção</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#impacto">Propósito</a>
+    <a href="#jornada">Jornada</a>
+    <a class="nav-cta" href="#contato">Contato ↗</a>
   </nav>
 </header>
+
 <main>
+
+<!-- HOME -->
 <section class="hero" id="inicio">
 <div class="hero-grid">
   <div>
     <div class="eyebrow">Portfólio pessoal / 2026</div>
     <h1>Marcelo<span>Santos<span class="blue">.</span></span></h1>
-    <p class="hero-copy">Construindo soluções com lógica, curiosidade e código. Em jornada para me tornar desenvolvedor <strong>Backend Java</strong> — um commit de cada vez.</p>
-    <div class="hero-actions"><a class="btn btn-primary" href="#projetos">Explorar projetos ↘</a><a class="btn btn-secondary" href="#sobre">Conhecer minha história ↗</a></div>
-    <div class="hero-meta"><span>01 / Backend Java</span><span>02 / Aprendizado contínuo</span><span>03 / Criando na prática</span></div>
+    <p class="hero-copy">
+      Construindo soluções com lógica, curiosidade e código.
+      Em jornada para me tornar desenvolvedor
+      <strong>Backend Java</strong> — um commit de cada vez.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#projetos">Explorar projetos ↘</a>
+      <a class="btn" href="#sobre">Conhecer minha história ↗</a>
+    </div>
+    <div class="hero-meta">
+      <span>01 / Backend Java</span>
+      <span>02 / Aprendizado contínuo</span>
+      <span>03 / Criando na prática</span>
+    </div>
   </div>
-  <div class="visual mascot-stage" id="visual">
-    <div class="mascot-glow"></div><div class="mascot-orbit orbit-one"></div><div class="mascot-orbit orbit-two"></div>
-    <div class="tech-laptop laptop-html" data-tech="HTML"><div class="laptop-screen"><span class="tech-icon">5</span><strong>HTML</strong><small>ESTRUTURA WEB</small><div class="code-lines"><i></i><i></i><i></i></div></div><div class="laptop-base"></div></div>
-    <div class="tech-laptop laptop-css" data-tech="CSS"><div class="laptop-screen"><span class="tech-icon">#</span><strong>CSS</strong><small>ESTILO E DESIGN</small><div class="code-lines"><i></i><i></i><i></i></div></div><div class="laptop-base"></div></div>
-    <div class="tech-laptop laptop-js" data-tech="JavaScript"><div class="laptop-screen"><span class="tech-icon">JS</span><strong>JavaScript</strong><small>INTERATIVIDADE</small><div class="code-lines"><i></i><i></i><i></i></div></div><div class="laptop-base"></div></div>
-    <div class="tech-laptop laptop-java" data-tech="Java"><div class="laptop-screen"><span class="tech-icon">☕</span><strong>JAVA</strong><small>BACKEND</small><div class="code-lines"><i></i><i></i><i></i></div></div><div class="laptop-base"></div></div>
-    <div class="tech-laptop laptop-sql" data-tech="SQL"><div class="laptop-screen"><span class="tech-icon">DB</span><strong>SQL</strong><small>BANCO DE DADOS</small><div class="code-lines"><i></i><i></i><i></i></div></div><div class="laptop-base"></div></div>
-    <div class="tech-laptop laptop-git" data-tech="Git"><div class="laptop-screen"><span class="tech-icon">⑂</span><strong>GIT</strong><small>VERSIONAMENTO</small><div class="code-lines"><i></i><i></i><i></i></div></div><div class="laptop-base"></div></div>
-    <div class="tech-laptop laptop-github" data-tech="GitHub"><div class="laptop-screen"><span class="tech-icon">GH</span><strong>GitHub</strong><small>REPOSITÓRIOS</small><div class="code-lines"><i></i><i></i><i></i></div></div><div class="laptop-base"></div></div>
+
+  <div class="visual" id="visual">
+    <div class="mascot-glow"></div>
+    <div class="mascot-orbit orbit-one"></div>
+    <div class="mascot-orbit orbit-two"></div>
+
+    <div class="tech-laptop laptop-html" data-tech="HTML">
+      <div class="laptop-screen">
+        <span class="tech-icon">5</span>
+        <strong>HTML</strong><small>ESTRUTURA WEB</small>
+        <div class="code-lines"><i></i><i></i><i></i></div>
+      </div>
+      <div class="laptop-base"></div>
+    </div>
+
+    <div class="tech-laptop laptop-css" data-tech="CSS">
+      <div class="laptop-screen">
+        <span class="tech-icon">#</span>
+        <strong>CSS</strong><small>ESTILO E DESIGN</small>
+        <div class="code-lines"><i></i><i></i><i></i></div>
+      </div>
+      <div class="laptop-base"></div>
+    </div>
+
+    <div class="tech-laptop laptop-js" data-tech="JavaScript">
+      <div class="laptop-screen">
+        <span class="tech-icon">JS</span>
+        <strong>JavaScript</strong><small>INTERATIVIDADE</small>
+        <div class="code-lines"><i></i><i></i><i></i></div>
+      </div>
+      <div class="laptop-base"></div>
+    </div>
+
+    <div class="tech-laptop laptop-java" data-tech="Java">
+      <div class="laptop-screen">
+        <span class="tech-icon">☕</span>
+        <strong>JAVA</strong><small>BACKEND</small>
+        <div class="code-lines"><i></i><i></i><i></i></div>
+      </div>
+      <div class="laptop-base"></div>
+    </div>
+
+    <div class="tech-laptop laptop-sql" data-tech="SQL">
+      <div class="laptop-screen">
+        <span class="tech-icon">DB</span>
+        <strong>SQL</strong><small>BANCO DE DADOS</small>
+        <div class="code-lines"><i></i><i></i><i></i></div>
+      </div>
+      <div class="laptop-base"></div>
+    </div>
+
+    <div class="tech-laptop laptop-git" data-tech="Git">
+      <div class="laptop-screen">
+        <span class="tech-icon">⑂</span>
+        <strong>GIT</strong><small>VERSIONAMENTO</small>
+        <div class="code-lines"><i></i><i></i><i></i></div>
+      </div>
+      <div class="laptop-base"></div>
+    </div>
+
+    <div class="tech-laptop laptop-github" data-tech="GitHub">
+      <div class="laptop-screen">
+        <span class="tech-icon">GH</span>
+        <strong>GitHub</strong><small>REPOSITÓRIOS</small>
+        <div class="code-lines"><i></i><i></i><i></i></div>
+      </div>
+      <div class="laptop-base"></div>
+    </div>
+
+    <!-- MASCOTE COM OLHOS -->
     <div class="mascot-character" id="mascotCharacter">
       <div class="mascot-shadow"></div>
-      <img src="C7F71BC9-F9C2-446D-9024-533C5030EFAE.png" alt="Mascote de Marcelo Santos em versão boneco de pano" class="mascot-image" id="mascotImage">
+      <div class="mascot-float">
+        <img
+          src="C7F71BC9-F9C2-446D-9024-533C5030EFAE.png"
+          alt="Mascote de Marcelo Santos"
+          class="mascot-image"
+          id="mascotImage"
+        >
+        <div class="mascot-eye eye-left" id="eyeLeft"></div>
+        <div class="mascot-eye eye-right" id="eyeRight"></div>
+      </div>
     </div>
-    <div class="mascot-caption"><span class="status-dot"></span>MARCELO.EXE — ONLINE</div>
+
+    <div class="mascot-caption">
+      <span class="status-dot"></span>MARCELO.EXE — ONLINE
+    </div>
   </div>
 </div>
 </section>
-<div class="marquee"><div class="marquee-track">JAVA ✳ LÓGICA ✳ APIs ✳ SQL ✳ BACKEND ✳ APRENDIZADO ✳ JAVA ✳ LÓGICA ✳ APIs ✳ SQL ✳ BACKEND ✳ APRENDIZADO ✳</div></div>
 
-<section class="section" id="projetos"><div class="section-inner">
-  <div class="section-head reveal"><div><div class="kicker">01 / O que estou construindo</div><h2>Projetos em <span>foco.</span></h2></div><p class="section-intro">Projetos reais e experimentos que mostram minha evolução na programação.</p></div>
+<div class="marquee">
+  <div class="marquee-track">
+    <span>JAVA ✳ LÓGICA ✳ APIs ✳ SQL ✳ BACKEND ✳ APRENDIZADO ✳</span>
+    <span>JAVA ✳ LÓGICA ✳ APIs ✳ SQL ✳ BACKEND ✳ APRENDIZADO ✳</span>
+  </div>
+</div>
+
+<!-- PROJETOS -->
+<section class="section" id="projetos">
+<div class="section-inner">
+  <div class="section-head reveal">
+    <div>
+      <div class="kicker">01 / O que estou construindo</div>
+      <h2>Projetos em <span>foco.</span></h2>
+    </div>
+    <p class="section-intro">Projetos e experimentos que mostram minha evolução na programação.</p>
+  </div>
+
   <div class="project-grid">
-    <article class="project-card reveal"><div class="project-top"><span>Projeto 001 / Web</span><span>Em evolução</span></div><div class="project-icon">⌘</div><h3>Painel Financeiro</h3><p>Uma interface para organizar gastos, parcelas e metas de economia.</p><div class="tags"><span>HTML / CSS</span><span>JavaScript</span></div></article>
-    <article class="project-card reveal"><div class="project-top"><span>Projeto 002 / Backend</span><span>Estudo</span></div><div class="project-icon">⌁</div><h3>API de Gestão</h3><p>Projeto de estudo para praticar endpoints, regras de negócio e organização do código.</p><div class="tags"><span>Java</span><span>Spring Boot</span><span>REST API</span></div></article>
-    <article class="project-card reveal"><div class="project-top"><span>Projeto 003 / Organização</span><span>Em evolução</span></div><div class="project-icon">▦</div><h3>Central de Tutoriais</h3><p>Uma base de conhecimento para organizar procedimentos e instruções.</p><div class="tags"><span>HTML</span><span>CSS</span><span>Documentação</span></div></article>
-    <article class="project-card reveal"><div class="project-top"><span>Projeto 004 / Fundamentos</span><span>Estudo</span></div><div class="project-icon">{ }</div><h3>Laboratório Java</h3><p>Exercícios para fortalecer lógica, orientação a objetos e tratamento de erros.</p><div class="tags"><span>Java</span><span>POO</span><span>GitHub</span></div></article>
-  </div>
-</div></section>
+    <article class="project-card reveal">
+      <div class="project-top"><span>Projeto 001 / Web</span><span>Em evolução</span></div>
+      <div class="project-icon">⌘</div>
+      <h3>Painel Financeiro</h3>
+      <p>Uma interface para organizar gastos, parcelas e metas de economia.</p>
+      <div class="tags"><span>HTML / CSS</span><span>JavaScript</span></div>
+    </article>
 
-<section class="section adoption-section" id="adocao"><div class="section-inner">
-  <div class="section-head reveal"><div><div class="kicker">Projeto especial / Impacto animal</div><h2>Encontre um novo <span>amigo.</span></h2></div><p class="section-intro">Uma vitrine demonstrativa para apresentar cães e gatos e incentivar uma adoção consciente.</p></div>
+    <article class="project-card reveal">
+      <div class="project-top"><span>Projeto 002 / Backend</span><span>Estudo</span></div>
+      <div class="project-icon">⌁</div>
+      <h3>API de Gestão</h3>
+      <p>Projeto de estudo para praticar endpoints, regras de negócio e organização do código.</p>
+      <div class="tags"><span>Java</span><span>Spring Boot</span><span>REST API</span></div>
+    </article>
+
+    <article class="project-card reveal">
+      <div class="project-top"><span>Projeto 003 / Organização</span><span>Em evolução</span></div>
+      <div class="project-icon">▦</div>
+      <h3>Central de Tutoriais</h3>
+      <p>Uma base de conhecimento para organizar procedimentos e instruções.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>Documentação</span></div>
+    </article>
+
+    <article class="project-card reveal">
+      <div class="project-top"><span>Projeto 004 / Fundamentos</span><span>Estudo</span></div>
+      <div class="project-icon">{ }</div>
+      <h3>Laboratório Java</h3>
+      <p>Exercícios para fortalecer lógica, orientação a objetos e tratamento de erros.</p>
+      <div class="tags"><span>Java</span><span>POO</span><span>GitHub</span></div>
+    </article>
+  </div>
+</div>
+</section>
+
+<!-- ADOÇÃO -->
+<section class="section adoption-section" id="adocao">
+<div class="section-inner">
+  <div class="section-head reveal">
+    <div>
+      <div class="kicker">Projeto especial / Impacto animal</div>
+      <h2>Encontre um novo <span>amigo.</span></h2>
+    </div>
+    <p class="section-intro">Uma vitrine demonstrativa para incentivar a adoção consciente.</p>
+  </div>
+
   <div class="adoption-tools reveal">
-    <input id="animalSearch" type="search" placeholder="Buscar pelo nome..." aria-label="Buscar animal pelo nome">
-    <select id="animalSpecies" aria-label="Filtrar por espécie"><option value="todos">Cães e gatos</option><option value="Cão">Somente cães</option><option value="Gato">Somente gatos</option></select>
-    <select id="animalSize" aria-label="Filtrar por porte"><option value="todos">Todos os portes</option><option value="Pequeno">Pequeno</option><option value="Médio">Médio</option><option value="Grande">Grande</option></select>
+    <input id="animalSearch" type="search"
+      placeholder="Buscar pelo nome..." aria-label="Buscar animal">
+    <select id="animalSpecies" aria-label="Espécie">
+      <option value="todos">Cães e gatos</option>
+      <option value="Cão">Somente cães</option>
+      <option value="Gato">Somente gatos</option>
+    </select>
+    <select id="animalSize" aria-label="Porte">
+      <option value="todos">Todos os portes</option>
+      <option value="Pequeno">Pequeno</option>
+      <option value="Médio">Médio</option>
+      <option value="Grande">Grande</option>
+    </select>
   </div>
-  <p class="animal-count" id="animalCount">6 animais demonstrativos</p>
-  <div class="animal-grid" id="animalGrid">
-    <article class="animal-card" data-name="thor" data-species="Cão" data-size="Grande"><img class="animal-photo" src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=900&q=80" alt="Cão dourado chamado Thor" loading="lazy"><div class="animal-info"><div class="animal-label">Cão · Grande</div><h3>Thor</h3><p>Companheiro brincalhão que adora passeios e atenção.</p><div class="animal-meta"><span>3 anos</span><span>Vacinado (exemplo)</span></div><button class="animal-details" data-animal="thor">Conhecer o Thor ↗</button></div></article>
-    <article class="animal-card" data-name="luna" data-species="Gato" data-size="Pequeno"><img class="animal-photo" src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=900&q=80" alt="Gata chamada Luna" loading="lazy"><div class="animal-info"><div class="animal-label">Gato · Pequeno</div><h3>Luna</h3><p>Curiosa e carinhosa, gosta de explorar cada cantinho.</p><div class="animal-meta"><span>1 ano</span><span>Calma</span></div><button class="animal-details" data-animal="luna">Conhecer a Luna ↗</button></div></article>
-    <article class="animal-card" data-name="max" data-species="Cão" data-size="Médio"><img class="animal-photo" src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=900&q=80" alt="Cão chamado Max" loading="lazy"><div class="animal-info"><div class="animal-label">Cão · Médio</div><h3>Max</h3><p>Um amigo cheio de energia, ideal para uma rotina ativa.</p><div class="animal-meta"><span>2 anos</span><span>Brincalhão</span></div><button class="animal-details" data-animal="max">Conhecer o Max ↗</button></div></article>
-    <article class="animal-card" data-name="mimi" data-species="Gato" data-size="Pequeno"><img class="animal-photo" src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=900&q=80" alt="Gata chamada Mimi" loading="lazy"><div class="animal-info"><div class="animal-label">Gato · Pequeno</div><h3>Mimi</h3><p>Doce e observadora, procura um lar tranquilo e acolhedor.</p><div class="animal-meta"><span>8 meses</span><span>Afetuosa</span></div><button class="animal-details" data-animal="mimi">Conhecer a Mimi ↗</button></div></article>
-    <article class="animal-card" data-name="bidu" data-species="Cão" data-size="Pequeno"><img class="animal-photo" src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=900&q=80" alt="Cão pequeno chamado Bidu" loading="lazy"><div class="animal-info"><div class="animal-label">Cão · Pequeno</div><h3>Bidu</h3><p>Pequeno no tamanho, gigante na vontade de fazer amizade.</p><div class="animal-meta"><span>4 anos</span><span>Companheiro</span></div><button class="animal-details" data-animal="bidu">Conhecer o Bidu ↗</button></div></article>
-    <article class="animal-card" data-name="simba" data-species="Gato" data-size="Médio"><img class="animal-photo" src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=900&q=80" alt="Gato chamado Simba" loading="lazy"><div class="animal-info"><div class="animal-label">Gato · Médio</div><h3>Simba</h3><p>Independente e curioso, gosta de brincar e descansar ao sol.</p><div class="animal-meta"><span>2 anos</span><span>Curioso</span></div><button class="animal-details" data-animal="simba">Conhecer o Simba ↗</button></div></article>
-  </div>
-  <div class="adoption-note reveal"><strong>Importante:</strong> os animais e as informações são fictícios. Esta página é uma demonstração e ainda não recebe pedidos reais de adoção.</div>
-</div></section>
 
-<section class="section" id="sobre"><div class="section-inner">
-  <div class="section-head reveal"><div><div class="kicker">02 / Por trás do código</div><h2>Sobre <span>mim.</span></h2></div><p class="section-intro">Tecnologia é entender problemas, organizar ideias e construir soluções úteis.</p></div>
+  <p class="animal-count" id="animalCount">6 animais demonstrativos</p>
+
+  <div class="animal-grid" id="animalGrid">
+    <article class="animal-card" data-name="thor" data-species="Cão" data-size="Grande">
+      <img class="animal-photo" src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=900&q=80" alt="Cão Thor" loading="lazy">
+      <div class="animal-info">
+        <div class="animal-label">Cão · Grande</div>
+        <h3>Thor</h3>
+        <p>Companheiro brincalhão que adora passeios e atenção.</p>
+        <div class="animal-meta"><span>3 anos</span><span>Brincalhão</span></div>
+        <button class="animal-details" data-animal="thor">Conhecer o Thor ↗</button>
+      </div>
+    </article>
+
+    <article class="animal-card" data-name="luna" data-species="Gato" data-size="Pequeno">
+      <img class="animal-photo" src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=900&q=80" alt="Gata Luna" loading="lazy">
+      <div class="animal-info">
+        <div class="animal-label">Gato · Pequeno</div>
+        <h3>Luna</h3>
+        <p>Curiosa e carinhosa, gosta de explorar cada cantinho.</p>
+        <div class="animal-meta"><span>1 ano</span><span>Calma</span></div>
+        <button class="animal-details" data-animal="luna">Conhecer a Luna ↗</button>
+      </div>
+    </article>
+
+    <article class="animal-card" data-name="max" data-species="Cão" data-size="Médio">
+      <img class="animal-photo" src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=900&q=80" alt="Cão Max" loading="lazy">
+      <div class="animal-info">
+        <div class="animal-label">Cão · Médio</div>
+        <h3>Max</h3>
+        <p>Um amigo cheio de energia, ideal para uma rotina ativa.</p>
+        <div class="animal-meta"><span>2 anos</span><span>Brincalhão</span></div>
+        <button class="animal-details" data-animal="max">Conhecer o Max ↗</button>
+      </div>
+    </article>
+
+    <article class="animal-card" data-name="mimi" data-species="Gato" data-size="Pequeno">
+      <img class="animal-photo" src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=900&q=80" alt="Gata Mimi" loading="lazy">
+      <div class="animal-info">
+        <div class="animal-label">Gato · Pequeno</div>
+        <h3>Mimi</h3>
+        <p>Doce e observadora, procura um lar tranquilo e acolhedor.</p>
+        <div class="animal-meta"><span>8 meses</span><span>Afetuosa</span></div>
+        <button class="animal-details" data-animal="mimi">Conhecer a Mimi ↗</button>
+      </div>
+    </article>
+
+    <article class="animal-card" data-name="bidu" data-species="Cão" data-size="Pequeno">
+      <img class="animal-photo" src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=900&q=80" alt="Cão Bidu" loading="lazy">
+      <div class="animal-info">
+        <div class="animal-label">Cão · Pequeno</div>
+        <h3>Bidu</h3>
+        <p>Pequeno no tamanho, gigante na vontade de fazer amizade.</p>
+        <div class="animal-meta"><span>4 anos</span><span>Companheiro</span></div>
+        <button class="animal-details" data-animal="bidu">Conhecer o Bidu ↗</button>
+      </div>
+    </article>
+
+    <article class="animal-card" data-name="simba" data-species="Gato" data-size="Médio">
+      <img class="animal-photo" src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=900&q=80" alt="Gato Simba" loading="lazy">
+      <div class="animal-info">
+        <div class="animal-label">Gato · Médio</div>
+        <h3>Simba</h3>
+        <p>Independente e curioso, gosta de brincar e descansar ao sol.</p>
+        <div class="animal-meta"><span>2 anos</span><span>Curioso</span></div>
+        <button class="animal-details" data-animal="simba">Conhecer o Simba ↗</button>
+      </div>
+    </article>
+  </div>
+
+  <div class="adoption-note reveal">
+    <strong>Importante:</strong> os animais e as informações são fictícios.
+    Esta página é uma demonstração e ainda não recebe pedidos reais de adoção.
+  </div>
+</div>
+</section>
+
+<!-- SOBRE -->
+<section class="section" id="sobre">
+<div class="section-inner">
+  <div class="section-head reveal">
+    <div>
+      <div class="kicker">02 / Por trás do código</div>
+      <h2>Sobre <span>mim.</span></h2>
+    </div>
+    <p class="section-intro">Tecnologia é entender problemas, organizar ideias e construir soluções úteis.</p>
+  </div>
   <div class="about-grid">
-    <div class="about-stamp reveal"><div class="stamp-label">Developer in progress / BR</div><div class="stamp-number">MS<span style="color:#3478F6">.</span></div><div class="stamp-caption">Disciplina no processo. Curiosidade no caminho. Evolução no código.</div></div>
+    <div class="about-stamp reveal">
+      <div>Developer in progress / BR</div>
+      <div class="stamp-number">MS<span style="color:#3478F6">.</span></div>
+      <div>Disciplina no processo. Curiosidade no caminho. Evolução no código.</div>
+    </div>
     <div class="about-copy reveal">
       <p>Sou <strong>Marcelo Santos</strong> e estou direcionando meus estudos para o desenvolvimento de software, com foco em <strong>Backend Java</strong>.</p>
       <p>Quero construir uma base sólida em lógica, orientação a objetos, bancos de dados, APIs e boas práticas, transformando o aprendizado em projetos práticos.</p>
@@ -284,110 +1070,323 @@ button,input,select{font:inherit}
       </div>
     </div>
   </div>
-</div></section>
+</div>
+</section>
 
-<section class="section" id="impacto"><div class="section-inner">
-  <div class="section-head reveal"><div><div class="kicker">03 / Tecnologia com propósito</div><h2>Código para <span>fazer o bem.</span></h2></div><p class="section-intro">Quero criar projetos que unam tecnologia, impacto social, proteção animal e cuidado com o meio ambiente.</p></div>
-  <div class="impact-grid">
-    <article class="impact-card reveal"><div class="impact-icon">♡</div><h3>Pessoas em primeiro lugar</h3><p>Ferramentas acessíveis para organizar informações, facilitar o acesso a serviços e apoiar iniciativas sociais.</p></article>
-    <article class="impact-card reveal"><div class="impact-icon">⌁</div><h3>Natureza e proteção animal</h3><p>Soluções para divulgar adoções responsáveis, conectar pessoas a protetores e incentivar atitudes sustentáveis.</p></article>
+<!-- PROPÓSITO -->
+<section class="section" id="impacto">
+<div class="section-inner">
+  <div class="section-head reveal">
+    <div>
+      <div class="kicker">03 / Tecnologia com propósito</div>
+      <h2>Código para <span>fazer o bem.</span></h2>
+    </div>
+    <p class="section-intro">Quero criar projetos que unam tecnologia, impacto social, proteção animal e cuidado com o meio ambiente.</p>
   </div>
-  <div class="impact-note reveal"><strong>Minha visão:</strong> começar com projetos pequenos, ouvir as pessoas e evoluir cada ideia passo a passo.</div>
-  <div class="section-head reveal" style="margin-top:48px;margin-bottom:24px"><div><div class="kicker">Ideias para começar</div><h2>Impacto em <span>pequenos passos.</span></h2></div></div>
   <div class="impact-grid">
-    <article class="impact-card reveal"><div class="impact-icon">🐾</div><h3>Adoção responsável</h3><p>Uma vitrine para divulgar animais e incentivar a adoção consciente.</p><div class="tags"><span>HTML / CSS</span><span>JavaScript</span></div></article>
-    <article class="impact-card reveal"><div class="impact-icon">♻</div><h3>Guia de reciclagem</h3><p>Um guia pesquisável para ajudar as pessoas a descartar resíduos corretamente.</p><div class="tags"><span>JavaScript</span><span>Pesquisa</span></div></article>
-    <article class="impact-card reveal"><div class="impact-icon">♡</div><h3>Ajuda comunitária</h3><p>Um diretório de serviços e organizações com informações verificadas.</p><div class="tags"><span>HTML</span><span>Dados públicos</span></div></article>
-    <article class="impact-card reveal"><div class="impact-icon">☕</div><h3>Controle de doações</h3><p>Um projeto para praticar lógica e, futuramente, desenvolver uma API em Java.</p><div class="tags"><span>Java</span><span>SQL</span></div></article>
+    <article class="impact-card reveal">
+      <div class="impact-icon">♡</div>
+      <h3>Pessoas em primeiro lugar</h3>
+      <p>Ferramentas acessíveis para organizar informações, facilitar o acesso a serviços e apoiar iniciativas sociais.</p>
+    </article>
+    <article class="impact-card reveal">
+      <div class="impact-icon">⌁</div>
+      <h3>Natureza e proteção animal</h3>
+      <p>Soluções para divulgar adoções responsáveis, conectar pessoas a protetores e incentivar atitudes sustentáveis.</p>
+    </article>
   </div>
-</div></section>
+  <div class="impact-note reveal">
+    <strong>Minha visão:</strong> começar com projetos pequenos, ouvir as pessoas e evoluir cada ideia passo a passo.
+  </div>
+  <div class="section-head reveal" style="margin-top:48px;margin-bottom:24px">
+    <div>
+      <div class="kicker">Ideias para começar</div>
+      <h2>Impacto em <span>pequenos passos.</span></h2>
+    </div>
+  </div>
+  <div class="impact-grid">
+    <article class="impact-card reveal">
+      <div class="impact-icon">🐾</div>
+      <h3>Adoção responsável</h3>
+      <p>Uma vitrine para divulgar animais e incentivar a adoção consciente.</p>
+      <div class="tags"><span>HTML / CSS</span><span>JavaScript</span></div>
+    </article>
+    <article class="impact-card reveal">
+      <div class="impact-icon">♻</div>
+      <h3>Guia de reciclagem</h3>
+      <p>Um guia pesquisável para ajudar as pessoas a descartar resíduos corretamente.</p>
+      <div class="tags"><span>JavaScript</span><span>Pesquisa</span></div>
+    </article>
+    <article class="impact-card reveal">
+      <div class="impact-icon">♡</div>
+      <h3>Ajuda comunitária</h3>
+      <p>Um diretório de serviços e organizações com informações verificadas.</p>
+      <div class="tags"><span>HTML</span><span>Dados públicos</span></div>
+    </article>
+    <article class="impact-card reveal">
+      <div class="impact-icon">☕</div>
+      <h3>Controle de doações</h3>
+      <p>Um projeto para praticar lógica e, futuramente, desenvolver uma API em Java.</p>
+      <div class="tags"><span>Java</span><span>SQL</span></div>
+    </article>
+  </div>
+</div>
+</section>
 
-<section class="section" id="jornada"><div class="section-inner">
-  <div class="section-head reveal"><div><div class="kicker">04 / Próximas etapas</div><h2>Construindo a <span>jornada.</span></h2></div><p class="section-intro">Um passo de cada vez, transformando estudo em projetos práticos.</p></div>
+<!-- JORNADA -->
+<section class="section" id="jornada">
+<div class="section-inner">
+  <div class="section-head reveal">
+    <div>
+      <div class="kicker">04 / Próximas etapas</div>
+      <h2>Construindo a <span>jornada.</span></h2>
+    </div>
+    <p class="section-intro">Um passo de cada vez, transformando estudo em projetos práticos.</p>
+  </div>
   <div class="timeline">
-    <div class="timeline-item reveal"><small>Fase 01 / Fundamentos</small><h3>Lógica e programação</h3><p>Variáveis, condições, repetições, funções e resolução de problemas.</p></div>
-    <div class="timeline-item reveal"><small>Fase 02 / Backend</small><h3>Java e APIs</h3><p>Orientação a objetos, HTTP, REST, Spring Boot e testes.</p></div>
-    <div class="timeline-item reveal"><small>Fase 03 / Construção</small><h3>Projetos e banco de dados</h3><p>SQL, integração, versionamento e projetos completos no GitHub.</p></div>
+    <div class="timeline-item reveal">
+      <small>Fase 01 / Fundamentos</small>
+      <h3>Lógica e programação</h3>
+      <p>Variáveis, condições, repetições, funções e resolução de problemas.</p>
+    </div>
+    <div class="timeline-item reveal">
+      <small>Fase 02 / Backend</small>
+      <h3>Java e APIs</h3>
+      <p>Orientação a objetos, HTTP, REST, Spring Boot e testes.</p>
+    </div>
+    <div class="timeline-item reveal">
+      <small>Fase 03 / Construção</small>
+      <h3>Projetos e banco de dados</h3>
+      <p>SQL, integração, versionamento e projetos completos no GitHub.</p>
+    </div>
   </div>
-</div></section>
+</div>
+</section>
 
-<section class="section contact" id="contato"><div class="section-inner">
+<!-- CONTATO -->
+<section class="section" id="contato">
+<div class="section-inner">
   <div class="contact-panel reveal">
-    <div class="kicker">05 / Vamos conversar</div><h2>Uma boa ideia começa com um <span>oi.</span></h2>
+    <div class="kicker">05 / Vamos conversar</div>
+    <h2>Uma boa ideia começa com um <span>oi.</span></h2>
     <p>Quer conhecer meus projetos, trocar experiências ou conversar sobre tecnologia? Me encontre pelos canais abaixo.</p>
     <div class="contact-actions">
-      <a class="btn btn-primary" href="https://github.com/ChelloHAOC" target="_blank" rel="noreferrer">GitHub ↗</a>
-      <a class="btn btn-secondary" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-      <button class="btn btn-secondary" id="copyEmail">Copiar e-mail ↗</button>
+      <a class="btn btn-primary" href="https://github.com/ChelloHAOC" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      <button class="btn" id="copyEmail">Copiar e-mail ↗</button>
     </div>
     <p id="copyStatus" aria-live="polite" style="font-size:11px;margin-top:12px"></p>
   </div>
-</div></section>
+</div>
+</section>
+
 </main>
 
+<!-- MODAL -->
 <div class="animal-modal" id="animalModal" role="dialog" aria-modal="true" aria-labelledby="animalModalTitle">
   <div class="animal-modal-panel">
     <button class="modal-close" id="animalModalClose" aria-label="Fechar detalhes">Fechar ✕</button>
-    <div class="kicker">Conheça seu futuro companheiro</div><h3 id="animalModalTitle">Animal</h3><p id="animalModalText"></p>
+    <div class="kicker">Conheça seu futuro companheiro</div>
+    <h3 id="animalModalTitle">Animal</h3>
+    <p id="animalModalText"></p>
     <p><strong>Próximo passo:</strong> esta demonstração não recebe pedidos reais. Em uma versão real, entre em contato com a ONG ou o responsável autorizado.</p>
   </div>
 </div>
-<footer class="footer"><span>© 2026 Marcelo Santos</span><span>Feito com intenção · HTML / CSS / JavaScript</span><a href="#inicio">Voltar ao topo ↑</a></footer>
+
+<footer class="footer">
+  <span>© 2026 Marcelo Santos</span>
+  <span>Feito com intenção · HTML / CSS / JavaScript</span>
+  <a href="#inicio">Voltar ao topo ↑</a>
+</footer>
 
 <script>
-const nav=document.getElementById('nav');
-const navLinks=document.getElementById('navLinks');
-const menuToggle=document.getElementById('menuToggle');
-const visual=document.getElementById('visual');
-const glow=document.getElementById('cursorGlow');
-const mascot=document.getElementById('mascotCharacter');
-const laptops=document.querySelectorAll('.tech-laptop');
+/* ELEMENTOS */
+const nav = document.getElementById('nav');
+const navLinks = document.getElementById('navLinks');
+const menuToggle = document.getElementById('menuToggle');
+const visual = document.getElementById('visual');
+const glow = document.getElementById('cursorGlow');
+const mascot = document.getElementById('mascotCharacter');
+const mascotImage = document.getElementById('mascotImage');
+const eyeLeft = document.getElementById('eyeLeft');
+const eyeRight = document.getElementById('eyeRight');
+const laptops = document.querySelectorAll('.tech-laptop');
 
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>30));
-menuToggle.addEventListener('click',()=>{
-  const open=navLinks.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded',String(open));
+const finePointer = window.matchMedia('(pointer:fine)').matches;
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* MENU */
+function updateNav() {
+  nav.classList.toggle('scrolled', window.scrollY > 30);
+}
+window.addEventListener('scroll', updateNav, {passive:true});
+updateNav();
+
+menuToggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(open));
 });
-navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
-  navLinks.classList.remove('open');
-  menuToggle.setAttribute('aria-expanded','false');
-}));
 
-const finePointer=window.matchMedia('(pointer:fine)').matches;
-if(finePointer){
-  window.addEventListener('pointermove',event=>{
-    glow.style.left=event.clientX+'px';
-    glow.style.top=event.clientY+'px';
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
   });
-  visual.addEventListener('pointermove',event=>{
-    const rect=visual.getBoundingClientRect();
-    const x=(event.clientX-rect.left)/rect.width-.5;
-    const y=(event.clientY-rect.top)/rect.height-.5;
-    mascot.style.transform=`translateY(-8px) rotateY(${x*20}deg) rotateX(${-y*12}deg)`;
-    laptops.forEach((laptop,index)=>{
-      if(laptop.matches(':hover'))return;
-      const depth=(index%3+1)*5;
-      laptop.style.transform=`rotateY(${x*depth}deg) rotateX(${-y*depth}deg)`;
+});
+
+/* MOVIMENTO DOS OLHOS */
+const eyes = [eyeLeft, eyeRight];
+const eyeState = {
+  targetX:0,
+  targetY:0,
+  currentX:0,
+  currentY:0
+};
+
+function updateEyeTarget(clientX, clientY) {
+  const rect = mascotImage.getBoundingClientRect();
+
+  const centerX = rect.left + rect.width * 0.55;
+  const centerY = rect.top + rect.height * 0.17;
+
+  const dx = clientX - centerX;
+  const dy = clientY - centerY;
+  const angle = Math.atan2(dy, dx);
+  const intensity = Math.min(Math.hypot(dx,dy) / 220, 1);
+
+  // Limite de deslocamento para não sair da região da íris.
+  const maxMove = rect.width * 0.012;
+
+  eyeState.targetX = Math.cos(angle) * maxMove * intensity;
+  eyeState.targetY = Math.sin(angle) * maxMove * intensity;
+}
+
+function animateEyes() {
+  eyeState.currentX += (eyeState.targetX - eyeState.currentX) * .13;
+  eyeState.currentY += (eyeState.targetY - eyeState.currentY) * .13;
+
+  const transform = `translate(
+    calc(-50% + ${eyeState.currentX}px),
+    calc(-50% + ${eyeState.currentY}px)
+  )`;
+
+  eyes.forEach(eye => {
+    eye.style.transform = transform;
+  });
+
+  requestAnimationFrame(animateEyes);
+}
+
+if (finePointer && !reduceMotion) {
+  window.addEventListener('pointermove', event => {
+    glow.style.left = event.clientX + 'px';
+    glow.style.top = event.clientY + 'px';
+    updateEyeTarget(event.clientX, event.clientY);
+  }, {passive:true});
+
+  document.addEventListener('pointerout', event => {
+    if (!event.relatedTarget) {
+      eyeState.targetX = 0;
+      eyeState.targetY = 0;
+    }
+  });
+
+  animateEyes();
+}
+
+/* EFEITO 3D DO BONECO */
+let targetRotateX = 0;
+let targetRotateY = 0;
+let currentRotateX = 0;
+let currentRotateY = 0;
+
+function animateMascot() {
+  currentRotateX += (targetRotateX - currentRotateX) * .08;
+  currentRotateY += (targetRotateY - currentRotateY) * .08;
+
+  mascot.style.transform = `rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg)`;
+
+  requestAnimationFrame(animateMascot);
+}
+
+if (finePointer && !reduceMotion) {
+  visual.addEventListener('pointermove', event => {
+    const rect = visual.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - .5;
+    const y = (event.clientY - rect.top) / rect.height - .5;
+
+    targetRotateY = x * 16;
+    targetRotateX = -y * 10;
+
+    laptops.forEach((laptop,index) => {
+      if (laptop.matches(':hover')) return;
+      const depth = (index % 3 + 1) * 5;
+      laptop.style.transform = `rotateY(${x*depth}deg) rotateX(${-y*depth}deg)`;
     });
   });
-  visual.addEventListener('pointerleave',()=>{
-    mascot.style.transform='';
-    laptops.forEach(laptop=>laptop.style.transform='');
+
+  visual.addEventListener('pointerleave', () => {
+    targetRotateX = 0;
+    targetRotateY = 0;
+    laptops.forEach(laptop => laptop.style.transform = '');
+  });
+
+  animateMascot();
+}
+
+/* NOTEBOOKS */
+laptops.forEach(laptop => {
+  laptop.addEventListener('pointerenter', () => laptop.classList.add('active'));
+  laptop.addEventListener('pointerleave', () => laptop.classList.remove('active'));
+  laptop.addEventListener('click', () => {
+    laptops.forEach(item => item.classList.remove('active'));
+    laptop.classList.add('active');
+    laptop.setAttribute('aria-label', laptop.dataset.tech);
+  });
+});
+
+/* ANIMAÇÕES AO ROLAR */
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      entry.target.classList.add('visible');
+      entry.target.querySelectorAll('.skill-fill').forEach(bar => {
+        bar.style.width = bar.dataset.width;
+      });
+      observer.unobserve(entry.target);
+    });
+  }, {threshold:.1});
+
+  document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+} else {
+  document.querySelectorAll('.reveal').forEach(element => {
+    element.classList.add('visible');
+    element.querySelectorAll('.skill-fill').forEach(bar => {
+      bar.style.width = bar.dataset.width;
+    });
   });
 }
 
-laptops.forEach(laptop=>{
-  laptop.addEventListener('pointerenter',()=>laptop.classList.add('active'));
-  laptop.addEventListener('pointerleave',()=>laptop.classList.remove('active'));
-  laptop.addEventListener('click',()=>{
-    const technology=laptop.dataset.tech;
-    laptops.forEach(item=>item.classList.remove('active'));
-    laptop.classList.add('active');
-    laptop.setAttribute('aria-label',technology);
-  });
-});
+/* ANIMAÇÃO DOS CARDS */
+if (finePointer && !reduceMotion) {
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('pointermove', event => {
+      const rect = card.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - .5;
+      const y = (event.clientY - rect.top) / rect.height - .5;
 
-const animals=[
+      card.style.transform = `perspective(900px) rotateY(${x*5}deg) rotateX(${-y*4}deg) translateY(-3px)`;
+    });
+    card.addEventListener('pointerleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+
+/* ANIMAIS */
+const animals = [
   {id:'thor',name:'Thor',species:'Cão',text:'Thor é um cão demonstrativo e brincalhão. Uma família ativa, com tempo para passeios, pode combinar com seu perfil.'},
   {id:'luna',name:'Luna',species:'Gato',text:'Luna é uma gata demonstrativa, curiosa e carinhosa. Um ambiente seguro e uma adaptação gradual são importantes.'},
   {id:'max',name:'Max',species:'Cão',text:'Max é um cão demonstrativo cheio de energia. Passeios e brincadeiras fazem parte dos cuidados necessários.'},
@@ -395,92 +1394,105 @@ const animals=[
   {id:'bidu',name:'Bidu',species:'Cão',text:'Bidu é um cão demonstrativo e companheiro. A adoção deve considerar cuidados veterinários e rotina diária.'},
   {id:'simba',name:'Simba',species:'Gato',text:'Simba é um gato demonstrativo e curioso. Telas de proteção e um ambiente enriquecido são cuidados importantes.'}
 ];
-const animalSearch=document.getElementById('animalSearch');
-const animalSpecies=document.getElementById('animalSpecies');
-const animalSize=document.getElementById('animalSize');
-const animalCards=[...document.querySelectorAll('.animal-card')];
 
-function filterAnimals(){
-  const query=animalSearch.value.trim().toLocaleLowerCase('pt-BR');
-  let visible=0;
-  animalCards.forEach(card=>{
-    const matches=card.dataset.name.includes(query)
-      &&(animalSpecies.value==='todos'||card.dataset.species===animalSpecies.value)
-      &&(animalSize.value==='todos'||card.dataset.size===animalSize.value);
-    card.hidden=!matches;
-    if(matches)visible++;
+const animalSearch = document.getElementById('animalSearch');
+const animalSpecies = document.getElementById('animalSpecies');
+const animalSize = document.getElementById('animalSize');
+const animalCards = [...document.querySelectorAll('.animal-card')];
+
+function filterAnimals() {
+  const query = animalSearch.value.trim().toLocaleLowerCase('pt-BR');
+  let visible = 0;
+
+  animalCards.forEach(card => {
+    const matches = card.dataset.name.includes(query)
+      && (animalSpecies.value === 'todos' || card.dataset.species === animalSpecies.value)
+      && (animalSize.value === 'todos' || card.dataset.size === animalSize.value);
+
+    card.hidden = !matches;
+    if (matches) visible++;
   });
-  let empty=document.getElementById('animalEmpty');
-  if(!visible&&!empty){
-    empty=document.createElement('div');
-    empty.id='animalEmpty';
-    empty.className='animal-empty';
-    empty.textContent='Nenhum animal encontrado. Tente mudar os filtros.';
+
+  let empty = document.getElementById('animalEmpty');
+
+  if (!visible && !empty) {
+    empty = document.createElement('div');
+    empty.id = 'animalEmpty';
+    empty.className = 'animal-empty';
+    empty.textContent = 'Nenhum animal encontrado. Tente mudar os filtros.';
     document.getElementById('animalGrid').appendChild(empty);
   }
-  if(visible&&empty)empty.remove();
-  document.getElementById('animalCount').textContent=`${visible} ${visible===1?'animal encontrado':'animais encontrados'} (dados demonstrativos)`;
-}
-animalSearch.addEventListener('input',filterAnimals);
-animalSpecies.addEventListener('change',filterAnimals);
-animalSize.addEventListener('change',filterAnimals);
 
-const animalModal=document.getElementById('animalModal');
-document.querySelectorAll('[data-animal]').forEach(button=>{
-  button.addEventListener('click',()=>{
-    const animal=animals.find(item=>item.id===button.dataset.animal);
-    if(!animal)return;
-    document.getElementById('animalModalTitle').textContent=`${animal.name} · ${animal.species}`;
-    document.getElementById('animalModalText').textContent=animal.text;
+  if (visible && empty) empty.remove();
+
+  document.getElementById('animalCount').textContent =
+    `${visible} ${visible === 1 ? 'animal encontrado' : 'animais encontrados'} (dados demonstrativos)`;
+}
+
+animalSearch.addEventListener('input', filterAnimals);
+animalSpecies.addEventListener('change', filterAnimals);
+animalSize.addEventListener('change', filterAnimals);
+
+/* MODAL */
+const animalModal = document.getElementById('animalModal');
+const modalClose = document.getElementById('animalModalClose');
+let lastModalTrigger = null;
+
+document.querySelectorAll('[data-animal]').forEach(button => {
+  button.addEventListener('click', () => {
+    const animal = animals.find(item => item.id === button.dataset.animal);
+    if (!animal) return;
+
+    lastModalTrigger = button;
+    document.getElementById('animalModalTitle').textContent = `${animal.name} · ${animal.species}`;
+    document.getElementById('animalModalText').textContent = animal.text;
+
     animalModal.classList.add('open');
-    document.getElementById('animalModalClose').focus();
+    modalClose.focus();
   });
 });
-function closeAnimalModal(){animalModal.classList.remove('open');}
-document.getElementById('animalModalClose').addEventListener('click',closeAnimalModal);
-animalModal.addEventListener('click',event=>{if(event.target===animalModal)closeAnimalModal();});
-document.addEventListener('keydown',event=>{if(event.key==='Escape')closeAnimalModal();});
 
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      entry.target.querySelectorAll('.skill-fill').forEach(bar=>{bar.style.width=bar.dataset.width;});
-      observer.unobserve(entry.target);
-    }
-  });
-},{threshold:.14});
-document.querySelectorAll('.reveal').forEach(element=>observer.observe(element));
-
-if(finePointer){
-  document.querySelectorAll('.project-card').forEach(card=>{
-    card.addEventListener('pointermove',event=>{
-      const rect=card.getBoundingClientRect();
-      const x=(event.clientX-rect.left)/rect.width-.5;
-      const y=(event.clientY-rect.top)/rect.height-.5;
-      card.style.transform=`perspective(900px) rotateY(${x*5}deg) rotateX(${-y*4}deg) translateY(-3px)`;
-    });
-    card.addEventListener('pointerleave',()=>{card.style.transform='';});
-  });
+function closeAnimalModal() {
+  if (!animalModal.classList.contains('open')) return;
+  animalModal.classList.remove('open');
+  if (lastModalTrigger) lastModalTrigger.focus();
 }
 
-document.getElementById('copyEmail').addEventListener('click',async()=>{
-  const status=document.getElementById('copyStatus');
-  const email='SEU_EMAIL_AQUI';
-  if(email==='SEU_EMAIL_AQUI'){
-    status.textContent='Configure seu e-mail no JavaScript antes de publicar.';
+modalClose.addEventListener('click', closeAnimalModal);
+animalModal.addEventListener('click', event => {
+  if (event.target === animalModal) closeAnimalModal();
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') closeAnimalModal();
+  if (event.key === 'Tab' && animalModal.classList.contains('open')) {
+    event.preventDefault();
+    modalClose.focus();
+  }
+});
+
+/* COPIAR E-MAIL */
+document.getElementById('copyEmail').addEventListener('click', async () => {
+  const status = document.getElementById('copyStatus');
+  const email = 'SEU_EMAIL_AQUI';
+
+  if (email === 'SEU_EMAIL_AQUI') {
+    status.textContent = 'Configure seu e-mail no JavaScript antes de publicar.';
     return;
   }
-  try{
+
+  try {
     await navigator.clipboard.writeText(email);
-    status.textContent='E-mail copiado!';
-  }catch(error){
-    status.textContent='Não foi possível copiar automaticamente.';
+    status.textContent = 'E-mail copiado!';
+  } catch (error) {
+    status.textContent = 'Não foi possível copiar automaticamente.';
   }
 });
 
-document.getElementById('mascotImage').addEventListener('error',()=>{
-  document.getElementById('mascotImage').alt='Não foi possível carregar o mascote. Confira o nome do arquivo no GitHub.';
+/* ERRO NA IMAGEM */
+mascotImage.addEventListener('error', () => {
+  mascotImage.alt = 'Imagem do mascote não encontrada. Confira o nome do arquivo.';
+  eyes.forEach(eye => eye.hidden = true);
+  console.error('Imagem do mascote não encontrada.');
 });
 </script>
 </body>
