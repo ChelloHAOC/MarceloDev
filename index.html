@@ -760,6 +760,70 @@ footer {
   text-shadow: 0 0 35px rgba(255,135,0,.16);
 }
 
+/* OLHOS DO MASCOTE TECHWEAR */
+
+.mascot-eye {
+  position: absolute;
+  width: 7.1%;
+  height: 4.3%;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Coordenadas iniciais para PNG 1024 x 1536 */
+.eye-left {
+  left: 45.5%;
+  top: 14.2%;
+}
+
+.eye-right {
+  left: 57.3%;
+  top: 16.3%;
+}
+
+.mascot-eye .pupil {
+  position: absolute;
+  width: 65%;
+  height: 75%;
+  left: 17.5%;
+  top: 12.5%;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 32% 28%,
+      white 0 9%,
+      #353b48 11%,
+      #151820 35%,
+      #030303 72%
+    );
+  transform: translate(
+    var(--eye-x, 0px),
+    var(--eye-y, 0px)
+  );
+  transition: transform .09s ease-out;
+}
+
+.mascot-eye .eyelid {
+  position: absolute;
+  inset: 0;
+  background: #e7a574;
+  border-radius: 50%;
+  transform: scaleY(0);
+  transform-origin: center top;
+  z-index: 2;
+}
+
+.mascot-eye.blink .eyelid {
+  animation: mascotBlink .2s ease-in-out;
+}
+
+@keyframes mascotBlink {
+  0%, 100% { transform: scaleY(0); }
+  50% { transform: scaleY(1); }
+}
+
 </style>
 </head>
 
@@ -827,22 +891,38 @@ footer {
     <div class="mascot-wrap" id="mascotWrap">
       <div class="mascot-float">
 
-        <img
-          class="mascot"
-          src="C7F71BC9-F9C2-446D-9024-533C5030EFAE.png"
-          alt="Mascote de Marcelo Santos"
-        >
+       
+<div class="mascot-wrap" id="mascotWrap">
+  <div class="mascot-float">
 
-        <div class="mascot-head" id="mascotHead">
-          <img
-            src="C7F71BC9-F9C2-446D-9024-533C5030EFAE.png"
-            alt=""
-            aria-hidden="true"
-          >
-        </div>
+    <img
+      class="mascot"
+      src="Mascote Desenvolvedor Java em 3D.png"
+      alt="Mascote Marcelo Santos, desenvolvedor Java"
+    >
 
+    <div class="mascot-head" id="mascotHead">
+
+      <img
+        src="Mascote Desenvolvedor Java em 3D.png"
+        alt=""
+        aria-hidden="true"
+      >
+
+      <div class="mascot-eye eye-left">
+        <span class="pupil"></span>
+        <span class="eyelid"></span>
       </div>
+
+      <div class="mascot-eye eye-right">
+        <span class="pupil"></span>
+        <span class="eyelid"></span>
+      </div>
+
     </div>
+
+  </div>
+</div>
 
     <div class="laptop l1">
       <div class="screen">
@@ -1165,6 +1245,54 @@ if ("IntersectionObserver" in window && !reducedMotion) {
 } else {
   elements.forEach(element => element.classList.add("show"));
 }
+  
+/* OLHOS SEGUINDO O CURSOR */
+
+const mascotEyes = document.querySelectorAll(".mascot-eye");
+
+if (
+  mascotEyes.length === 2 &&
+  window.matchMedia("(pointer: fine)").matches &&
+  !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+) {
+  window.addEventListener("pointermove", event => {
+    mascotEyes.forEach(eye => {
+      const rect = eye.getBoundingClientRect();
+
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      const dx = event.clientX - centerX;
+      const dy = event.clientY - centerY;
+
+      const angle = Math.atan2(dy, dx);
+      const strength = Math.min(Math.hypot(dx, dy) / 300, 1);
+      const maxMove = rect.width * .12;
+
+      eye.style.setProperty(
+        "--eye-x",
+        `${Math.cos(angle) * maxMove * strength}px`
+      );
+
+      eye.style.setProperty(
+        "--eye-y",
+        `${Math.sin(angle) * maxMove * strength}px`
+      );
+    });
+  });
+
+  function blinkMascot() {
+    mascotEyes.forEach(eye => eye.classList.add("blink"));
+
+    setTimeout(() => {
+      mascotEyes.forEach(eye => eye.classList.remove("blink"));
+      setTimeout(blinkMascot, 2500 + Math.random() * 3500);
+    }, 220);
+  }
+
+  setTimeout(blinkMascot, 3000);
+}
+
 </script>
 
 </body>
