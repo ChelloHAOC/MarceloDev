@@ -712,6 +712,46 @@ footer {
     scroll-behavior: auto !important;
   }
 }
+  
+/* CAMADA ANIMADA DA CABEÇA */
+
+.mascot-float {
+  position: relative;
+}
+
+.mascot-body {
+  display: block;
+}
+
+.mascot-head {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  /* Recorta a região da cabeça */
+  clip-path: polygon(
+    24% 0%,
+    82% 0%,
+    87% 14%,
+    82% 28%,
+    70% 33%,
+    47% 34%,
+    31% 30%,
+    22% 22%,
+    18% 12%
+  );
+
+  transform-origin: 52% 31%;
+  will-change: transform;
+}
+
+.mascot-head img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 </style>
 </head>
 
@@ -779,17 +819,30 @@ footer {
 
     <div class="platform"></div>
 
-    <div class="mascot-wrap" id="mascotWrap">
-      <div class="mascot-float">
+    
+<div class="mascot-wrap" id="mascotWrap">
 
-        <img
-          class="mascot"
-          src="C7F71BC9-F9C2-446D-9024-533C5030EFAE.png"
-          alt="Mascote de Marcelo Santos"
-        >
+  <div class="mascot-float">
 
-      </div>
+    <!-- Corpo original -->
+    <img
+      class="mascot mascot-body"
+      src="C7F71BC9-F9C2-446D-9024-533C5030EFAE.png"
+      alt="Mascote Marcelo Santos"
+    >
+
+    <!-- Camada independente da cabeça -->
+    <div class="mascot-head" id="mascotHead">
+      <img
+        src="C7F71BC9-F9C2-446D-9024-533C5030EFAE.png"
+        alt=""
+        aria-hidden="true"
+      >
     </div>
+
+  </div>
+
+</div>
 
     <!-- NOTEBOOK 1 -->
     <div class="laptop l1">
@@ -1125,6 +1178,47 @@ if ("IntersectionObserver" in window) {
     element.classList.add("show");
   });
 
+}
+
+/* MOVIMENTO SUAVE DA CABEÇA */
+
+const mascotHead = document.getElementById("mascotHead");
+
+let headTargetX = 0;
+let headTargetY = 0;
+let headCurrentX = 0;
+let headCurrentY = 0;
+
+if (
+  window.matchMedia("(pointer: fine)").matches &&
+  !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+) {
+
+  window.addEventListener("pointermove", event => {
+    const rect = mascotHead.getBoundingClientRect();
+
+    const centerX = rect.left + rect.width * 0.52;
+    const centerY = rect.top + rect.height * 0.19;
+
+    const dx = (event.clientX - centerX) / window.innerWidth;
+    const dy = (event.clientY - centerY) / window.innerHeight;
+
+    headTargetY = Math.max(-5, Math.min(5, dx * 10));
+    headTargetX = Math.max(-3, Math.min(3, -dy * 6));
+  });
+
+  function animateHead() {
+    headCurrentX += (headTargetX - headCurrentX) * 0.045;
+    headCurrentY += (headTargetY - headCurrentY) * 0.045;
+
+    mascotHead.style.transform =
+      `rotateX(${headCurrentX}deg)
+       rotateY(${headCurrentY}deg)`;
+
+    requestAnimationFrame(animateHead);
+  }
+
+  animateHead();
 }
 
 </script>
