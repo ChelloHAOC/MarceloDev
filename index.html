@@ -3,10 +3,9 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#08090d">
-
-<title>Marcelo Santos | Desenvolvedor Backend Java</title>
+<title>Marcelo Santos | Backend Java</title>
 
 <style>
 :root {
@@ -16,9 +15,7 @@
   --muted: #a4a6ad;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
@@ -33,20 +30,13 @@ body {
   overflow-x: hidden;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+a { color: inherit; text-decoration: none; }
 
-/* =========================
-   CABEÇALHO
-========================= */
+/* CABEÇALHO */
 
 header {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  inset: 0 0 auto;
   height: 76px;
   padding: 0 6%;
   display: flex;
@@ -64,14 +54,9 @@ header {
   font-style: italic;
 }
 
-.logo span {
-  color: var(--orange);
-}
+.logo span { color: var(--orange); }
 
-nav {
-  display: flex;
-  gap: 28px;
-}
+nav { display: flex; gap: 28px; }
 
 nav a {
   font-size: 13px;
@@ -79,15 +64,12 @@ nav a {
   transition: color .25s;
 }
 
-nav a:hover {
-  color: var(--orange);
-}
+nav a:hover { color: var(--orange); }
 
 .github {
   padding: 13px 21px;
   border: 1px solid var(--orange);
   border-radius: 13px;
-  transition: .3s;
 }
 
 .github:hover {
@@ -95,9 +77,7 @@ nav a:hover {
   color: #08090d;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero {
   position: relative;
@@ -108,12 +88,8 @@ nav a:hover {
   align-items: center;
   overflow: hidden;
   background:
-    radial-gradient(
-      circle at 74% 47%,
-      #291a17 0%,
-      #151219 29%,
-      transparent 65%
-    ),
+    radial-gradient(circle at 74% 47%,
+      #291a17 0%, #151219 29%, transparent 65%),
     var(--bg);
 }
 
@@ -151,9 +127,7 @@ nav a:hover {
   line-height: 1.75;
 }
 
-.hero p strong {
-  color: var(--orange);
-}
+.hero p strong { color: var(--orange); }
 
 .buttons {
   display: flex;
@@ -170,12 +144,10 @@ nav a:hover {
   border-radius: 10px;
   font-size: 13px;
   font-weight: 800;
-  transition: .3s;
+  transition: transform .3s;
 }
 
-.btn:hover {
-  transform: translateY(-4px);
-}
+.btn:hover { transform: translateY(-4px); }
 
 .btn-primary {
   color: #090909;
@@ -183,13 +155,9 @@ nav a:hover {
   box-shadow: 0 0 24px #ff870055;
 }
 
-.btn-secondary {
-  border: 1px solid #ffffffaa;
-}
+.btn-secondary { border: 1px solid #ffffffaa; }
 
-/* =========================
-   EFEITOS DE CORRIDA
-========================= */
+/* LINHAS DE CORRIDA */
 
 .speed-line {
   position: absolute;
@@ -197,42 +165,22 @@ nav a:hover {
   width: 260px;
   height: 3px;
   pointer-events: none;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--orange),
-    transparent
-  );
+  background: linear-gradient(90deg,
+    transparent,var(--orange),transparent);
   box-shadow: 0 0 20px #ff870088;
   animation: speed 5s linear infinite;
 }
 
-.speed-one {
-  top: 18%;
-}
-
-.speed-two {
-  bottom: 16%;
-  animation-delay: -2.5s;
-}
+.speed-one { top: 18%; }
+.speed-two { bottom: 16%; animation-delay: -2.5s; }
 
 @keyframes speed {
-  0% {
-    transform: translateX(0);
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(1800px);
-    opacity: 0;
-  }
+  0% { transform: translateX(0); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateX(1800px); opacity: 0; }
 }
 
-/* =========================
-   ÁREA VISUAL
-========================= */
+/* CENÁRIO */
 
 .visual {
   position: relative;
@@ -253,15 +201,13 @@ nav a:hover {
   width: 70%;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
+  background: radial-gradient(circle,
     rgba(255,135,0,.17),
     rgba(255,100,0,.06) 45%,
-    transparent 72%
-  );
+    transparent 72%);
   filter: blur(24px);
-  pointer-events: none;
   z-index: -1;
+  pointer-events: none;
 }
 
 .orbit {
@@ -270,17 +216,14 @@ nav a:hover {
   aspect-ratio: 1;
   border: 2px solid #ff870066;
   border-radius: 50%;
-  box-shadow:
-    0 0 35px #ff870022,
-    inset 0 0 25px #ff870011;
+  box-shadow: 0 0 35px #ff870022,
+              inset 0 0 25px #ff870011;
   animation: orbit 25s linear infinite;
   z-index: 0;
 }
 
 @keyframes orbit {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
 .platform {
@@ -291,16 +234,13 @@ nav a:hover {
   border-radius: 50%;
   border: 3px solid var(--orange);
   background: #ff870011;
-  box-shadow:
-    0 0 25px var(--orange),
-    inset 0 0 25px #ff870055;
+  box-shadow: 0 0 25px var(--orange),
+              inset 0 0 25px #ff870055;
   transform: rotateX(65deg);
   z-index: 1;
 }
 
-/* =========================
-   MASCOTE TECHWEAR
-========================= */
+/* MASCOTE - MANTIDO */
 
 .mascot-wrap {
   position: relative;
@@ -319,12 +259,8 @@ nav a:hover {
 }
 
 @keyframes floatMascot {
-  0%,100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 .mascot-body {
@@ -334,12 +270,9 @@ nav a:hover {
   object-fit: contain;
   user-select: none;
   pointer-events: none;
-  filter:
-    drop-shadow(0 16px 22px #00000088)
-    drop-shadow(0 0 18px #ff870022);
+  filter: drop-shadow(0 16px 22px #00000088)
+          drop-shadow(0 0 18px #ff870022);
 }
-
-/* Camada de movimento da cabeça */
 
 .mascot-head {
   position: absolute;
@@ -350,17 +283,10 @@ nav a:hover {
   pointer-events: none;
   transform-origin: 52% 31%;
   will-change: transform;
-
   clip-path: polygon(
-    24% 0%,
-    82% 0%,
-    87% 14%,
-    82% 28%,
-    70% 33%,
-    47% 34%,
-    31% 30%,
-    22% 22%,
-    18% 12%
+    24% 0%,82% 0%,87% 14%,82% 28%,
+    70% 33%,47% 34%,31% 30%,
+    22% 22%,18% 12%
   );
 }
 
@@ -371,9 +297,7 @@ nav a:hover {
   object-fit: contain;
 }
 
-/* =========================
-   OLHOS ANIMADOS
-========================= */
+/* OLHOS - MANTIDOS */
 
 .mascot-eye {
   position: absolute;
@@ -385,20 +309,8 @@ nav a:hover {
   pointer-events: none;
 }
 
-/*
-  Posições relativas à imagem
-  de 1024 x 1536 pixels.
-*/
-
-.eye-left {
-  left: 46.1%;
-  top: 14.5%;
-}
-
-.eye-right {
-  left: 57.8%;
-  top: 16.2%;
-}
+.eye-left { left: 46.1%; top: 14.5%; }
+.eye-right { left: 57.8%; top: 16.2%; }
 
 .pupil {
   position: absolute;
@@ -407,21 +319,11 @@ nav a:hover {
   left: 15%;
   top: 12%;
   border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle at 32% 27%,
-      #ffffff 0 8%,
-      #343a46 11%,
-      #151820 32%,
-      #020305 75%
-    );
-
-  transform: translate(
-    var(--eye-x,0px),
-    var(--eye-y,0px)
-  );
-
+  background: radial-gradient(circle at 32% 27%,
+    #fff 0 8%,#343a46 11%,
+    #151820 32%,#020305 75%);
+  transform: translate(var(--eye-x,0px),
+                       var(--eye-y,0px));
   will-change: transform;
 }
 
@@ -440,130 +342,264 @@ nav a:hover {
 }
 
 @keyframes blink {
-  0%,100% {
-    transform: scaleY(0);
-  }
-  50% {
-    transform: scaleY(1);
-  }
+  0%,100% { transform: scaleY(0); }
+  50% { transform: scaleY(1); }
 }
 
-/* =========================
-   NOTEBOOKS 3D
-========================= */
+/* ==================================
+   NOVOS NOTEBOOKS F1 TECH PREMIUM
+================================== */
+
+/* Mantemos o tamanho e as posições externas.
+   O efeito 3D acontece dentro do notebook. */
 
 .laptop {
   position: absolute;
   width: clamp(80px,10vw,116px);
   z-index: 8;
   animation: laptopFloat 5s ease-in-out infinite;
-  filter: drop-shadow(0 8px 12px #000000aa);
-  transition: filter .3s;
+  perspective: 600px;
+}
+
+.laptop-shell {
+  position: relative;
+  width: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(-5deg) rotateY(-8deg);
+  transition: transform .45s cubic-bezier(.2,.8,.2,1),
+              filter .45s;
+  filter: drop-shadow(0 12px 12px #000a);
 }
 
 .laptop:hover {
   animation-play-state: paused;
-  filter: drop-shadow(0 0 18px #ff8700cc);
+  z-index: 30;
 }
 
-.screen {
+.laptop:hover .laptop-shell {
+  transform: rotateX(-12deg) rotateY(10deg)
+             translateY(-8px) scale(1.12);
+  filter: drop-shadow(0 12px 17px #ff870055);
+}
+
+/* Moldura metálica */
+
+.laptop-screen {
+  position: relative;
   height: clamp(65px,7.5vw,88px);
-  border: 3px solid #7e818b;
-  border-bottom: 5px solid #444;
-  border-radius: 8px 8px 3px 3px;
+  border: 4px solid #666d79;
+  border-bottom: 6px solid #383d46;
+  border-radius: 9px 9px 3px 3px;
+  overflow: hidden;
+  background: #05070b;
+  box-shadow:
+    inset 0 0 0 1px #ffffff20,
+    inset 0 0 18px #000,
+    0 0 14px #ff870022,
+    2px 3px 0 #22252c;
+}
 
-  background: linear-gradient(
-    145deg,
-    #19202b,
-    #07080b
-  );
+/* Reflexo do vidro */
 
+.laptop-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(125deg,
+    #ffffff15 0%,transparent 38%,
+    transparent 65%,#ffffff06 100%);
+  pointer-events: none;
+}
+
+/* Barra superior do sistema */
+
+.window-bar {
+  position: relative;
+  height: 13px;
+  padding: 0 5px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: linear-gradient(#202630,#11151c);
+  border-bottom: 1px solid #ffffff16;
+}
+
+.window-bar i {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #ff8700;
+  box-shadow: 0 0 3px #ff870088;
+}
+
+.window-bar i:nth-child(2) { background: #e7bc55; }
+.window-bar i:nth-child(3) { background: #5aaf79; }
+
+.window-bar small {
+  margin-left: auto;
+  color: #858c9b;
+  font-size: 5px;
+  font-family: monospace;
+}
+
+/* Conteúdo individual da tela */
+
+.screen-content {
+  height: calc(100% - 13px);
+  padding: 5px 7px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  gap: 6px;
-
-  box-shadow:
-    inset 0 0 22px #000000dd,
-    0 0 12px #ff870026;
+  gap: 3px;
+  background:
+    radial-gradient(circle at 50% 90%,
+      #ff87000c,transparent 70%),
+    #090d14;
 }
 
-.symbol {
-  color: var(--orange);
-  font-size: 24px;
+.tech-heading {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tech-symbol {
+  font-family: monospace;
+  font-size: clamp(13px,1.8vw,21px);
   font-weight: 900;
+  color: var(--tech-color,var(--orange));
+  text-shadow: 0 0 9px
+    color-mix(in srgb,var(--tech-color,var(--orange)),
+    transparent 50%);
+  line-height: 1;
 }
 
-.screen strong {
-  font-size: 12px;
+.tech-name {
+  font-size: clamp(7px,.9vw,10px);
+  font-weight: 900;
+  color: #f1f3f7;
 }
 
-.keyboard {
+.code-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 2px;
+}
+
+.code-lines span {
+  display: block;
+  width: var(--line-width,70%);
+  height: 2px;
+  border-radius: 4px;
+  background: var(--line-color,#ff8700);
+  opacity: .75;
+  box-shadow: 0 0 5px
+    color-mix(in srgb,var(--line-color,#ff8700)),
+    transparent 60%);
+}
+
+.code-lines span:nth-child(2) {
+  width: 85%;
+  background: #6d91bf;
+}
+
+.code-lines span:nth-child(3) {
+  width: 52%;
+  background: #d9dce4;
+}
+
+.code-lines span:nth-child(4) {
+  width: 65%;
+  background: #a478d8;
+}
+
+.laptop:hover .code-lines span {
+  animation: codePulse 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes codePulse {
+  to { opacity: .3; }
+}
+
+/* Teclado tridimensional */
+
+.laptop-base {
+  position: relative;
   width: 112%;
-  height: 13px;
+  height: 19px;
   margin-left: -6%;
-  background: linear-gradient(
-    #999da8,
-    #41434b
-  );
-
-  clip-path: polygon(
-    8% 0,
-    92% 0,
-    100% 100%,
-    0 100%
-  );
-
-  border-radius: 0 0 8px 8px;
+  margin-top: -1px;
+  border-radius: 1px 1px 8px 8px;
+  background: linear-gradient(180deg,
+    #626975 0%,#343944 30%,
+    #171b22 75%,#858b97 100%);
+  clip-path: polygon(8% 0,92% 0,100% 100%,0 100%);
+  box-shadow: 0 7px 12px #0009;
+  transform-origin: center top;
+  transform: rotateX(42deg);
 }
+
+.keys {
+  position: absolute;
+  top: 3px;
+  left: 14%;
+  width: 72%;
+  height: 9px;
+  border-radius: 2px;
+  background:
+    repeating-linear-gradient(90deg,
+      transparent 0 5px,#ff870055 5px 6px),
+    repeating-linear-gradient(0deg,
+      #080a10 0 3px,#565b66 3px 4px);
+  box-shadow: 0 0 5px #ff870044;
+}
+
+.trackpad {
+  position: absolute;
+  bottom: 2px;
+  left: 42%;
+  width: 16%;
+  height: 4px;
+  border: 1px solid #a2a7b3;
+  border-radius: 2px;
+  opacity: .65;
+}
+
+.laptop-base::after {
+  content: "";
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  bottom: 0;
+  height: 2px;
+  background: var(--orange);
+  box-shadow: 0 0 7px var(--orange);
+}
+
+/* Cores individuais */
+
+.html-tech { --tech-color: #ff793b; }
+.css-tech { --tech-color: #40a9ff; }
+.js-tech { --tech-color: #f5d64a; }
+.java-tech { --tech-color: #ff8700; }
+.sql-tech { --tech-color: #45d5c0; }
+.git-tech { --tech-color: #f06a47; }
+.github-tech { --tech-color: #d6c3ff; }
 
 @keyframes laptopFloat {
-  0%,100% {
-    translate: 0 0;
-  }
-  50% {
-    translate: 0 -14px;
-  }
+  0%,100% { translate: 0 0; }
+  50% { translate: 0 -14px; }
 }
 
-/* POSIÇÕES DOS NOTEBOOKS */
+/* POSIÇÕES ORIGINAIS PRESERVADAS */
 
-.l1 {
-  top: 5%;
-  left: 12%;
-}
-
-.l2 {
-  top: 5%;
-  right: 12%;
-  animation-delay: -1s;
-}
-
-.l3 {
-  top: 35%;
-  left: 0;
-  animation-delay: -2s;
-}
-
-.l4 {
-  top: 35%;
-  right: 0;
-  animation-delay: -3s;
-}
-
-.l5 {
-  bottom: 15%;
-  left: 9%;
-  animation-delay: -1.5s;
-}
-
-.l6 {
-  bottom: 15%;
-  right: 9%;
-  animation-delay: -2.5s;
-}
-
+.l1 { top: 5%; left: 12%; }
+.l2 { top: 5%; right: 12%; animation-delay: -1s; }
+.l3 { top: 35%; left: 0; animation-delay: -2s; }
+.l4 { top: 35%; right: 0; animation-delay: -3s; }
+.l5 { bottom: 15%; left: 9%; animation-delay: -1.5s; }
+.l6 { bottom: 15%; right: 9%; animation-delay: -2.5s; }
 .l7 {
   bottom: 1%;
   left: 50%;
@@ -571,13 +607,9 @@ nav a:hover {
   animation-delay: -4s;
 }
 
-/* =========================
-   SEÇÕES
-========================= */
+/* SEÇÕES */
 
-section.content {
-  padding: 100px 8%;
-}
+section.content { padding: 100px 8%; }
 
 .section-title {
   font-size: clamp(34px,5vw,64px);
@@ -586,9 +618,7 @@ section.content {
   margin: 0 0 18px;
 }
 
-.section-title span {
-  color: var(--orange);
-}
+.section-title span { color: var(--orange); }
 
 .section-description {
   max-width: 650px;
@@ -609,11 +639,7 @@ section.content {
   padding: 30px;
   border: 1px solid #ffffff22;
   border-radius: 18px;
-  background: linear-gradient(
-    145deg,
-    #181a21,
-    #0c0d12
-  );
+  background: linear-gradient(145deg,#181a21,#0c0d12);
   transition: .35s;
 }
 
@@ -629,10 +655,7 @@ section.content {
   letter-spacing: 3px;
 }
 
-.project h3 {
-  margin-top: 30px;
-  font-size: 23px;
-}
+.project h3 { margin-top: 30px; font-size: 23px; }
 
 .project p {
   color: var(--muted);
@@ -649,9 +672,7 @@ section.content {
 
 /* IMPACTO */
 
-.impact {
-  background: #0e1016;
-}
+.impact { background: #0e1016; }
 
 .impact-grid {
   display: grid;
@@ -672,20 +693,16 @@ section.content {
   transform: translateY(-8px);
 }
 
-.impact-icon {
-  font-size: 38px;
-}
+.impact-icon { font-size: 38px; }
 
 .impact-card p {
   color: var(--muted);
   line-height: 1.7;
 }
 
-/* SOBRE */
+/* SOBRE E CONTATO */
 
-.about {
-  max-width: 850px;
-}
+.about { max-width: 850px; }
 
 .about p {
   color: var(--muted);
@@ -693,20 +710,13 @@ section.content {
   font-size: 17px;
 }
 
-/* CONTATO */
-
 .contact {
   text-align: center;
-  background: radial-gradient(
-    circle at center,
-    #38200f,
-    #08090d 65%
-  );
+  background: radial-gradient(circle at center,
+    #38200f,#08090d 65%);
 }
 
-.contact p {
-  color: var(--muted);
-}
+.contact p { color: var(--muted); }
 
 footer {
   text-align: center;
@@ -716,14 +726,10 @@ footer {
   font-size: 12px;
 }
 
-/* ANIMAÇÃO DAS SEÇÕES */
-
 .reveal {
   opacity: 0;
   transform: translateY(35px);
-  transition:
-    opacity .8s ease,
-    transform .8s ease;
+  transition: opacity .8s ease,transform .8s ease;
 }
 
 .reveal.show {
@@ -731,9 +737,7 @@ footer {
   transform: translateY(0);
 }
 
-/* =========================
-   TABLETS
-========================= */
+/* TABLET */
 
 @media (max-width:1000px) {
   .hero {
@@ -742,74 +746,37 @@ footer {
     padding-top: 125px;
   }
 
-  .hero-text {
-    max-width: 720px;
-    margin: auto;
-  }
+  .hero-text { max-width: 720px; margin: auto; }
 
-  .hero p {
-    margin-left: auto;
-    margin-right: auto;
-  }
+  .hero p { margin-left: auto; margin-right: auto; }
 
-  .buttons {
-    justify-content: center;
-  }
+  .buttons { justify-content: center; }
 
-  .visual {
-    margin-top: 25px;
-    height: 560px;
-  }
+  .visual { margin-top: 25px; height: 560px; }
 
-  .projects,
-  .impact-grid {
+  .projects,.impact-grid {
     grid-template-columns: repeat(2,minmax(0,1fr));
   }
 }
 
-/* =========================
-   CELULARES
-========================= */
+/* CELULAR */
 
 @media (max-width:650px) {
-  header {
-    height: 66px;
-    padding: 0 15px;
-  }
+  header { height: 66px; padding: 0 15px; }
+  .logo { font-size: 21px; }
+  nav { gap: 12px; }
+  nav a { font-size: 11px; }
+  nav a:nth-child(n+3) { display: none; }
+  .github { padding: 9px; font-size: 12px; }
 
-  .logo {
-    font-size: 21px;
-  }
-
-  nav {
-    gap: 12px;
-  }
-
-  nav a {
-    font-size: 11px;
-  }
-
-  nav a:nth-child(n+3) {
-    display: none;
-  }
-
-  .github {
-    padding: 9px;
-    font-size: 12px;
-  }
-
-  .hero {
-    padding: 105px 14px 50px;
-  }
+  .hero { padding: 105px 14px 50px; }
 
   .hero h1 {
     font-size: clamp(42px,12vw,62px);
     letter-spacing: -2px;
   }
 
-  .hero p {
-    font-size: 14px;
-  }
+  .hero p { font-size: 14px; }
 
   .visual {
     width: 100%;
@@ -817,115 +784,55 @@ footer {
     margin-top: 15px;
   }
 
-  .mascot-wrap {
-    width: 43%;
+  .mascot-wrap { width: 43%; }
+  .orbit { width: 76%; }
+  .platform { width: 46%; bottom: 32px; }
+
+  .laptop { width: 69px; }
+  .laptop-screen { height: 55px; border-width: 2px; }
+  .laptop-base { height: 13px; }
+
+  .tech-symbol { font-size: 13px; }
+  .tech-name { font-size: 7px; }
+  .window-bar { height: 10px; }
+  .screen-content {
+    height: calc(100% - 10px);
+    padding: 4px;
   }
 
-  .orbit {
-    width: 76%;
-  }
+  .code-lines { gap: 2px; }
 
-  .platform {
-    width: 46%;
-    bottom: 32px;
-  }
+  .l1 { top: 10%; left: 7%; }
+  .l2 { top: 10%; right: 7%; }
+  .l3 { top: 36%; left: 0; }
+  .l4 { top: 36%; right: 0; }
+  .l5 { bottom: 17%; left: 6%; }
+  .l6 { bottom: 17%; right: 6%; }
+  .l7 { bottom: 1%; }
 
-  .laptop {
-    width: 69px;
-  }
+  section.content { padding: 75px 20px; }
 
-  .screen {
-    height: 55px;
-    border-width: 2px;
-    gap: 3px;
-  }
-
-  .symbol {
-    font-size: 16px;
-  }
-
-  .screen strong {
-    font-size: 9px;
-  }
-
-  .keyboard {
-    height: 9px;
-  }
-
-  .l1 {
-    top: 10%;
-    left: 7%;
-  }
-
-  .l2 {
-    top: 10%;
-    right: 7%;
-  }
-
-  .l3 {
-    top: 36%;
-    left: 0;
-  }
-
-  .l4 {
-    top: 36%;
-    right: 0;
-  }
-
-  .l5 {
-    bottom: 17%;
-    left: 6%;
-  }
-
-  .l6 {
-    bottom: 17%;
-    right: 6%;
-  }
-
-  .l7 {
-    bottom: 1%;
-  }
-
-  section.content {
-    padding: 75px 20px;
-  }
-
-  .projects,
-  .impact-grid {
+  .projects,.impact-grid {
     grid-template-columns: 1fr;
   }
 }
 
-/* ACESSIBILIDADE */
-
 @media (prefers-reduced-motion:reduce) {
-  *,
-  *::before,
-  *::after {
+  *,*::before,*::after {
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
   }
 
-  .reveal {
-    opacity: 1;
-    transform: none;
-  }
+  .reveal { opacity: 1; transform: none; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-     MENU
-========================= -->
-
 <header>
-
-  <div class="logo">
-    MS<span>.</span>
-  </div>
+  <div class="logo">MS<span>.</span></div>
 
   <nav aria-label="Menu principal">
     <a href="#inicio">Início</a>
@@ -935,19 +842,11 @@ footer {
     <a href="#contato">Contato</a>
   </nav>
 
-  <a
-    class="github"
-    href="https://github.com/ChelloHAOC"
-    target="_blank"
-    rel="noopener noreferrer">
-    GitHub ↗
-  </a>
-
+  <a class="github"
+     href="https://github.com/ChelloHAOC"
+     target="_blank"
+     rel="noopener noreferrer">GitHub ↗</a>
 </header>
-
-<!-- =========================
-     INÍCIO
-========================= -->
 
 <section class="hero" id="inicio">
 
@@ -955,15 +854,9 @@ footer {
   <div class="speed-line speed-two"></div>
 
   <div class="hero-text">
+    <div class="tag">/// PORTFÓLIO 2026</div>
 
-    <div class="tag">
-      /// PORTFÓLIO 2026
-    </div>
-
-    <h1>
-      MARCELO
-      <span>SANTOS.</span>
-    </h1>
+    <h1>MARCELO<span>SANTOS.</span></h1>
 
     <p>
       Desenvolvedor em evolução, com foco em
@@ -973,44 +866,32 @@ footer {
     </p>
 
     <div class="buttons">
-
-      <a href="#projetos"
-         class="btn btn-primary">
+      <a href="#projetos" class="btn btn-primary">
         Explorar projetos →
       </a>
-
-      <a href="#impacto"
-         class="btn btn-secondary">
+      <a href="#impacto" class="btn btn-secondary">
         Meu propósito ↗
       </a>
-
     </div>
-
   </div>
-
-  <!-- =====================
-       ÁREA VISUAL
-  ===================== -->
 
   <div class="visual" id="visual">
 
     <div class="orbit"></div>
     <div class="platform"></div>
 
-    <!-- MASCOTE TECHWEAR -->
+    <!-- MASCOTE ORIGINAL APROVADO -->
 
     <div class="mascot-wrap" id="mascotWrap">
-
       <div class="mascot-float">
 
         <img
           class="mascot-body"
           src="Mascote Desenvolvedor Java em 3D.png"
-          alt="Mascote de Marcelo Santos com roupa Techwear Java"
+          alt="Mascote Marcelo Santos com roupa Techwear Java"
         >
 
         <div class="mascot-head" id="mascotHead">
-
           <img
             src="Mascote Desenvolvedor Java em 3D.png"
             alt=""
@@ -1026,462 +907,385 @@ footer {
             <span class="pupil"></span>
             <span class="eyelid"></span>
           </div>
-
         </div>
 
       </div>
-
     </div>
 
-    <!-- NOTEBOOK HTML -->
+    <!-- 7 NOTEBOOKS PREMIUM -->
 
-    <div class="laptop l1">
-      <div class="screen">
-        <div class="symbol">5</div>
-        <strong>HTML</strong>
+    <div class="laptop l1 html-tech">
+      <div class="laptop-shell">
+        <div class="laptop-screen">
+          <div class="window-bar">
+            <i></i><i></i><i></i><small>index.html</small>
+          </div>
+          <div class="screen-content">
+            <div class="tech-heading">
+              <span class="tech-symbol">&lt;/&gt;</span>
+              <span class="tech-name">HTML</span>
+            </div>
+            <div class="code-lines">
+              <span style="--line-width:80%"></span>
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+        <div class="laptop-base">
+          <div class="keys"></div><div class="trackpad"></div>
+        </div>
       </div>
-      <div class="keyboard"></div>
     </div>
 
-    <!-- NOTEBOOK CSS -->
-
-    <div class="laptop l2">
-      <div class="screen">
-        <div class="symbol">#</div>
-        <strong>CSS</strong>
+    <div class="laptop l2 css-tech">
+      <div class="laptop-shell">
+        <div class="laptop-screen">
+          <div class="window-bar">
+            <i></i><i></i><i></i><small>style.css</small>
+          </div>
+          <div class="screen-content">
+            <div class="tech-heading">
+              <span class="tech-symbol">{ }</span>
+              <span class="tech-name">CSS</span>
+            </div>
+            <div class="code-lines">
+              <span style="--line-color:#40a9ff"></span>
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+        <div class="laptop-base">
+          <div class="keys"></div><div class="trackpad"></div>
+        </div>
       </div>
-      <div class="keyboard"></div>
     </div>
 
-    <!-- NOTEBOOK JAVASCRIPT -->
-
-    <div class="laptop l3">
-      <div class="screen">
-        <div class="symbol">JS</div>
-        <strong>JavaScript</strong>
+    <div class="laptop l3 js-tech">
+      <div class="laptop-shell">
+        <div class="laptop-screen">
+          <div class="window-bar">
+            <i></i><i></i><i></i><small>app.js</small>
+          </div>
+          <div class="screen-content">
+            <div class="tech-heading">
+              <span class="tech-symbol">JS</span>
+              <span class="tech-name">JavaScript</span>
+            </div>
+            <div class="code-lines">
+              <span style="--line-color:#f5d64a"></span>
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+        <div class="laptop-base">
+          <div class="keys"></div><div class="trackpad"></div>
+        </div>
       </div>
-      <div class="keyboard"></div>
     </div>
 
-    <!-- NOTEBOOK JAVA -->
-
-    <div class="laptop l4">
-      <div class="screen">
-        <div class="symbol">☕</div>
-        <strong>Java</strong>
+    <div class="laptop l4 java-tech">
+      <div class="laptop-shell">
+        <div class="laptop-screen">
+          <div class="window-bar">
+            <i></i><i></i><i></i><small>Main.java</small>
+          </div>
+          <div class="screen-content">
+            <div class="tech-heading">
+              <span class="tech-symbol">☕</span>
+              <span class="tech-name">JAVA</span>
+            </div>
+            <div class="code-lines">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+        <div class="laptop-base">
+          <div class="keys"></div><div class="trackpad"></div>
+        </div>
       </div>
-      <div class="keyboard"></div>
     </div>
 
-    <!-- NOTEBOOK SQL -->
-
-    <div class="laptop l5">
-      <div class="screen">
-        <div class="symbol">DB</div>
-        <strong>SQL</strong>
+    <div class="laptop l5 sql-tech">
+      <div class="laptop-shell">
+        <div class="laptop-screen">
+          <div class="window-bar">
+            <i></i><i></i><i></i><small>query.sql</small>
+          </div>
+          <div class="screen-content">
+            <div class="tech-heading">
+              <span class="tech-symbol">DB</span>
+              <span class="tech-name">SQL</span>
+            </div>
+            <div class="code-lines">
+              <span style="--line-color:#45d5c0"></span>
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+        <div class="laptop-base">
+          <div class="keys"></div><div class="trackpad"></div>
+        </div>
       </div>
-      <div class="keyboard"></div>
     </div>
 
-    <!-- NOTEBOOK GIT -->
-
-    <div class="laptop l6">
-      <div class="screen">
-        <div class="symbol">⑂</div>
-        <strong>Git</strong>
+    <div class="laptop l6 git-tech">
+      <div class="laptop-shell">
+        <div class="laptop-screen">
+          <div class="window-bar">
+            <i></i><i></i><i></i><small>terminal</small>
+          </div>
+          <div class="screen-content">
+            <div class="tech-heading">
+              <span class="tech-symbol">⑂</span>
+              <span class="tech-name">GIT</span>
+            </div>
+            <div class="code-lines">
+              <span style="--line-color:#f06a47"></span>
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+        <div class="laptop-base">
+          <div class="keys"></div><div class="trackpad"></div>
+        </div>
       </div>
-      <div class="keyboard"></div>
     </div>
 
-    <!-- NOTEBOOK GITHUB -->
-
-    <div class="laptop l7">
-      <div class="screen">
-        <div class="symbol">GH</div>
-        <strong>GitHub</strong>
+    <div class="laptop l7 github-tech">
+      <div class="laptop-shell">
+        <div class="laptop-screen">
+          <div class="window-bar">
+            <i></i><i></i><i></i><small>repository</small>
+          </div>
+          <div class="screen-content">
+            <div class="tech-heading">
+              <span class="tech-symbol">GH</span>
+              <span class="tech-name">GitHub</span>
+            </div>
+            <div class="code-lines">
+              <span style="--line-color:#d6c3ff"></span>
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+        <div class="laptop-base">
+          <div class="keys"></div><div class="trackpad"></div>
+        </div>
       </div>
-      <div class="keyboard"></div>
     </div>
 
   </div>
-
 </section>
 
-<!-- =========================
-     PROJETOS
-========================= -->
+<!-- PROJETOS -->
 
 <section class="content" id="projetos">
-
   <div class="reveal">
-
-    <h2 class="section-title">
-      MEUS <span>PROJETOS.</span>
-    </h2>
-
+    <h2 class="section-title">MEUS <span>PROJETOS.</span></h2>
     <p class="section-description">
-      Aqui estarão os sistemas, aplicações
-      e experimentos que desenvolvo durante
-      minha jornada na programação.
+      Aqui estarão os sistemas, aplicações e experimentos
+      que desenvolvo durante minha jornada na programação.
     </p>
-
   </div>
 
   <div class="projects">
-
     <div class="project reveal">
-
-      <div class="project-number">
-        PROJETO 001
-      </div>
-
+      <div class="project-number">PROJETO 001</div>
       <h3>Meu primeiro projeto</h3>
-
       <p>
-        Espaço reservado para apresentar
-        um projeto, explicar sua finalidade
-        e as tecnologias utilizadas.
+        Espaço reservado para apresentar um projeto,
+        sua finalidade e as tecnologias utilizadas.
       </p>
-
-      <a
-        href="https://github.com/ChelloHAOC"
-        target="_blank"
-        rel="noopener noreferrer">
+      <a href="https://github.com/ChelloHAOC"
+         target="_blank" rel="noopener noreferrer">
         Ver repositórios →
       </a>
-
     </div>
 
     <div class="project reveal">
-
-      <div class="project-number">
-        PROJETO 002
-      </div>
-
+      <div class="project-number">PROJETO 002</div>
       <h3>Projeto Backend Java</h3>
-
       <p>
-        Espaço para uma futura API,
-        sistema de gerenciamento ou
-        aplicação desenvolvida em Java.
+        Espaço para uma futura API, sistema de gerenciamento
+        ou aplicação desenvolvida em Java.
       </p>
-
-      <a
-        href="https://github.com/ChelloHAOC"
-        target="_blank"
-        rel="noopener noreferrer">
+      <a href="https://github.com/ChelloHAOC"
+         target="_blank" rel="noopener noreferrer">
         Ver repositórios →
       </a>
-
     </div>
 
     <div class="project reveal">
-
-      <div class="project-number">
-        PROJETO 003
-      </div>
-
+      <div class="project-number">PROJETO 003</div>
       <h3>Próxima criação</h3>
-
       <p>
-        Área preparada para adicionar
-        novas ideias, estudos e projetos
-        conforme minha evolução.
+        Área preparada para adicionar novas ideias,
+        estudos e projetos conforme minha evolução.
       </p>
-
-      <a
-        href="https://github.com/ChelloHAOC"
-        target="_blank"
-        rel="noopener noreferrer">
+      <a href="https://github.com/ChelloHAOC"
+         target="_blank" rel="noopener noreferrer">
         Ver repositórios →
       </a>
-
     </div>
-
   </div>
-
 </section>
 
-<!-- =========================
-     IMPACTO
-========================= -->
+<!-- IMPACTO -->
 
 <section class="content impact" id="impacto">
-
   <div class="reveal">
-
     <h2 class="section-title">
       CÓDIGO COM <span>PROPÓSITO.</span>
     </h2>
-
     <p class="section-description">
-      Quero usar a tecnologia para construir
-      soluções que façam diferença na vida
-      das pessoas e na proteção do planeta.
+      Quero usar a tecnologia para construir soluções
+      que façam diferença na vida das pessoas
+      e na proteção do planeta.
     </p>
-
   </div>
 
   <div class="impact-grid">
-
     <div class="impact-card reveal">
-
       <div class="impact-icon">🐾</div>
-
       <h3>Animais</h3>
-
       <p>
         Projetos voltados à adoção responsável,
-        proteção animal e apoio a iniciativas
-        de resgate e cuidado.
+        proteção animal e apoio a iniciativas de resgate.
       </p>
-
     </div>
 
     <div class="impact-card reveal">
-
       <div class="impact-icon">🌿</div>
-
       <h3>Natureza</h3>
-
       <p>
         Soluções para conscientização ambiental,
-        sustentabilidade e preservação
-        da biodiversidade.
+        sustentabilidade e preservação da biodiversidade.
       </p>
-
     </div>
 
     <div class="impact-card reveal">
-
       <div class="impact-icon">🤝</div>
-
       <h3>Pessoas</h3>
-
       <p>
-        Tecnologia para facilitar a vida,
-        organizar informações e apoiar
-        projetos de impacto social.
+        Tecnologia para facilitar a vida, organizar
+        informações e apoiar projetos de impacto social.
       </p>
-
     </div>
-
   </div>
-
 </section>
 
-<!-- =========================
-     SOBRE
-========================= -->
+<!-- SOBRE -->
 
 <section class="content" id="sobre">
-
   <div class="about reveal">
-
-    <h2 class="section-title">
-      SOBRE <span>MIM.</span>
-    </h2>
-
+    <h2 class="section-title">SOBRE <span>MIM.</span></h2>
     <p>
-      Sou Marcelo Santos e estou construindo
-      minha trajetória na programação,
-      com foco no desenvolvimento Backend Java.
+      Sou Marcelo Santos e estou construindo minha trajetória
+      na programação, com foco no desenvolvimento Backend Java.
     </p>
-
     <p>
-      Meu objetivo é dominar os fundamentos,
-      desenvolver projetos reais e utilizar
-      a tecnologia para resolver problemas
-      de maneira inteligente e útil.
+      Meu objetivo é dominar os fundamentos, desenvolver
+      projetos reais e utilizar a tecnologia para resolver
+      problemas de maneira inteligente e útil.
     </p>
-
   </div>
-
 </section>
 
-<!-- =========================
-     CONTATO
-========================= -->
+<!-- CONTATO -->
 
 <section class="content contact" id="contato">
-
   <div class="reveal">
-
     <h2 class="section-title">
       VAMOS <span>CONVERSAR?</span>
     </h2>
-
     <p>
-      Conheça meus projetos e acompanhe
-      minha evolução como desenvolvedor.
+      Conheça meus projetos e acompanhe minha evolução
+      como desenvolvedor.
     </p>
-
-    <div class="buttons"
-         style="justify-content:center">
-
-      <a
-        href="https://github.com/ChelloHAOC"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn btn-primary">
+    <div class="buttons" style="justify-content:center">
+      <a href="https://github.com/ChelloHAOC"
+         target="_blank" rel="noopener noreferrer"
+         class="btn btn-primary">
         Meu GitHub →
       </a>
-
     </div>
-
   </div>
-
 </section>
 
 <footer>
   © 2026 Marcelo Santos — Backend Java
 </footer>
 
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
 <script>
+/* MASCOTE: MESMA ANIMAÇÃO APROVADA */
 
-/* CONFIGURAÇÕES */
+const mascotHead = document.getElementById("mascotHead");
+const mascotWrap = document.getElementById("mascotWrap");
+const mascotEyes = document.querySelectorAll(".mascot-eye");
 
-const mascotHead =
-  document.getElementById("mascotHead");
+const reducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
 
-const mascotWrap =
-  document.getElementById("mascotWrap");
-
-const mascotEyes =
-  document.querySelectorAll(".mascot-eye");
-
-const reducedMotion =
-  window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-const finePointer =
-  window.matchMedia(
-    "(pointer: fine)"
-  ).matches;
-
-/* =========================
-   CABEÇA
-========================= */
+const finePointer = window.matchMedia(
+  "(pointer: fine)"
+).matches;
 
 let headTargetX = 0;
 let headTargetY = 0;
-
 let headCurrentX = 0;
 let headCurrentY = 0;
 
-/* =========================
-   OLHOS
-========================= */
-
 let eyeTargetX = 0;
 let eyeTargetY = 0;
-
 let eyeCurrentX = 0;
 let eyeCurrentY = 0;
 
-/* =========================
-   MOVIMENTO DO MOUSE
-========================= */
-
 if (finePointer && !reducedMotion) {
+  window.addEventListener("pointermove", event => {
+    const rect = mascotWrap.getBoundingClientRect();
 
-  window.addEventListener(
-    "pointermove",
-    event => {
+    const centerX = rect.left + rect.width * .52;
+    const centerY = rect.top + rect.height * .19;
 
-      const rect =
-        mascotWrap.getBoundingClientRect();
+    const dx = (event.clientX - centerX) / window.innerWidth;
+    const dy = (event.clientY - centerY) / window.innerHeight;
 
-      const centerX =
-        rect.left + rect.width * .52;
+    headTargetY = Math.max(-4, Math.min(4, dx * 8));
+    headTargetX = Math.max(-2, Math.min(2, -dy * 4));
 
-      const centerY =
-        rect.top + rect.height * .19;
+    const eyeDX = event.clientX - centerX;
+    const eyeDY = event.clientY - centerY;
+    const angle = Math.atan2(eyeDY, eyeDX);
+    const strength = Math.min(
+      Math.hypot(eyeDX, eyeDY) / 300, 1
+    );
 
-      const dx =
-        (event.clientX - centerX) /
-        window.innerWidth;
-
-      const dy =
-        (event.clientY - centerY) /
-        window.innerHeight;
-
-      /* Cabeça: movimento discreto */
-
-      headTargetY =
-        Math.max(-4,Math.min(4,dx * 8));
-
-      headTargetX =
-        Math.max(-2,Math.min(2,-dy * 4));
-
-      /* Olhos: movimento independente */
-
-      const eyeDX =
-        event.clientX - centerX;
-
-      const eyeDY =
-        event.clientY - centerY;
-
-      const angle =
-        Math.atan2(eyeDY,eyeDX);
-
-      const strength =
-        Math.min(
-          Math.hypot(eyeDX,eyeDY) / 300,
-          1
-        );
-
-      eyeTargetX =
-        Math.cos(angle) * strength;
-
-      eyeTargetY =
-        Math.sin(angle) * strength;
-
-    }
-  );
-
-  /* =========================
-     LOOP DE ANIMAÇÃO
-  ========================= */
+    eyeTargetX = Math.cos(angle) * strength;
+    eyeTargetY = Math.sin(angle) * strength;
+  });
 
   function animateMascot() {
-
-    headCurrentX +=
-      (headTargetX - headCurrentX) * .045;
-
-    headCurrentY +=
-      (headTargetY - headCurrentY) * .045;
+    headCurrentX += (headTargetX - headCurrentX) * .045;
+    headCurrentY += (headTargetY - headCurrentY) * .045;
 
     mascotHead.style.transform =
-      `rotateX(${headCurrentX}deg)
-       rotateY(${headCurrentY}deg)`;
+      `rotateX(${headCurrentX}deg) rotateY(${headCurrentY}deg)`;
 
-    eyeCurrentX +=
-      (eyeTargetX - eyeCurrentX) * .09;
-
-    eyeCurrentY +=
-      (eyeTargetY - eyeCurrentY) * .09;
+    eyeCurrentX += (eyeTargetX - eyeCurrentX) * .09;
+    eyeCurrentY += (eyeTargetY - eyeCurrentY) * .09;
 
     mascotEyes.forEach(eye => {
-
       const maxMove =
         eye.getBoundingClientRect().width * .12;
 
       eye.style.setProperty(
-        "--eye-x",
-        `${eyeCurrentX * maxMove}px`
+        "--eye-x", `${eyeCurrentX * maxMove}px`
       );
 
       eye.style.setProperty(
-        "--eye-y",
-        `${eyeCurrentY * maxMove}px`
+        "--eye-y", `${eyeCurrentY * maxMove}px`
       );
-
     });
 
     requestAnimationFrame(animateMascot);
@@ -1489,86 +1293,40 @@ if (finePointer && !reducedMotion) {
 
   animateMascot();
 
-  /* =========================
-     PISCADAS NATURAIS
-  ========================= */
-
   function blinkMascot() {
-
-    mascotEyes.forEach(eye => {
-      eye.classList.add("blink");
-    });
+    mascotEyes.forEach(eye => eye.classList.add("blink"));
 
     setTimeout(() => {
-
-      mascotEyes.forEach(eye => {
-        eye.classList.remove("blink");
-      });
-
-      const nextBlink =
-        2500 + Math.random() * 3500;
+      mascotEyes.forEach(eye => eye.classList.remove("blink"));
 
       setTimeout(
         blinkMascot,
-        nextBlink
+        2500 + Math.random() * 3500
       );
-
     }, 240);
-
   }
 
-  setTimeout(blinkMascot,3000);
-
+  setTimeout(blinkMascot, 3000);
 }
 
-/* =========================
-   ENTRADA DAS SEÇÕES
-========================= */
+/* ENTRADA DAS SEÇÕES */
 
-const elements =
-  document.querySelectorAll(".reveal");
+const elements = document.querySelectorAll(".reveal");
 
-if (
-  "IntersectionObserver" in window &&
-  !reducedMotion
-) {
+if ("IntersectionObserver" in window && !reducedMotion) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: .1 });
 
-  const observer =
-    new IntersectionObserver(
-      entries => {
-
-        entries.forEach(entry => {
-
-          if (entry.isIntersecting) {
-
-            entry.target.classList.add(
-              "show"
-            );
-
-            observer.unobserve(
-              entry.target
-            );
-
-          }
-
-        });
-
-      },
-      { threshold: .1 }
-    );
-
-  elements.forEach(element => {
-    observer.observe(element);
-  });
-
+  elements.forEach(element => observer.observe(element));
 } else {
-
-  elements.forEach(element => {
-    element.classList.add("show");
-  });
-
+  elements.forEach(element => element.classList.add("show"));
 }
-
 </script>
 
 </body>
