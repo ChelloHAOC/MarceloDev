@@ -5,18 +5,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#08090d">
-<title>Marcelo Santos | Backend Java</title>
+
+<title>Marcelo Santos | Desenvolvedor Backend Java</title>
 
 <style>
 :root {
-  --orange: #ff8700;
   --bg: #08090d;
-  --panel: #14161e;
+  --orange: #ff8700;
   --white: #f5f5f7;
   --muted: #a4a6ad;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
@@ -36,29 +38,35 @@ a {
   text-decoration: none;
 }
 
-/* MENU */
+/* =========================
+   CABEÇALHO
+========================= */
 
 header {
   position: fixed;
-  inset: 0 0 auto;
-  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 76px;
   padding: 0 6%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(8,9,13,.92);
-  backdrop-filter: blur(18px);
+  z-index: 100;
+  background: rgba(8,9,13,.94);
+  backdrop-filter: blur(16px);
   border-bottom: 1px solid #ffffff20;
 }
 
 .logo {
-  font-size: 26px;
+  font-size: 27px;
   font-weight: 900;
   font-style: italic;
 }
 
-.logo span { color: var(--orange); }
+.logo span {
+  color: var(--orange);
+}
 
 nav {
   display: flex;
@@ -68,39 +76,42 @@ nav {
 nav a {
   font-size: 13px;
   font-weight: 700;
-  transition: color .3s;
+  transition: color .25s;
 }
 
-nav a:hover { color: var(--orange); }
+nav a:hover {
+  color: var(--orange);
+}
 
 .github {
-  padding: 12px 20px;
+  padding: 13px 21px;
   border: 1px solid var(--orange);
-  border-radius: 12px;
+  border-radius: 13px;
   transition: .3s;
 }
 
 .github:hover {
   background: var(--orange);
-  color: black;
+  color: #08090d;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero {
   position: relative;
   min-height: 100svh;
-  padding: 110px 5% 65px;
+  padding: 105px 5% 65px;
   display: grid;
-  grid-template-columns: minmax(0, 42%) minmax(0, 58%);
+  grid-template-columns: minmax(0,42%) minmax(0,58%);
   align-items: center;
-  gap: 0;
   overflow: hidden;
   background:
     radial-gradient(
-      circle at 73% 48%,
-      #2b1b18 0%,
-      #15131a 29%,
+      circle at 74% 47%,
+      #291a17 0%,
+      #151219 29%,
       transparent 65%
     ),
     var(--bg);
@@ -108,44 +119,47 @@ nav a:hover { color: var(--orange); }
 
 .hero-text {
   position: relative;
-  z-index: 12;
+  z-index: 20;
 }
 
 .tag {
-  color: var(--orange);
-  letter-spacing: 4px;
   font-size: 12px;
-  font-weight: bold;
+  letter-spacing: 4px;
+  font-weight: 800;
+  color: var(--orange);
 }
 
 .hero h1 {
-  font-size: clamp(48px, 5.7vw, 94px);
+  font-size: clamp(48px,5.7vw,94px);
   line-height: .94;
-  font-style: italic;
   font-weight: 900;
-  margin: 26px 0;
+  font-style: italic;
   letter-spacing: -3px;
+  margin: 27px 0;
 }
 
 .hero h1 span {
   display: block;
   color: var(--orange);
+  text-shadow: 0 0 35px #ff870025;
 }
 
 .hero p {
+  max-width: 450px;
   color: var(--muted);
   font-size: 16px;
   line-height: 1.75;
-  max-width: 450px;
 }
 
-.hero p strong { color: var(--orange); }
+.hero p strong {
+  color: var(--orange);
+}
 
 .buttons {
   display: flex;
   gap: 15px;
-  margin-top: 28px;
   flex-wrap: wrap;
+  margin-top: 30px;
 }
 
 .btn {
@@ -155,47 +169,50 @@ nav a:hover { color: var(--orange); }
   padding: 16px 23px;
   border-radius: 10px;
   font-size: 13px;
-  font-weight: bold;
+  font-weight: 800;
   transition: .3s;
 }
 
-.btn:hover { transform: translateY(-4px); }
+.btn:hover {
+  transform: translateY(-4px);
+}
 
 .btn-primary {
-  background: var(--orange);
   color: #090909;
-  box-shadow: 0 0 25px #ff870055;
+  background: var(--orange);
+  box-shadow: 0 0 24px #ff870055;
 }
 
 .btn-secondary {
-  border: 1px solid #ffffffbb;
+  border: 1px solid #ffffffaa;
 }
 
-/* EFEITOS DE CORRIDA */
+/* =========================
+   EFEITOS DE CORRIDA
+========================= */
 
 .speed-line {
   position: absolute;
+  left: -300px;
   width: 260px;
   height: 3px;
+  pointer-events: none;
   background: linear-gradient(
     90deg,
     transparent,
     var(--orange),
     transparent
   );
-  box-shadow: 0 0 20px var(--orange);
+  box-shadow: 0 0 20px #ff870088;
   animation: speed 5s linear infinite;
-  pointer-events: none;
 }
 
 .speed-one {
   top: 18%;
-  left: -300px;
 }
 
 .speed-two {
   bottom: 16%;
-  left: -300px;
   animation-delay: -2.5s;
 }
 
@@ -204,31 +221,52 @@ nav a:hover { color: var(--orange); }
     transform: translateX(0);
     opacity: 0;
   }
-  20% { opacity: 1; }
+  20% {
+    opacity: 1;
+  }
   100% {
     transform: translateX(1800px);
     opacity: 0;
   }
 }
 
-/* ÁREA VISUAL */
+/* =========================
+   ÁREA VISUAL
+========================= */
 
 .visual {
   position: relative;
   width: 100%;
   max-width: 760px;
-  height: clamp(490px, 46vw, 640px);
+  height: clamp(540px,47vw,650px);
   margin: 0 auto;
   display: flex;
-  align-items: center;
   justify-content: center;
-  perspective: 1100px;
+  align-items: center;
   isolation: isolate;
+  perspective: 1100px;
+}
+
+.visual::before {
+  content: "";
+  position: absolute;
+  width: 70%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255,135,0,.17),
+    rgba(255,100,0,.06) 45%,
+    transparent 72%
+  );
+  filter: blur(24px);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .orbit {
   position: absolute;
-  width: min(76%, 490px);
+  width: min(76%,490px);
   aspect-ratio: 1;
   border: 2px solid #ff870066;
   border-radius: 50%;
@@ -236,16 +274,19 @@ nav a:hover { color: var(--orange); }
     0 0 35px #ff870022,
     inset 0 0 25px #ff870011;
   animation: orbit 25s linear infinite;
+  z-index: 0;
 }
 
 @keyframes orbit {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .platform {
   position: absolute;
   bottom: 27px;
-  width: min(48%, 310px);
+  width: min(48%,310px);
   height: 52px;
   border-radius: 50%;
   border: 3px solid var(--orange);
@@ -254,17 +295,20 @@ nav a:hover { color: var(--orange); }
     0 0 25px var(--orange),
     inset 0 0 25px #ff870055;
   transform: rotateX(65deg);
+  z-index: 1;
 }
 
-/* MASCOTE */
+/* =========================
+   MASCOTE TECHWEAR
+========================= */
 
 .mascot-wrap {
   position: relative;
-  width: min(43%, 310px);
+  width: min(49%,345px);
   aspect-ratio: 1024 / 1536;
+  flex-shrink: 0;
   z-index: 5;
   transform-style: preserve-3d;
-  will-change: transform;
 }
 
 .mascot-float {
@@ -274,30 +318,38 @@ nav a:hover { color: var(--orange); }
   animation: floatMascot 4s ease-in-out infinite;
 }
 
-.mascot {
+@keyframes floatMascot {
+  0%,100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.mascot-body {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter:
-    drop-shadow(0 18px 25px #000)
-    drop-shadow(0 0 18px #ff870044);
-  pointer-events: none;
   user-select: none;
+  pointer-events: none;
+  filter:
+    drop-shadow(0 16px 22px #00000088)
+    drop-shadow(0 0 18px #ff870022);
 }
 
-@keyframes floatMascot {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-
-/* CABEÇA INDEPENDENTE */
+/* Camada de movimento da cabeça */
 
 .mascot-head {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: 2;
   pointer-events: none;
+  transform-origin: 52% 31%;
+  will-change: transform;
 
   clip-path: polygon(
     24% 0%,
@@ -310,47 +362,131 @@ nav a:hover { color: var(--orange); }
     22% 22%,
     18% 12%
   );
-
-  transform-origin: 52% 31%;
-  will-change: transform;
 }
 
-.mascot-head img {
+.mascot-head > img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-/* NOTEBOOKS 3D EM CSS */
+/* =========================
+   OLHOS ANIMADOS
+========================= */
+
+.mascot-eye {
+  position: absolute;
+  width: 5.6%;
+  height: 3.5%;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/*
+  Posições relativas à imagem
+  de 1024 x 1536 pixels.
+*/
+
+.eye-left {
+  left: 46.1%;
+  top: 14.5%;
+}
+
+.eye-right {
+  left: 57.8%;
+  top: 16.2%;
+}
+
+.pupil {
+  position: absolute;
+  width: 70%;
+  height: 76%;
+  left: 15%;
+  top: 12%;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 32% 27%,
+      #ffffff 0 8%,
+      #343a46 11%,
+      #151820 32%,
+      #020305 75%
+    );
+
+  transform: translate(
+    var(--eye-x,0px),
+    var(--eye-y,0px)
+  );
+
+  will-change: transform;
+}
+
+.eyelid {
+  position: absolute;
+  inset: 0;
+  background: #e9ad83;
+  border-radius: 50%;
+  transform: scaleY(0);
+  transform-origin: center top;
+  z-index: 2;
+}
+
+.mascot-eye.blink .eyelid {
+  animation: blink .22s ease-in-out;
+}
+
+@keyframes blink {
+  0%,100% {
+    transform: scaleY(0);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+/* =========================
+   NOTEBOOKS 3D
+========================= */
 
 .laptop {
   position: absolute;
-  width: clamp(80px, 10vw, 116px);
+  width: clamp(80px,10vw,116px);
   z-index: 8;
   animation: laptopFloat 5s ease-in-out infinite;
+  filter: drop-shadow(0 8px 12px #000000aa);
   transition: filter .3s;
 }
 
 .laptop:hover {
   animation-play-state: paused;
-  filter: drop-shadow(0 0 15px var(--orange));
+  filter: drop-shadow(0 0 18px #ff8700cc);
 }
 
 .screen {
-  height: clamp(65px, 7.5vw, 88px);
-  border: 3px solid #777b85;
+  height: clamp(65px,7.5vw,88px);
+  border: 3px solid #7e818b;
   border-bottom: 5px solid #444;
   border-radius: 8px 8px 3px 3px;
-  background: linear-gradient(145deg,#19202b,#07080b);
+
+  background: linear-gradient(
+    145deg,
+    #19202b,
+    #07080b
+  );
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 6px;
+
   box-shadow:
-    inset 0 0 20px #000,
-    0 0 15px #ff870033;
+    inset 0 0 22px #000000dd,
+    0 0 12px #ff870026;
 }
 
 .symbol {
@@ -367,84 +503,96 @@ nav a:hover { color: var(--orange); }
   width: 112%;
   height: 13px;
   margin-left: -6%;
-  background: linear-gradient(#999da8,#41434b);
+  background: linear-gradient(
+    #999da8,
+    #41434b
+  );
+
   clip-path: polygon(
     8% 0,
     92% 0,
     100% 100%,
     0 100%
   );
+
   border-radius: 0 0 8px 8px;
-  box-shadow: 0 5px 15px #000;
 }
 
 @keyframes laptopFloat {
-  0%,100% { translate: 0 0; }
-  50% { translate: 0 -14px; }
+  0%,100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -14px;
+  }
 }
 
-/* POSIÇÕES DOS 7 NOTEBOOKS */
+/* POSIÇÕES DOS NOTEBOOKS */
 
 .l1 {
-  top: 7%;
-  left: 13%;
+  top: 5%;
+  left: 12%;
 }
 
 .l2 {
-  top: 7%;
-  right: 13%;
+  top: 5%;
+  right: 12%;
   animation-delay: -1s;
 }
 
 .l3 {
-  top: 36%;
-  left: 1%;
+  top: 35%;
+  left: 0;
   animation-delay: -2s;
 }
 
 .l4 {
-  top: 36%;
-  right: 1%;
+  top: 35%;
+  right: 0;
   animation-delay: -3s;
 }
 
 .l5 {
-  bottom: 13%;
-  left: 12%;
+  bottom: 15%;
+  left: 9%;
   animation-delay: -1.5s;
 }
 
 .l6 {
-  bottom: 13%;
-  right: 12%;
+  bottom: 15%;
+  right: 9%;
   animation-delay: -2.5s;
 }
 
 .l7 {
-  bottom: 0;
+  bottom: 1%;
   left: 50%;
   transform: translateX(-50%);
   animation-delay: -4s;
 }
 
-/* SEÇÕES */
+/* =========================
+   SEÇÕES
+========================= */
 
 section.content {
   padding: 100px 8%;
 }
 
 .section-title {
-  font-size: clamp(34px, 5vw, 64px);
+  font-size: clamp(34px,5vw,64px);
   font-weight: 900;
   font-style: italic;
   margin: 0 0 18px;
 }
 
-.section-title span { color: var(--orange); }
+.section-title span {
+  color: var(--orange);
+}
 
 .section-description {
-  color: var(--muted);
   max-width: 650px;
+  color: var(--muted);
   line-height: 1.8;
   margin-bottom: 40px;
 }
@@ -461,7 +609,11 @@ section.content {
   padding: 30px;
   border: 1px solid #ffffff22;
   border-radius: 18px;
-  background: linear-gradient(145deg,#181a21,#0c0d12);
+  background: linear-gradient(
+    145deg,
+    #181a21,
+    #0c0d12
+  );
   transition: .35s;
 }
 
@@ -497,7 +649,9 @@ section.content {
 
 /* IMPACTO */
 
-.impact { background: #0e1016; }
+.impact {
+  background: #0e1016;
+}
 
 .impact-grid {
   display: grid;
@@ -518,7 +672,9 @@ section.content {
   transform: translateY(-8px);
 }
 
-.impact-icon { font-size: 38px; }
+.impact-icon {
+  font-size: 38px;
+}
 
 .impact-card p {
   color: var(--muted);
@@ -527,7 +683,9 @@ section.content {
 
 /* SOBRE */
 
-.about { max-width: 850px; }
+.about {
+  max-width: 850px;
+}
 
 .about p {
   color: var(--muted);
@@ -546,7 +704,9 @@ section.content {
   );
 }
 
-.contact p { color: var(--muted); }
+.contact p {
+  color: var(--muted);
+}
 
 footer {
   text-align: center;
@@ -556,12 +716,14 @@ footer {
   font-size: 12px;
 }
 
-/* ANIMAÇÃO DE ENTRADA */
+/* ANIMAÇÃO DAS SEÇÕES */
 
 .reveal {
   opacity: 0;
   transform: translateY(35px);
-  transition: opacity .8s ease, transform .8s ease;
+  transition:
+    opacity .8s ease,
+    transform .8s ease;
 }
 
 .reveal.show {
@@ -569,23 +731,30 @@ footer {
   transform: translateY(0);
 }
 
-/* TABLETS */
+/* =========================
+   TABLETS
+========================= */
 
-@media (max-width: 1000px) {
+@media (max-width:1000px) {
   .hero {
     grid-template-columns: 1fr;
     text-align: center;
     padding-top: 125px;
   }
 
-  .hero-text { max-width: 720px; margin: auto; }
+  .hero-text {
+    max-width: 720px;
+    margin: auto;
+  }
 
   .hero p {
     margin-left: auto;
     margin-right: auto;
   }
 
-  .buttons { justify-content: center; }
+  .buttons {
+    justify-content: center;
+  }
 
   .visual {
     margin-top: 25px;
@@ -598,21 +767,31 @@ footer {
   }
 }
 
-/* CELULARES */
+/* =========================
+   CELULARES
+========================= */
 
-@media (max-width: 650px) {
+@media (max-width:650px) {
   header {
     height: 66px;
     padding: 0 15px;
   }
 
-  .logo { font-size: 21px; }
+  .logo {
+    font-size: 21px;
+  }
 
-  nav { gap: 12px; }
+  nav {
+    gap: 12px;
+  }
 
-  nav a { font-size: 11px; }
+  nav a {
+    font-size: 11px;
+  }
 
-  nav a:nth-child(n+3) { display: none; }
+  nav a:nth-child(n+3) {
+    display: none;
+  }
 
   .github {
     padding: 9px;
@@ -624,11 +803,13 @@ footer {
   }
 
   .hero h1 {
-    font-size: clamp(42px, 12vw, 62px);
+    font-size: clamp(42px,12vw,62px);
     letter-spacing: -2px;
   }
 
-  .hero p { font-size: 14px; }
+  .hero p {
+    font-size: 14px;
+  }
 
   .visual {
     width: 100%;
@@ -636,16 +817,22 @@ footer {
     margin-top: 15px;
   }
 
-  .mascot-wrap { width: 43%; }
+  .mascot-wrap {
+    width: 43%;
+  }
 
-  .orbit { width: 76%; }
+  .orbit {
+    width: 76%;
+  }
 
   .platform {
     width: 46%;
     bottom: 32px;
   }
 
-  .laptop { width: 69px; }
+  .laptop {
+    width: 69px;
+  }
 
   .screen {
     height: 55px;
@@ -653,21 +840,55 @@ footer {
     gap: 3px;
   }
 
-  .symbol { font-size: 16px; }
+  .symbol {
+    font-size: 16px;
+  }
 
-  .screen strong { font-size: 9px; }
+  .screen strong {
+    font-size: 9px;
+  }
 
-  .keyboard { height: 9px; }
+  .keyboard {
+    height: 9px;
+  }
 
-  .l1 { top: 10%; left: 7%; }
-  .l2 { top: 10%; right: 7%; }
-  .l3 { top: 36%; left: 0; }
-  .l4 { top: 36%; right: 0; }
-  .l5 { bottom: 17%; left: 6%; }
-  .l6 { bottom: 17%; right: 6%; }
-  .l7 { bottom: 1%; }
+  .l1 {
+    top: 10%;
+    left: 7%;
+  }
 
-  section.content { padding: 75px 20px; }
+  .l2 {
+    top: 10%;
+    right: 7%;
+  }
+
+  .l3 {
+    top: 36%;
+    left: 0;
+  }
+
+  .l4 {
+    top: 36%;
+    right: 0;
+  }
+
+  .l5 {
+    bottom: 17%;
+    left: 6%;
+  }
+
+  .l6 {
+    bottom: 17%;
+    right: 6%;
+  }
+
+  .l7 {
+    bottom: 1%;
+  }
+
+  section.content {
+    padding: 75px 20px;
+  }
 
   .projects,
   .impact-grid {
@@ -675,7 +896,9 @@ footer {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+/* ACESSIBILIDADE */
+
+@media (prefers-reduced-motion:reduce) {
   *,
   *::before,
   *::after {
@@ -689,148 +912,20 @@ footer {
     transform: none;
   }
 }
-  
-/* REFINAMENTO VISUAL - MARCELODEV */
-
-/* Mais destaque para o personagem */
-@media (min-width: 1001px) {
-  .mascot-wrap {
-    width: min(49%, 345px);
-  }
-
-  .visual {
-    height: clamp(540px, 47vw, 650px);
-  }
-
-  /* Distribuição mais equilibrada */
-  .l1 { top: 5%; left: 12%; }
-  .l2 { top: 5%; right: 12%; }
-
-  .l3 { top: 35%; left: 0; }
-  .l4 { top: 35%; right: 0; }
-
-  .l5 { bottom: 15%; left: 9%; }
-  .l6 { bottom: 15%; right: 9%; }
-
-  .l7 { bottom: 1%; }
-
-  /* Melhor aproveitamento da tela */
-  .hero {
-    padding-top: 95px;
-    padding-bottom: 50px;
-  }
-}
-
-/* Iluminação atrás do mascote */
-.visual::before {
-  content: "";
-  position: absolute;
-  width: 70%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(255,135,0,.17) 0%,
-    rgba(255,100,0,.06) 42%,
-    transparent 70%
-  );
-  filter: blur(24px);
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Mais profundidade nos notebooks */
-.laptop {
-  filter: drop-shadow(0 8px 12px rgba(0,0,0,.65));
-}
-
-.laptop:hover {
-  filter: drop-shadow(0 0 18px rgba(255,135,0,.8));
-}
-
-.screen {
-  border-color: #7e818b;
-  box-shadow:
-    inset 0 0 22px rgba(0,0,0,.85),
-    0 0 12px rgba(255,135,0,.15);
-}
-
-/* Destaque discreto no título */
-.hero h1 span {
-  text-shadow: 0 0 35px rgba(255,135,0,.16);
-}
-
-/* OLHOS DO MASCOTE TECHWEAR */
-
-.mascot-eye {
-  position: absolute;
-  width: 7.1%;
-  height: 4.3%;
-  border-radius: 50%;
-  overflow: hidden;
-  z-index: 10;
-  pointer-events: none;
-}
-
-/* Coordenadas iniciais para PNG 1024 x 1536 */
-.eye-left {
-  left: 45.5%;
-  top: 14.2%;
-}
-
-.eye-right {
-  left: 57.3%;
-  top: 16.3%;
-}
-
-.mascot-eye .pupil {
-  position: absolute;
-  width: 65%;
-  height: 75%;
-  left: 17.5%;
-  top: 12.5%;
-  border-radius: 50%;
-  background:
-    radial-gradient(
-      circle at 32% 28%,
-      white 0 9%,
-      #353b48 11%,
-      #151820 35%,
-      #030303 72%
-    );
-  transform: translate(
-    var(--eye-x, 0px),
-    var(--eye-y, 0px)
-  );
-  transition: transform .09s ease-out;
-}
-
-.mascot-eye .eyelid {
-  position: absolute;
-  inset: 0;
-  background: #e7a574;
-  border-radius: 50%;
-  transform: scaleY(0);
-  transform-origin: center top;
-  z-index: 2;
-}
-
-.mascot-eye.blink .eyelid {
-  animation: mascotBlink .2s ease-in-out;
-}
-
-@keyframes mascotBlink {
-  0%, 100% { transform: scaleY(0); }
-  50% { transform: scaleY(1); }
-}
-
 </style>
 </head>
 
 <body>
 
+<!-- =========================
+     MENU
+========================= -->
+
 <header>
-  <div class="logo">MS<span>.</span></div>
+
+  <div class="logo">
+    MS<span>.</span>
+  </div>
 
   <nav aria-label="Menu principal">
     <a href="#inicio">Início</a>
@@ -840,15 +935,19 @@ footer {
     <a href="#contato">Contato</a>
   </nav>
 
-  <a class="github"
-     href="https://github.com/ChelloHAOC"
-     target="_blank"
-     rel="noopener noreferrer">
+  <a
+    class="github"
+    href="https://github.com/ChelloHAOC"
+    target="_blank"
+    rel="noopener noreferrer">
     GitHub ↗
   </a>
+
 </header>
 
-<!-- INÍCIO -->
+<!-- =========================
+     INÍCIO
+========================= -->
 
 <section class="hero" id="inicio">
 
@@ -856,7 +955,10 @@ footer {
   <div class="speed-line speed-two"></div>
 
   <div class="hero-text">
-    <div class="tag">/// PORTFÓLIO 2026</div>
+
+    <div class="tag">
+      /// PORTFÓLIO 2026
+    </div>
 
     <h1>
       MARCELO
@@ -871,58 +973,67 @@ footer {
     </p>
 
     <div class="buttons">
-      <a href="#projetos" class="btn btn-primary">
+
+      <a href="#projetos"
+         class="btn btn-primary">
         Explorar projetos →
       </a>
 
-      <a href="#impacto" class="btn btn-secondary">
+      <a href="#impacto"
+         class="btn btn-secondary">
         Meu propósito ↗
       </a>
+
     </div>
+
   </div>
 
-  <!-- MASCOTE E NOTEBOOKS -->
+  <!-- =====================
+       ÁREA VISUAL
+  ===================== -->
 
   <div class="visual" id="visual">
 
     <div class="orbit"></div>
     <div class="platform"></div>
 
+    <!-- MASCOTE TECHWEAR -->
+
     <div class="mascot-wrap" id="mascotWrap">
+
       <div class="mascot-float">
 
-       
-<div class="mascot-wrap" id="mascotWrap">
-  <div class="mascot-float">
+        <img
+          class="mascot-body"
+          src="Mascote Desenvolvedor Java em 3D.png"
+          alt="Mascote de Marcelo Santos com roupa Techwear Java"
+        >
 
-    <img
-      class="mascot"
-      src="Mascote Desenvolvedor Java em 3D.png"
-      alt="Mascote Marcelo Santos, desenvolvedor Java"
-    >
+        <div class="mascot-head" id="mascotHead">
 
-    <div class="mascot-head" id="mascotHead">
+          <img
+            src="Mascote Desenvolvedor Java em 3D.png"
+            alt=""
+            aria-hidden="true"
+          >
 
-      <img
-        src="Mascote Desenvolvedor Java em 3D.png"
-        alt=""
-        aria-hidden="true"
-      >
+          <div class="mascot-eye eye-left">
+            <span class="pupil"></span>
+            <span class="eyelid"></span>
+          </div>
 
-      <div class="mascot-eye eye-left">
-        <span class="pupil"></span>
-        <span class="eyelid"></span>
-      </div>
+          <div class="mascot-eye eye-right">
+            <span class="pupil"></span>
+            <span class="eyelid"></span>
+          </div>
 
-      <div class="mascot-eye eye-right">
-        <span class="pupil"></span>
-        <span class="eyelid"></span>
+        </div>
+
       </div>
 
     </div>
 
-  </div>
-</div>
+    <!-- NOTEBOOK HTML -->
 
     <div class="laptop l1">
       <div class="screen">
@@ -932,6 +1043,8 @@ footer {
       <div class="keyboard"></div>
     </div>
 
+    <!-- NOTEBOOK CSS -->
+
     <div class="laptop l2">
       <div class="screen">
         <div class="symbol">#</div>
@@ -939,6 +1052,8 @@ footer {
       </div>
       <div class="keyboard"></div>
     </div>
+
+    <!-- NOTEBOOK JAVASCRIPT -->
 
     <div class="laptop l3">
       <div class="screen">
@@ -948,6 +1063,8 @@ footer {
       <div class="keyboard"></div>
     </div>
 
+    <!-- NOTEBOOK JAVA -->
+
     <div class="laptop l4">
       <div class="screen">
         <div class="symbol">☕</div>
@@ -955,6 +1072,8 @@ footer {
       </div>
       <div class="keyboard"></div>
     </div>
+
+    <!-- NOTEBOOK SQL -->
 
     <div class="laptop l5">
       <div class="screen">
@@ -964,6 +1083,8 @@ footer {
       <div class="keyboard"></div>
     </div>
 
+    <!-- NOTEBOOK GIT -->
+
     <div class="laptop l6">
       <div class="screen">
         <div class="symbol">⑂</div>
@@ -971,6 +1092,8 @@ footer {
       </div>
       <div class="keyboard"></div>
     </div>
+
+    <!-- NOTEBOOK GITHUB -->
 
     <div class="laptop l7">
       <div class="screen">
@@ -981,79 +1104,112 @@ footer {
     </div>
 
   </div>
+
 </section>
 
-<!-- PROJETOS -->
+<!-- =========================
+     PROJETOS
+========================= -->
 
 <section class="content" id="projetos">
 
   <div class="reveal">
+
     <h2 class="section-title">
       MEUS <span>PROJETOS.</span>
     </h2>
 
     <p class="section-description">
-      Aqui estarão os sistemas, aplicações e
-      experimentos que desenvolvo durante
+      Aqui estarão os sistemas, aplicações
+      e experimentos que desenvolvo durante
       minha jornada na programação.
     </p>
+
   </div>
 
   <div class="projects">
 
     <div class="project reveal">
-      <div class="project-number">PROJETO 001</div>
+
+      <div class="project-number">
+        PROJETO 001
+      </div>
+
       <h3>Meu primeiro projeto</h3>
+
       <p>
         Espaço reservado para apresentar
         um projeto, explicar sua finalidade
         e as tecnologias utilizadas.
       </p>
-      <a href="https://github.com/ChelloHAOC"
-         target="_blank"
-         rel="noopener noreferrer">
+
+      <a
+        href="https://github.com/ChelloHAOC"
+        target="_blank"
+        rel="noopener noreferrer">
         Ver repositórios →
       </a>
+
     </div>
 
     <div class="project reveal">
-      <div class="project-number">PROJETO 002</div>
+
+      <div class="project-number">
+        PROJETO 002
+      </div>
+
       <h3>Projeto Backend Java</h3>
+
       <p>
         Espaço para uma futura API,
         sistema de gerenciamento ou
         aplicação desenvolvida em Java.
       </p>
-      <a href="https://github.com/ChelloHAOC"
-         target="_blank"
-         rel="noopener noreferrer">
+
+      <a
+        href="https://github.com/ChelloHAOC"
+        target="_blank"
+        rel="noopener noreferrer">
         Ver repositórios →
       </a>
+
     </div>
 
     <div class="project reveal">
-      <div class="project-number">PROJETO 003</div>
+
+      <div class="project-number">
+        PROJETO 003
+      </div>
+
       <h3>Próxima criação</h3>
+
       <p>
         Área preparada para adicionar
         novas ideias, estudos e projetos
         conforme minha evolução.
       </p>
-      <a href="https://github.com/ChelloHAOC"
-         target="_blank"
-         rel="noopener noreferrer">
+
+      <a
+        href="https://github.com/ChelloHAOC"
+        target="_blank"
+        rel="noopener noreferrer">
         Ver repositórios →
       </a>
+
     </div>
 
   </div>
+
 </section>
 
-<!-- IMPACTO -->
+<!-- =========================
+     IMPACTO
+========================= -->
 
 <section class="content impact" id="impacto">
 
   <div class="reveal">
+
     <h2 class="section-title">
       CÓDIGO COM <span>PROPÓSITO.</span>
     </h2>
@@ -1063,44 +1219,60 @@ footer {
       soluções que façam diferença na vida
       das pessoas e na proteção do planeta.
     </p>
+
   </div>
 
   <div class="impact-grid">
 
     <div class="impact-card reveal">
+
       <div class="impact-icon">🐾</div>
+
       <h3>Animais</h3>
+
       <p>
         Projetos voltados à adoção responsável,
         proteção animal e apoio a iniciativas
         de resgate e cuidado.
       </p>
+
     </div>
 
     <div class="impact-card reveal">
+
       <div class="impact-icon">🌿</div>
+
       <h3>Natureza</h3>
+
       <p>
         Soluções para conscientização ambiental,
         sustentabilidade e preservação
         da biodiversidade.
       </p>
+
     </div>
 
     <div class="impact-card reveal">
+
       <div class="impact-icon">🤝</div>
+
       <h3>Pessoas</h3>
+
       <p>
         Tecnologia para facilitar a vida,
         organizar informações e apoiar
         projetos de impacto social.
       </p>
+
     </div>
 
   </div>
+
 </section>
 
-<!-- SOBRE -->
+<!-- =========================
+     SOBRE
+========================= -->
 
 <section class="content" id="sobre">
 
@@ -1124,9 +1296,12 @@ footer {
     </p>
 
   </div>
+
 </section>
 
-<!-- CONTATO -->
+<!-- =========================
+     CONTATO
+========================= -->
 
 <section class="content contact" id="contato">
 
@@ -1141,7 +1316,9 @@ footer {
       minha evolução como desenvolvedor.
     </p>
 
-    <div class="buttons" style="justify-content:center">
+    <div class="buttons"
+         style="justify-content:center">
+
       <a
         href="https://github.com/ChelloHAOC"
         target="_blank"
@@ -1149,148 +1326,247 @@ footer {
         class="btn btn-primary">
         Meu GitHub →
       </a>
+
     </div>
 
   </div>
+
 </section>
 
 <footer>
   © 2026 Marcelo Santos — Backend Java
 </footer>
 
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
-/* ANIMAÇÃO DO MASCOTE */
 
-const mascot = document.getElementById("mascotWrap");
-const mascotHead = document.getElementById("mascotHead");
+/* CONFIGURAÇÕES */
 
-const reducedMotion = window.matchMedia(
-  "(prefers-reduced-motion: reduce)"
-).matches;
+const mascotHead =
+  document.getElementById("mascotHead");
 
-const finePointer = window.matchMedia(
-  "(pointer: fine)"
-).matches;
+const mascotWrap =
+  document.getElementById("mascotWrap");
 
-let targetX = 0;
-let targetY = 0;
-let currentX = 0;
-let currentY = 0;
+const mascotEyes =
+  document.querySelectorAll(".mascot-eye");
+
+const reducedMotion =
+  window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+const finePointer =
+  window.matchMedia(
+    "(pointer: fine)"
+  ).matches;
+
+/* =========================
+   CABEÇA
+========================= */
 
 let headTargetX = 0;
 let headTargetY = 0;
+
 let headCurrentX = 0;
 let headCurrentY = 0;
 
+/* =========================
+   OLHOS
+========================= */
+
+let eyeTargetX = 0;
+let eyeTargetY = 0;
+
+let eyeCurrentX = 0;
+let eyeCurrentY = 0;
+
+/* =========================
+   MOVIMENTO DO MOUSE
+========================= */
+
 if (finePointer && !reducedMotion) {
 
-  window.addEventListener("pointermove", event => {
-    const rect = mascot.getBoundingClientRect();
+  window.addEventListener(
+    "pointermove",
+    event => {
 
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
+      const rect =
+        mascotWrap.getBoundingClientRect();
 
-    const dx = (event.clientX - centerX) /
-               window.innerWidth;
+      const centerX =
+        rect.left + rect.width * .52;
 
-    const dy = (event.clientY - centerY) /
-               window.innerHeight;
+      const centerY =
+        rect.top + rect.height * .19;
 
-    targetY = Math.max(-5, Math.min(5, dx * 10));
-    targetX = Math.max(-3, Math.min(3, -dy * 6));
+      const dx =
+        (event.clientX - centerX) /
+        window.innerWidth;
 
-    headTargetY = Math.max(-5, Math.min(5, dx * 10));
-    headTargetX = Math.max(-3, Math.min(3, -dy * 6));
-  });
+      const dy =
+        (event.clientY - centerY) /
+        window.innerHeight;
+
+      /* Cabeça: movimento discreto */
+
+      headTargetY =
+        Math.max(-4,Math.min(4,dx * 8));
+
+      headTargetX =
+        Math.max(-2,Math.min(2,-dy * 4));
+
+      /* Olhos: movimento independente */
+
+      const eyeDX =
+        event.clientX - centerX;
+
+      const eyeDY =
+        event.clientY - centerY;
+
+      const angle =
+        Math.atan2(eyeDY,eyeDX);
+
+      const strength =
+        Math.min(
+          Math.hypot(eyeDX,eyeDY) / 300,
+          1
+        );
+
+      eyeTargetX =
+        Math.cos(angle) * strength;
+
+      eyeTargetY =
+        Math.sin(angle) * strength;
+
+    }
+  );
+
+  /* =========================
+     LOOP DE ANIMAÇÃO
+  ========================= */
 
   function animateMascot() {
-    currentX += (targetX - currentX) * 0.055;
-    currentY += (targetY - currentY) * 0.055;
 
     headCurrentX +=
-      (headTargetX - headCurrentX) * 0.045;
+      (headTargetX - headCurrentX) * .045;
 
     headCurrentY +=
-      (headTargetY - headCurrentY) * 0.045;
-
-    mascot.style.transform =
-      `rotateX(${currentX}deg)
-       rotateY(${currentY}deg)`;
+      (headTargetY - headCurrentY) * .045;
 
     mascotHead.style.transform =
       `rotateX(${headCurrentX}deg)
        rotateY(${headCurrentY}deg)`;
 
-    requestAnimationFrame(animateMascot);
-  }
+    eyeCurrentX +=
+      (eyeTargetX - eyeCurrentX) * .09;
 
-  animateMascot();
-}
+    eyeCurrentY +=
+      (eyeTargetY - eyeCurrentY) * .09;
 
-/* ANIMAÇÃO AO ROLAR */
-
-const elements = document.querySelectorAll(".reveal");
-
-if ("IntersectionObserver" in window && !reducedMotion) {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  elements.forEach(element => observer.observe(element));
-} else {
-  elements.forEach(element => element.classList.add("show"));
-}
-  
-/* OLHOS SEGUINDO O CURSOR */
-
-const mascotEyes = document.querySelectorAll(".mascot-eye");
-
-if (
-  mascotEyes.length === 2 &&
-  window.matchMedia("(pointer: fine)").matches &&
-  !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-) {
-  window.addEventListener("pointermove", event => {
     mascotEyes.forEach(eye => {
-      const rect = eye.getBoundingClientRect();
 
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-
-      const dx = event.clientX - centerX;
-      const dy = event.clientY - centerY;
-
-      const angle = Math.atan2(dy, dx);
-      const strength = Math.min(Math.hypot(dx, dy) / 300, 1);
-      const maxMove = rect.width * .12;
+      const maxMove =
+        eye.getBoundingClientRect().width * .12;
 
       eye.style.setProperty(
         "--eye-x",
-        `${Math.cos(angle) * maxMove * strength}px`
+        `${eyeCurrentX * maxMove}px`
       );
 
       eye.style.setProperty(
         "--eye-y",
-        `${Math.sin(angle) * maxMove * strength}px`
+        `${eyeCurrentY * maxMove}px`
       );
+
     });
-  });
 
-  function blinkMascot() {
-    mascotEyes.forEach(eye => eye.classList.add("blink"));
-
-    setTimeout(() => {
-      mascotEyes.forEach(eye => eye.classList.remove("blink"));
-      setTimeout(blinkMascot, 2500 + Math.random() * 3500);
-    }, 220);
+    requestAnimationFrame(animateMascot);
   }
 
-  setTimeout(blinkMascot, 3000);
+  animateMascot();
+
+  /* =========================
+     PISCADAS NATURAIS
+  ========================= */
+
+  function blinkMascot() {
+
+    mascotEyes.forEach(eye => {
+      eye.classList.add("blink");
+    });
+
+    setTimeout(() => {
+
+      mascotEyes.forEach(eye => {
+        eye.classList.remove("blink");
+      });
+
+      const nextBlink =
+        2500 + Math.random() * 3500;
+
+      setTimeout(
+        blinkMascot,
+        nextBlink
+      );
+
+    }, 240);
+
+  }
+
+  setTimeout(blinkMascot,3000);
+
+}
+
+/* =========================
+   ENTRADA DAS SEÇÕES
+========================= */
+
+const elements =
+  document.querySelectorAll(".reveal");
+
+if (
+  "IntersectionObserver" in window &&
+  !reducedMotion
+) {
+
+  const observer =
+    new IntersectionObserver(
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add(
+              "show"
+            );
+
+            observer.unobserve(
+              entry.target
+            );
+
+          }
+
+        });
+
+      },
+      { threshold: .1 }
+    );
+
+  elements.forEach(element => {
+    observer.observe(element);
+  });
+
+} else {
+
+  elements.forEach(element => {
+    element.classList.add("show");
+  });
+
 }
 
 </script>
