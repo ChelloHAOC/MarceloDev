@@ -689,6 +689,77 @@ footer {
     transform: none;
   }
 }
+  
+/* REFINAMENTO VISUAL - MARCELODEV */
+
+/* Mais destaque para o personagem */
+@media (min-width: 1001px) {
+  .mascot-wrap {
+    width: min(49%, 345px);
+  }
+
+  .visual {
+    height: clamp(540px, 47vw, 650px);
+  }
+
+  /* Distribuição mais equilibrada */
+  .l1 { top: 5%; left: 12%; }
+  .l2 { top: 5%; right: 12%; }
+
+  .l3 { top: 35%; left: 0; }
+  .l4 { top: 35%; right: 0; }
+
+  .l5 { bottom: 15%; left: 9%; }
+  .l6 { bottom: 15%; right: 9%; }
+
+  .l7 { bottom: 1%; }
+
+  /* Melhor aproveitamento da tela */
+  .hero {
+    padding-top: 95px;
+    padding-bottom: 50px;
+  }
+}
+
+/* Iluminação atrás do mascote */
+.visual::before {
+  content: "";
+  position: absolute;
+  width: 70%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255,135,0,.17) 0%,
+    rgba(255,100,0,.06) 42%,
+    transparent 70%
+  );
+  filter: blur(24px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Mais profundidade nos notebooks */
+.laptop {
+  filter: drop-shadow(0 8px 12px rgba(0,0,0,.65));
+}
+
+.laptop:hover {
+  filter: drop-shadow(0 0 18px rgba(255,135,0,.8));
+}
+
+.screen {
+  border-color: #7e818b;
+  box-shadow:
+    inset 0 0 22px rgba(0,0,0,.85),
+    0 0 12px rgba(255,135,0,.15);
+}
+
+/* Destaque discreto no título */
+.hero h1 span {
+  text-shadow: 0 0 35px rgba(255,135,0,.16);
+}
+
 </style>
 </head>
 
