@@ -14,6 +14,7 @@
   --white:#f5f5f7;
   --muted:#a4a6ad;
 }
+
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; scroll-padding-top:85px; }
 body {
@@ -519,7 +520,7 @@ nav a:hover { color:var(--orange); }
   animation-delay:-4s;
 }
 
-/* PAINEL INTERATIVO */
+/* PAINEL INTERATIVO ORIGINAL */
 
 .tech-panel {
   position:fixed;
@@ -565,13 +566,8 @@ nav a:hover { color:var(--orange); }
   background:#ffffff0a;
   cursor:pointer;
 }
-.panel-close:hover {
-  border-color:var(--orange);
-}
-.tech-panel h3 {
-  margin:15px 0 8px;
-  font-size:25px;
-}
+.panel-close:hover { border-color:var(--orange); }
+.tech-panel h3 { margin:15px 0 8px; font-size:25px; }
 .tech-panel p {
   color:#b3b6c0;
   font-size:13px;
@@ -606,7 +602,7 @@ nav a:hover { color:var(--orange); }
   font-size:11px;
 }
 
-/* SEÇÕES */
+/* SEÇÕES GERAIS */
 
 section.content { padding:100px 8%; }
 .section-title {
@@ -622,40 +618,398 @@ section.content { padding:100px 8%; }
   line-height:1.8;
   margin-bottom:40px;
 }
-.projects {
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
+
+/* ======================================
+   NOVO MS. / PROJECT GARAGE
+   ====================================== */
+
+.project-section {
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 90% 10%,#ff87000d,transparent 48%),
+    linear-gradient(180deg,#08090d,#0e1017 55%,#08090d);
+}
+.project-section::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.16;
+  background-image:
+    linear-gradient(#ffffff0b 1px,transparent 1px),
+    linear-gradient(90deg,#ffffff0b 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:linear-gradient(180deg,#000,transparent 85%);
+}
+.project-intro {
+  position:relative;
+  z-index:1;
+}
+.project-eyebrow {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:var(--orange);
+  font:800 11px/1.5 Consolas,monospace;
+  letter-spacing:3px;
+  margin-bottom:20px;
+}
+.project-eyebrow::before {
+  content:"";
+  width:34px;
+  height:2px;
+  background:var(--orange);
+  box-shadow:0 0 12px #ff870099;
+}
+.project-heading-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
   gap:25px;
 }
-.project {
-  padding:30px;
-  border:1px solid #ffffff22;
-  border-radius:18px;
-  background:linear-gradient(145deg,#181a21,#0c0d12);
-  transition:.35s;
+.project-heading-row .section-description {
+  margin-bottom:0;
 }
-.project:hover {
+.project-count {
+  white-space:nowrap;
+  color:#777d8c;
+  font:700 12px Consolas,monospace;
+  letter-spacing:2px;
+  padding-bottom:8px;
+}
+.project-count strong {
+  color:var(--orange);
+  font-size:24px;
+}
+.project-divider {
+  position:relative;
+  height:1px;
+  margin:35px 0;
+  background:linear-gradient(90deg,var(--orange),#ffffff25,transparent);
+}
+.project-divider::before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:-3px;
+  width:7px;
+  height:7px;
+  background:var(--orange);
+  box-shadow:0 0 15px var(--orange);
+}
+.project-grid {
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
+}
+.project-card {
+  position:relative;
+  min-width:0;
+  overflow:hidden;
+  border:1px solid #ffffff1c;
+  border-radius:20px;
+  background:linear-gradient(150deg,#191c25,#0b0d13);
+  transition:transform .4s,border-color .4s,box-shadow .4s;
+}
+.project-card:hover {
   transform:translateY(-8px);
-  border-color:var(--orange);
-  box-shadow:0 0 30px #ff870022;
+  border-color:#ff870099;
+  box-shadow:0 20px 55px #0009,0 0 28px #ff87001c;
 }
-.project-number {
+.project-card.featured {
+  grid-column:1 / -1;
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  min-height:390px;
+}
+.project-preview {
+  position:relative;
+  min-height:225px;
+  padding:24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at center,#ff87001a,transparent 65%),
+    linear-gradient(145deg,#141923,#080a0f);
+  border-bottom:1px solid #ffffff13;
+}
+.featured .project-preview {
+  min-height:390px;
+  border-bottom:0;
+  border-right:1px solid #ffffff13;
+}
+.project-preview::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  opacity:.4;
+  background:
+    repeating-linear-gradient(0deg,
+      transparent 0 28px,#ffffff08 29px 30px),
+    repeating-linear-gradient(90deg,
+      transparent 0 28px,#ffffff08 29px 30px);
+}
+.project-preview::after {
+  content:"";
+  position:absolute;
+  width:70%;
+  height:70%;
+  border:1px solid #ff87001e;
+  border-radius:50%;
+  box-shadow:0 0 50px #ff87000b;
+}
+.preview-label {
+  position:absolute;
+  top:18px;
+  left:20px;
+  z-index:3;
+  font:700 10px Consolas,monospace;
+  color:#9ba4b4;
+  letter-spacing:2px;
+}
+.preview-corner {
+  position:absolute;
+  right:19px;
+  bottom:16px;
+  z-index:3;
+  color:#ff870088;
+  font:800 11px Consolas,monospace;
+  letter-spacing:2px;
+}
+.preview-window {
+  position:relative;
+  z-index:2;
+  width:min(100%,370px);
+  border:1px solid #ffffff30;
+  border-radius:12px;
+  overflow:hidden;
+  background:#0b0f16;
+  box-shadow:0 25px 60px #000b,0 0 35px #ff870016;
+  transform:perspective(900px) rotateY(-8deg) rotateX(5deg);
+  transition:transform .5s,box-shadow .5s;
+}
+.project-card:hover .preview-window {
+  transform:perspective(900px) rotateY(0) rotateX(0) translateY(-5px);
+  box-shadow:0 30px 65px #000b,0 0 45px #ff87002c;
+}
+.preview-top {
+  display:flex;
+  align-items:center;
+  gap:5px;
+  height:29px;
+  padding:0 12px;
+  border-bottom:1px solid #ffffff18;
+  background:#171d27;
+}
+.preview-dot {
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#ff715b;
+}
+.preview-dot:nth-child(2) { background:#e7bd55; }
+.preview-dot:nth-child(3) { background:#56ba87; }
+.preview-file {
+  margin-left:auto;
+  font:10px Consolas,monospace;
+  color:#7f8b9e;
+}
+.preview-body { padding:18px; }
+.preview-mini-title {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:15px;
+  font-size:13px;
+  font-weight:800;
+}
+.preview-mini-title span { color:var(--orange); }
+.preview-stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-bottom:12px;
+}
+.preview-stat {
+  border:1px solid #ffffff13;
+  border-radius:7px;
+  background:#ffffff06;
+  padding:10px 7px;
+}
+.preview-stat b {
+  display:block;
+  color:var(--orange);
+  font:800 17px Consolas,monospace;
+}
+.preview-stat small {
+  display:block;
+  margin-top:5px;
+  color:#8c95a4;
+  font-size:8px;
+}
+.preview-bars {
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.preview-bar {
+  height:8px;
+  border-radius:4px;
+  background:#ffffff0c;
+  overflow:hidden;
+}
+.preview-bar i {
+  display:block;
+  height:100%;
+  width:var(--bar,60%);
+  background:linear-gradient(90deg,#ff8700,#ffbd66);
+  border-radius:4px;
+  opacity:.8;
+}
+.preview-terminal {
+  font:11px/1.9 Consolas,monospace;
+  color:#c5d0dc;
+}
+.preview-terminal .command { color:#ff9b35; }
+.preview-terminal .success { color:#5fe2ad; }
+.preview-terminal .muted { color:#788497; }
+.preview-db {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:5px;
+  margin-top:12px;
+}
+.preview-db span {
+  padding:7px 5px;
+  background:#ffffff09;
+  border:1px solid #ffffff12;
+  border-radius:3px;
+  color:#9db1c3;
+  font:9px Consolas,monospace;
+  text-align:center;
+}
+.preview-db span:nth-child(-n+3) {
+  color:var(--orange);
+  background:#ff870012;
+}
+.project-info {
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  padding:30px;
+}
+.featured .project-info {
+  padding:40px;
+  justify-content:center;
+}
+.project-topline {
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:22px;
+}
+.project-id {
+  color:var(--orange);
+  font:800 11px Consolas,monospace;
+  letter-spacing:2px;
+}
+.project-status {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:7px 10px;
+  border:1px solid #ff870044;
+  border-radius:100px;
+  color:#ffb45c;
+  background:#ff87000d;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.5px;
+}
+.project-status::before {
+  content:"";
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--orange);
+  box-shadow:0 0 9px var(--orange);
+}
+.project-info h3 {
+  margin:0 0 13px;
+  font-size:clamp(22px,2.5vw,32px);
+  line-height:1.2;
+  letter-spacing:-.6px;
+}
+.project-info p {
+  margin:0 0 23px;
+  color:#a5abb7;
+  font-size:13px;
+  line-height:1.8;
+}
+.project-stack {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:26px;
+}
+.project-stack span {
+  padding:8px 10px;
+  border:1px solid #ffffff1d;
+  border-radius:6px;
+  background:#ffffff06;
+  color:#c7cbd3;
+  font:700 10px Consolas,monospace;
+}
+.project-footer {
+  width:100%;
+  margin-top:auto;
+  padding-top:19px;
+  border-top:1px solid #ffffff16;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+.project-footer small {
+  color:#858b98;
+  font:10px Consolas,monospace;
+  letter-spacing:1px;
+}
+.project-link {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
   color:var(--orange);
   font-size:12px;
-  letter-spacing:3px;
+  font-weight:800;
+  transition:gap .25s;
 }
-.project h3 { margin-top:30px; font-size:23px; }
-.project p {
-  color:var(--muted);
+.project-link:hover { gap:14px; }
+.project-note {
+  position:relative;
+  z-index:1;
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  margin-top:25px;
+  padding:18px 20px;
+  border-left:2px solid var(--orange);
+  background:#ffffff06;
+  border-radius:0 10px 10px 0;
+  color:#a4aab6;
+  font-size:12px;
   line-height:1.7;
-  font-size:14px;
 }
-.project a {
-  display:inline-block;
-  margin-top:20px;
-  color:var(--orange);
-  font-weight:bold;
-}
+.project-note strong { color:#f0f0f2; }
+
+/* IMPACTO, SOBRE E CONTATO */
+
 .impact { background:#0e1016; }
 .impact-grid {
   display:grid;
@@ -712,9 +1066,24 @@ footer {
   .hero p { margin-left:auto; margin-right:auto; }
   .buttons { justify-content:center; }
   .visual { margin-top:25px; height:560px; }
-  .projects,.impact-grid {
+  .impact-grid {
     grid-template-columns:repeat(2,minmax(0,1fr));
   }
+}
+@media (max-width:750px) {
+  .project-card.featured {
+    grid-template-columns:1fr;
+  }
+  .featured .project-preview {
+    min-height:280px;
+    border-right:0;
+    border-bottom:1px solid #ffffff13;
+  }
+  .project-grid { grid-template-columns:1fr; }
+  .project-card.featured { grid-column:auto; }
+  .featured .project-info { padding:30px; }
+  .project-heading-row { align-items:flex-start; }
+  .project-count { display:none; }
 }
 @media (max-width:650px) {
   header { height:66px; padding:0 15px; }
@@ -762,7 +1131,13 @@ footer {
     max-height:65dvh;
   }
   section.content { padding:75px 20px; }
-  .projects,.impact-grid { grid-template-columns:1fr; }
+  .impact-grid { grid-template-columns:1fr; }
+  .project-info,.featured .project-info { padding:24px; }
+  .project-preview { min-height:210px; padding:18px; }
+  .featured .project-preview { min-height:260px; }
+  .project-eyebrow { font-size:10px; letter-spacing:2px; }
+  .project-info h3 { font-size:24px; }
+  .project-note { font-size:11px; }
 }
 @media (prefers-reduced-motion:reduce) {
   *,*::before,*::after {
@@ -819,7 +1194,7 @@ footer {
     <div class="orbit"></div>
     <div class="platform"></div>
 
-    <!-- MASCOTE: SEM ALTERAÇÕES -->
+    <!-- MASCOTE ORIGINAL -->
 
     <div class="mascot-wrap" id="mascotWrap">
       <div class="mascot-float">
@@ -846,7 +1221,7 @@ footer {
       </div>
     </div>
 
-    <!-- NOTEBOOKS INTERATIVOS -->
+    <!-- SETE NOTEBOOKS ORIGINAIS -->
 
     <button class="laptop l1 html-tech" data-tech="html"
       aria-label="Explorar HTML">
@@ -1017,7 +1392,7 @@ footer {
   </div>
 </section>
 
-<!-- PAINEL DE TECNOLOGIAS -->
+<!-- PAINEL DE TECNOLOGIAS ORIGINAL -->
 
 <aside class="tech-panel" id="techPanel"
   role="dialog" aria-modal="false"
@@ -1040,48 +1415,271 @@ footer {
   </small>
 </aside>
 
-<!-- PROJETOS -->
+<!-- ====================================
+     NOVA SEÇÃO DE PROJETOS
+     ==================================== -->
 
-<section class="content" id="projetos">
-  <div class="reveal">
-    <h2 class="section-title">MEUS <span>PROJETOS.</span></h2>
-    <p class="section-description">
-      Aqui estarão os sistemas, aplicações e experimentos
-      que desenvolvo durante minha jornada na programação.
-    </p>
-  </div>
-  <div class="projects">
-    <div class="project reveal">
-      <div class="project-number">PROJETO 001</div>
-      <h3>Meu primeiro projeto</h3>
-      <p>Espaço reservado para apresentar um projeto,
-         sua finalidade e as tecnologias utilizadas.</p>
-      <a href="https://github.com/ChelloHAOC"
-         target="_blank" rel="noopener noreferrer">
-        Ver repositórios →
-      </a>
-    </div>
-    <div class="project reveal">
-      <div class="project-number">PROJETO 002</div>
-      <h3>Projeto Backend Java</h3>
-      <p>Espaço para uma futura API, sistema de gerenciamento
-         ou aplicação desenvolvida em Java.</p>
-      <a href="https://github.com/ChelloHAOC"
-         target="_blank" rel="noopener noreferrer">
-        Ver repositórios →
-      </a>
-    </div>
-    <div class="project reveal">
-      <div class="project-number">PROJETO 003</div>
-      <h3>Próxima criação</h3>
-      <p>Área preparada para adicionar novas ideias,
-         estudos e projetos conforme minha evolução.</p>
-      <a href="https://github.com/ChelloHAOC"
-         target="_blank" rel="noopener noreferrer">
-        Ver repositórios →
-      </a>
+<section class="content project-section" id="projetos">
+
+  <div class="project-intro reveal">
+    <div class="project-eyebrow">MS. / PROJECT GARAGE</div>
+
+    <div class="project-heading-row">
+      <div>
+        <h2 class="section-title">
+          MEUS <span>PROJETOS.</span>
+        </h2>
+        <p class="section-description">
+          Ideias, sistemas e aplicações que fazem parte
+          da minha evolução como desenvolvedor.
+          Cada projeto representa um desafio técnico
+          e uma oportunidade de transformar conhecimento
+          em soluções reais.
+        </p>
+      </div>
+      <div class="project-count">
+        <strong>03</strong> / PROJETOS PLANEJADOS
+      </div>
     </div>
   </div>
+
+  <div class="project-divider"></div>
+
+  <div class="project-grid">
+
+    <!-- PROJETO EM DESTAQUE -->
+
+    <article class="project-card featured reveal">
+
+      <div class="project-preview">
+        <span class="preview-label">/// SYSTEM PREVIEW 001</span>
+
+        <div class="preview-window">
+          <div class="preview-top">
+            <i class="preview-dot"></i>
+            <i class="preview-dot"></i>
+            <i class="preview-dot"></i>
+            <span class="preview-file">adocao/dashboard</span>
+          </div>
+
+          <div class="preview-body">
+            <div class="preview-mini-title">
+              <span>🐾</span> PAINEL DE ADOÇÃO
+            </div>
+
+            <div class="preview-stats">
+              <div class="preview-stat">
+                <b>--</b>
+                <small>ANIMAIS</small>
+              </div>
+              <div class="preview-stat">
+                <b>--</b>
+                <small>ADOÇÕES</small>
+              </div>
+              <div class="preview-stat">
+                <b>--</b>
+                <small>ABRIGOS</small>
+              </div>
+            </div>
+
+            <div class="preview-bars">
+              <div class="preview-bar">
+                <i style="--bar:76%"></i>
+              </div>
+              <div class="preview-bar">
+                <i style="--bar:52%"></i>
+              </div>
+              <div class="preview-bar">
+                <i style="--bar:88%"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <span class="preview-corner">JAVA / API / SQL</span>
+      </div>
+
+      <div class="project-info">
+        <div class="project-topline">
+          <span class="project-id">PROJECT_001</span>
+          <span class="project-status">PLANEJADO</span>
+        </div>
+
+        <h3>Sistema de Adoção Animal</h3>
+
+        <p>
+          Proposta de plataforma para organizar o cadastro
+          de animais, abrigos e interessados em adoção.
+          O objetivo é desenvolver uma aplicação backend
+          com regras de negócio, persistência de dados
+          e uma API para gerenciamento das informações.
+        </p>
+
+        <div class="project-stack">
+          <span>JAVA</span>
+          <span>SPRING BOOT *</span>
+          <span>SQL</span>
+          <span>REST API *</span>
+        </div>
+
+        <div class="project-footer">
+          <small>* STACK PREVISTA</small>
+          <a class="project-link"
+             href="https://github.com/ChelloHAOC"
+             target="_blank"
+             rel="noopener noreferrer">
+            Acompanhar no GitHub →
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- PROJETO 002 -->
+
+    <article class="project-card reveal">
+
+      <div class="project-preview">
+        <span class="preview-label">/// SYSTEM PREVIEW 002</span>
+
+        <div class="preview-window">
+          <div class="preview-top">
+            <i class="preview-dot"></i>
+            <i class="preview-dot"></i>
+            <i class="preview-dot"></i>
+            <span class="preview-file">Main.java</span>
+          </div>
+
+          <div class="preview-body preview-terminal">
+            <div class="muted">// Java Backend</div>
+            <div><span class="command">public class</span> Main {</div>
+            <div>&nbsp; <span class="command">public static void</span> main() {</div>
+            <div>&nbsp; &nbsp; System.out.println(</div>
+            <div>&nbsp; &nbsp; &nbsp; <span class="success">"Sistema iniciado"</span></div>
+            <div>&nbsp; &nbsp; );</div>
+            <div>&nbsp; }</div>
+            <div>}</div>
+          </div>
+        </div>
+
+        <span class="preview-corner">JAVA / LOGIC</span>
+      </div>
+
+      <div class="project-info">
+        <div class="project-topline">
+          <span class="project-id">PROJECT_002</span>
+          <span class="project-status">PLANEJADO</span>
+        </div>
+
+        <h3>Gerenciador em Java</h3>
+
+        <p>
+          Proposta de aplicação para praticar programação
+          orientada a objetos, validações, coleções,
+          organização de classes e regras de negócio.
+        </p>
+
+        <div class="project-stack">
+          <span>JAVA</span>
+          <span>POO</span>
+          <span>GIT</span>
+        </div>
+
+        <div class="project-footer">
+          <small>BACKEND / ESTUDOS</small>
+          <a class="project-link"
+             href="https://github.com/ChelloHAOC"
+             target="_blank"
+             rel="noopener noreferrer">
+            Ver GitHub →
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- PROJETO 003 -->
+
+    <article class="project-card reveal">
+
+      <div class="project-preview">
+        <span class="preview-label">/// SYSTEM PREVIEW 003</span>
+
+        <div class="preview-window">
+          <div class="preview-top">
+            <i class="preview-dot"></i>
+            <i class="preview-dot"></i>
+            <i class="preview-dot"></i>
+            <span class="preview-file">database.sql</span>
+          </div>
+
+          <div class="preview-body">
+            <div class="preview-terminal">
+              <div><span class="command">SELECT</span> id, nome, status</div>
+              <div><span class="command">FROM</span> projetos</div>
+              <div><span class="command">WHERE</span> ativo = <span class="success">TRUE</span>;</div>
+            </div>
+
+            <div class="preview-db">
+              <span>ID</span>
+              <span>NOME</span>
+              <span>STATUS</span>
+              <span>001</span>
+              <span>Projeto A</span>
+              <span>Ativo</span>
+              <span>002</span>
+              <span>Projeto B</span>
+              <span>Ativo</span>
+            </div>
+          </div>
+        </div>
+
+        <span class="preview-corner">SQL / DATABASE</span>
+      </div>
+
+      <div class="project-info">
+        <div class="project-topline">
+          <span class="project-id">PROJECT_003</span>
+          <span class="project-status">PLANEJADO</span>
+        </div>
+
+        <h3>Laboratório de Banco de Dados</h3>
+
+        <p>
+          Proposta de projeto para praticar modelagem
+          relacional, criação de tabelas, consultas SQL
+          e integração de aplicações com bancos de dados.
+        </p>
+
+        <div class="project-stack">
+          <span>SQL</span>
+          <span>DATABASE</span>
+          <span>JAVA *</span>
+        </div>
+
+        <div class="project-footer">
+          <small>* INTEGRAÇÃO PREVISTA</small>
+          <a class="project-link"
+             href="https://github.com/ChelloHAOC"
+             target="_blank"
+             rel="noopener noreferrer">
+            Ver GitHub →
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="project-note reveal">
+    <span>⚡</span>
+    <div>
+      <strong>GARAGEM EM CONSTRUÇÃO.</strong>
+      As interfaces acima são prévias conceituais.
+      Os projetos estão planejados e serão atualizados
+      com repositórios e implementações reais conforme
+      avançarem.
+    </div>
+  </div>
+
 </section>
 
 <!-- IMPACTO -->
